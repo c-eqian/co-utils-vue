@@ -15,6 +15,12 @@
   },
   "author": "OHANI",
   "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",

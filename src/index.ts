@@ -1,3 +1,2 @@
-export function sayHelloWorld () {
-  console.log('hello world')
-}
+import { deepClone } from "./packages/deepClone/deepClone";
+export { deepClone }
