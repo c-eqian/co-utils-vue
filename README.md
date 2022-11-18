@@ -559,6 +559,14 @@ Tested in Chrome 74-75, Firefox 66-67, IE 11, Edge 18, Safari 11-12, & Node.js 8
 
 # 工具库更新日志
 
+## [1.0.4](https://gitee.com/cyq13/cz-utils/compare/v1.0.3...v1.0.4) (2022-11-18)
+
+
+
+## [1.0.3](https://gitee.com/cyq13/cz-utils/compare/v1.0.2...v1.0.3) (2022-11-18)
+
+
+
 ## [1.0.2](https://gitee.com/cyq13/cz-utils/compare/2fbc4f5f2e008c7fdf4eebd49e15d5faddf7cfc9...v1.0.2) (2022-11-18)
 
 
