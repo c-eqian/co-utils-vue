@@ -1,4 +1,4 @@
-test / [Exports](modules.md)
+cz-utils / [Exports](modules.md)
 
 # util-template
 

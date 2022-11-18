@@ -1,6 +1,6 @@
 {
-  "name": "test",
-  "version": "1.0.0",
+  "name": "cz-utils",
+  "version": "1.0.1",
   "description": "工具库",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.esm.js",

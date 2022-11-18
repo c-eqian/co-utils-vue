@@ -1,6 +1,6 @@
-[test](README.md) / Exports
+[cz-utils](README.md) / Exports
 
-# test
+# cz-utils
 
 ## Table of contents
 

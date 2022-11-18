@@ -388,6 +388,7 @@ const taskUpdateVersion = () => {
     //更新版本
     exec(`npm version patch`, (err, stdout, stderr) => {
       if (err) {
+        console.log(err,123456789)
         reject(err);
         console.error(new Date(), "请检查文件是否为最新");
         throw new Error(" 更新版本命令执行失败");
@@ -397,6 +398,7 @@ const taskUpdateVersion = () => {
       }
     });
     resolve();
+    return;
   });
 };
 //发布版本
@@ -437,6 +439,7 @@ const taskAddTag = async (done) => {
     return;
   }
   done();
+  return;
 };
 /** type doc 任务 */
 const taskTypedoc = gulp.series(taskCleanTypedoc, taskOutputTypedoc); //taskOutputTypedoc
