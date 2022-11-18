@@ -1,6 +1,6 @@
 {
   "name": "coco-utils",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "工具库",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.esm.js",
