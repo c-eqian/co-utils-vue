@@ -6,12 +6,14 @@
   "module": "./dist/index.esm.js",
   "umd": "./dist/index.umd.js",
   "types": "./dist/types/index.d.ts",
+  "type": "module",
   "scripts": {
     "clean:dist": "rimraf dist",
     "build:types": "npm run clean:dist && tsc -b ./tsconfig.types.json",
     "build": "npm run build:types && rollup -c",
     "test": "node test/test.js",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "lint": "eslint \"src/**/*.{js,jsx,vue}\" --fix"
   },
   "author": "OHANI",
   "license": "MIT",
@@ -27,16 +29,38 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^21.0.3",
     "@rollup/plugin-node-resolve": "^13.1.3",
+    "eslint": "7.32.0",
+    "eslint-plugin-vue": "^7.16.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.70.1",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.31.2",
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.3",
+    "yarn": "^1.22.19"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "@babel/core": "^7.19.1"
+    "@babel/core": "^7.19.1",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "babel-eslint": "^10.1.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "lint-staged": "12.4.0",
+    "prettier": "2.6.2",
+    "prettier-eslint": "15.0.1",
+    "vue": "^3.2.45"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,js,vue,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint"
   }
 }
