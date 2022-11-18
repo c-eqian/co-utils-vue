@@ -1,6 +1,6 @@
 # 工具库更新日志
 
-# 1.0.0 (2022-11-18)
+## [1.0.2](https://gitee.com/cyq13/cz-utils/compare/2fbc4f5f2e008c7fdf4eebd49e15d5faddf7cfc9...v1.0.2) (2022-11-18)
 
 
 ### Features

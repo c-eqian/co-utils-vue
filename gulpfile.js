@@ -405,7 +405,7 @@ const taskUpdateVersion = () => {
 const taskPublish = async (done) => {
   // 升级版本号
   console.log("--------------------开发发布包到npm");
-  const versionFlag = await sh("npm publish");
+  const versionFlag = await sh("npm publish --registry=http://43.138.188.22:4873/");
   if (versionFlag.code === 1) {
     console.log("------------------发布版本成功");
     resolve();
