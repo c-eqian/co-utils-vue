@@ -550,26 +550,11 @@ Tested in Chrome 74-75, Firefox 66-67, IE 11, Edge 18, Safari 11-12, & Node.js 8
 
 ## 文件（模块）说明
 
-| 路径 | 解释 | 包含 |
-| :----- | :----- | :----- |
-| [dist/cloneDeep.js](docs/modules/cloneDeep.md) | 暂无解释 | undefined |
-| [dist/isValidKey.js](docs/modules/isValidKey.md) | 暂无解释 | undefined |
+<TYPEDOC />
 
 ## 版本更新
 
-# 工具库更新日志
-
-# 1.0.0 (2022-11-18)
-
-
-### Features
-
-* 新增文件 ([736c124](https://gitee.com/cyq13/cz-utils/commit/736c124e93bfa495ff8a9cfef50e26cd89105400))
-* init ([2fbc4f5](https://gitee.com/cyq13/cz-utils/commit/2fbc4f5f2e008c7fdf4eebd49e15d5faddf7cfc9))
-
-
-
-
+<CHANGELOG />
 
 ## LICENSE
 

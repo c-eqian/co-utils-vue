@@ -1,0 +1,196 @@
+{
+	"id": 0,
+	"name": "test",
+	"kind": 1,
+	"kindString": "Project",
+	"flags": {},
+	"originalName": "",
+	"children": [
+		{
+			"id": 5,
+			"name": "cloneDeep",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "packages/clone-deep/index.ts",
+					"line": 44,
+					"character": 13
+				}
+			],
+			"signatures": [
+				{
+					"id": 6,
+					"name": "cloneDeep",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "深拷贝"
+							}
+						],
+						"blockTags": [
+							{
+								"tag": "@returns",
+								"content": []
+							}
+						]
+					},
+					"typeParameter": [
+						{
+							"id": 7,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "unknown"
+							}
+						}
+					],
+					"parameters": [
+						{
+							"id": 8,
+							"name": "source",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"id": 7,
+								"name": "T"
+							}
+						},
+						{
+							"id": 9,
+							"name": "hash",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "object"
+									},
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "WeakMap",
+								"qualifiedName": "WeakMap",
+								"package": "typescript"
+							},
+							"defaultValue": "..."
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 7,
+						"name": "T"
+					}
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "isValidKey",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "packages/clone-deep/index.ts",
+					"line": 31,
+					"character": 16
+				}
+			],
+			"signatures": [
+				{
+					"id": 2,
+					"name": "isValidKey",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "如果是基础数据类型，直接return\r\n如果是引用数据类型，处理Object、Array等"
+							}
+						]
+					},
+					"parameters": [
+						{
+							"id": 3,
+							"name": "key",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "symbol"
+									}
+								]
+							}
+						},
+						{
+							"id": 4,
+							"name": "object",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						}
+					],
+					"type": {
+						"type": "predicate",
+						"name": "key",
+						"asserts": false,
+						"targetType": {
+							"type": "intrinsic",
+							"name": "never"
+						}
+					}
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Functions",
+			"children": [
+				5,
+				1
+			]
+		}
+	],
+	"sources": [
+		{
+			"fileName": "index.ts",
+			"line": 9,
+			"character": 0
+		}
+	]
+}

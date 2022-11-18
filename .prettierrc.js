@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-02 22:29:54
  * @LastEditors: 十三
- * @LastEditTime: 2022-11-18 18:54:20
+ * @LastEditTime: 2022-11-18 20:33:31
  */
 // prettier.config.ts or .prettierrc.js
 module.exports = {
@@ -25,7 +25,7 @@ module.exports = {
   // // 末尾不需要逗号
   // trailingComma: 'none',
     // 末尾不需要逗号
-  trailingComma: "none",
+  trailingComma: 'none',
   // 大括号内的首尾需要空格
   bracketSpacing: true,
   // jsx 标签的反尖括号需要换行
