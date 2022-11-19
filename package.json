@@ -1,6 +1,6 @@
 {
   "name": "co-utils",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "工具库",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -57,6 +57,7 @@
     "rollup": "^2.70.1",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.31.2",
+    "standard-version": "^9.5.0",
     "typescript": "^4.6.3",
     "vue": "^3.2.45",
     "yarn": "^1.22.19"
