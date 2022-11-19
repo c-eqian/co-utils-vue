@@ -1,6 +1,6 @@
 {
   "name": "co-utils",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "工具库",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -16,7 +16,13 @@
     "parser": "husky install",
     "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0  -n ./changelog-option.js",
     "version": "conventional-changelog -p custom-config -i CHANGELOG.md -s -n ./changelog-option.js && git add CHANGELOG.md",
-    "post:version": "git push --tags"
+    "post:version": "git push --tags",
+    "release": "standard-version",
+    "release:alpha": "standard-version --prerelease alpha",
+    "release:rc": "standard-version --prerelease rc",
+    "release:major": "npm run release -- --release-as major",
+    "release:minor": "npm run release -- --release-as minor",
+    "release:patch": "npm run release -- --release-as patch"
   },
   "author": "cz",
   "license": "MIT",
@@ -77,5 +83,10 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
