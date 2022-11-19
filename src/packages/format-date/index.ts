@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-18 11:17:57
  * @LastEditors: 十三
- * @LastEditTime: 2022-11-19 20:27:37
+ * @LastEditTime: 2022-11-19 21:19:00
  */
 
 /**
@@ -13,8 +13,8 @@
  * @param format yyyy-MM-dd
  * @returns 2022-11-18
  */
-export const formatDate = (date: number | string | Date, format = 'yyyy-MM-dd') => {
-  if (!date) return date;
+export const formatDate = (date: number | string | Date, format = 'yyyy-MM-dd'): string => {
+  if (!date) return `${date}`;
   // 处理在IOS上对 2022-11-16 20:47:50格式会显示NAN的情况
   const _d = new Date(typeof date === 'string' ? date.replace(/-/, '/') : date);
   if (_d instanceof Date) {
@@ -44,7 +44,7 @@ export const formatDate = (date: number | string | Date, format = 'yyyy-MM-dd') 
  * @param resDefault 当比较时间大于当前时间时，设置的默认返回值，如无设置，默认返回格式化后时间
  * @returns 比较差值时间：几（年、月、天、时、分、秒）前
  */
-export const beforeDate = (date: number | string | Date, resDefault: any = null):string => {
+export const beforeDate = (date: number | string | Date, resDefault: any = null): string => {
   // 获取日期时间戳
   const _date = formatDate(date, 'yyyy/M/dd HH:mm:ss');
   const dateTimeStamp = new Date(_date).getTime();
