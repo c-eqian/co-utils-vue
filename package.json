@@ -13,7 +13,10 @@
     "test": "node test/test.js",
     "pretest": "npm run build",
     "lint": "eslint \"src/**/*.{js,jsx,vue}\" --fix",
-    "parser": "husky install"
+    "parser": "husky install",
+    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0  -n ./changelog-option.js",
+    "version": "conventional-changelog -p custom-config -i CHANGELOG.md -s -n ./changelog-option.js && git add CHANGELOG.md",
+    "post:version": "git push --tags"
   },
   "author": "cz",
   "license": "MIT",
@@ -37,6 +40,10 @@
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
     "babel-eslint": "^10.1.0",
+    "compare-func": "^2.0.0",
+    "conventional-changelog": "^3.1.25",
+    "conventional-changelog-cli": "^2.2.2",
+    "conventional-changelog-custom-config": "^0.3.1",
     "eslint": "7.32.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "8.5.0",
