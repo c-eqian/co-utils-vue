@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-18 11:17:57
  * @LastEditors: 十三
- * @LastEditTime: 2022-11-19 21:19:00
+ * @LastEditTime: 2022-11-20 14:43:54
  */
 
 /**
@@ -44,7 +44,10 @@ export const formatDate = (date: number | string | Date, format = 'yyyy-MM-dd'):
  * @param resDefault 当比较时间大于当前时间时，设置的默认返回值，如无设置，默认返回格式化后时间
  * @returns 比较差值时间：几（年、月、天、时、分、秒）前
  */
-export const beforeDate = (date: number | string | Date, resDefault: any = null): string => {
+export const beforeDate = (
+  date: number | string | Date,
+  resDefault: string | number | null = ''
+) => {
   // 获取日期时间戳
   const _date = formatDate(date, 'yyyy/M/dd HH:mm:ss');
   const dateTimeStamp = new Date(_date).getTime();
@@ -60,7 +63,7 @@ export const beforeDate = (date: number | string | Date, resDefault: any = null)
   const year = months * 12;
   // 时间间隔（时间戳）
   const timeStamp = nowTimeStamp - dateTimeStamp;
-  if (timeStamp < 0) return resDefault || _date;
+  if (timeStamp < 0) return resDefault ?? _date;
   if (timeStamp / year >= 1) return `${parseInt(`${timeStamp / year}`, 10)}年前`;
   if (timeStamp / months >= 1) return `${parseInt(`${timeStamp / months}`, 10)}月前`;
   if (timeStamp / weekdays >= 1) return `${parseInt(`${timeStamp / weekdays}`, 10)}周前`;
