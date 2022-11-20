@@ -12,7 +12,7 @@
     "build": "npm run build:types && rollup -c",
     "test": "node test/test.js",
     "pretest": "npm run build",
-    "lint": "eslint \"src/**/*.{js,jsx,vue}\" --fix",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,vue}\" --fix",
     "parser": "husky install",
     "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0  -n ./changelog-option.js",
     "version": "conventional-changelog -p custom-config -i CHANGELOG.md -s -n ./changelog-option.js && git add CHANGELOG.md",
