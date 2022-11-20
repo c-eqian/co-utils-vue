@@ -1,172 +1,62 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: 十三
+ * @Date: 2022-11-20 13:39:54
+ * @LastEditors: 十三
+ * @LastEditTime: 2022-11-20 14:32:20
+ */
 module.exports = {
   root: true,
   env: {
-    node: true,
     browser: true,
-    es2021: true,
-    jest: true
+    node: true,
+    es6: true,
+    commonjs: true,
+    amd: true
   },
-  parser: 'vue-eslint-parser',
-  plugins: ['@typescript-eslint', 'prettier'],
-  extends: [
-    'plugin:vue/vue3-essential',
-    'plugin:vue/vue3-recommended',
-    'airbnb-base',
-    'plugin:vue/vue3-strongly-recommended',
-    'plugin:import/recommended',
-    'plugin:import/typescript'
-  ],
+  // ts eslint 配置
   parserOptions: {
-    parser: '@typescript-eslint/parser',
-    ecmaVersion: 12,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true
-    }
+    parser:'@typescript-eslint/parser',
   },
-  globals: {
-    defineProps: 'readonly',
-    defineEmits: 'readonly',
-    defineExpose: 'readonly',
-    withDefaults: 'readonly',
-    uni: true, 
-    wx: true
-  },
-  settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
-      extensions: ['.js', '.jsx', '.ts', '.tsx']
-    },
-    'import/resolver': {
-      alias: {
-        map: [['@', './src']],
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
-      },
-      node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.css']
-      },
-      typescript: {
-        // always try to resolve types under `<root>@types`
-        // directory even it doesn't contain any source code, like `@types/unist`
-        alwaysTryTypes: true,
-
-        // Choose from one of the "project" configs
-        // below or omit to use <root>/tsconfig.json by default
-
-        // use <root>/path/to/folder/tsconfig.json
-        project: '@'
-      }
-    }
-  },
+  plugins: ['@typescript-eslint'],
+  extends: ['plugin:vue/vue3-recommended','plugin:prettier/recommended','plugin:@typescript-eslint/recommended'],
+  // js eslint 配置
+  // parserOptions: {
+  //   parser: 'babel-eslint',
+  //   sourceType: 'module'
+  // },
+  // plugins: ['html', 'vue'],
+  // extends: ['plugin:vue/recommended', 'eslint:recommended'],
+ 
   rules: {
-    'no-console': 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'prefer-promise-reject-errors': 'off',
-    'linebreak-style': 'off', // 回车换行风格
-    'no-trailing-spaces': 1, // 禁用行尾空格
-    'no-param-reassign': 'off', // 禁止对函数参数再赋值
-    'import/prefer-default-export': 'off',
-    'object-curly-newline': 'off', // 不强制花括号内换行
-    'arrow-body-style': 'off', // 箭头函数不强制以用块体（用花括号表示）
-    'import/named': 'off', // 停用 import/named 校验
-    'no-unused-expressions': 'off', // 禁止使用未使用的表达式
-    'max-len': ['error', { code: 120 }],
-    'comma-dangle': ["error", "never"], // 禁止末尾使用的逗号
-    'import/extensions': [
-      'error',
-      'always',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never'
-      }
-    ],
-    // 默认不能使用一元运算符++和--
-    'no-plusplus': [
-      'error',
-      {
-        allowForLoopAfterthoughts: true
-      }
-    ],
-    'import/no-cycle': 'off',
-    'no-underscore-dangle': 'off',
-    'import/order': 'off',
-    'prefer-object-spread': 'off',
-    'arrow-parens': [2, 'as-needed', { requireForBlockBody: false }],
-    'no-async-promise-executor': 'off',
-    'vue/no-multi-spaces': 'error', // 不允许有多余的空格
-    'vue/html-end-tags': 'error',
-    'vue/no-spaces-around-equal-signs-in-attribute': ['error'],
-    'vue/html-closing-bracket-newline': [
-      'error',
-      {
-        // 多行 html 结束符需要换行
-        singleline: 'never',
-        multiline: 'always'
-      }
-    ],
-    'vue/max-attributes-per-line': [
-      'error',
-      {
-        singleline: 2,
-        multiline: {
-          max: 1,
-          allowFirstLine: false
-        }
-      }
-    ],
-    'vue/html-indent': [
-      'error',
-      2,
-      {
-        attribute: 1,
-        baseIndent: 1,
-        closeBracket: 0,
-        alignAttributesVertically: true,
-        ignores: []
-      }
-    ],
-    'vue/html-closing-bracket-spacing': [
-      'error',
-      {
-        startTag: 'never',
-        endTag: 'never',
-        selfClosingTag: 'always'
-      }
-    ],
-    'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': ['error'],
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/no-empty-function': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-use-before-define': 'off',
-    '@typescript-eslint/no-inferrable-types': 'off',
-    '@typescript-eslint/no-empty-interface': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/member-delimiter-style': [
-      'error',
-      {
-        multiline: {
-          delimiter: 'semi',
-          requireLast: true
-        },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: true
-        }
-      }
-    ]
+    'max-len': 'off',
+     // 统一豁免规则，原因：直接修改可能对现有功能产生影响
+     'eqeqeq': 1,
+    //  'vue/no-v-html': 1,
+     // 其中代码本身有问题的规则错误有
+     'no-undef': 0,
+     'import/no-duplicates': 0,
+ 
+     // 可能引起格式化问题但建议手动修改代码的有
+     'no-plusplus': 0,
+     'no-eval': 0,
+     'no-prototype-builtins': 0,
+     'no-multi-assign': 0,
+     'no-unused-vars': 0,
+     'no-useless-escape': 0,
+     'camelcase': 0,
+     'vue/no-unused-components': 0,
+     'vue/return-in-computed-property': 0,
+     'no-param-reassign': 0,
+     'prefer-const': 0,
+     'prefer-destructuring': 0,
+     'no-underscore-dangle': 0,
+     'no-restricted-syntax': 0,
+     'no-nested-ternary': 0,
+     'radix': 0,
+     'vue/no-side-effects-in-computed-properties': 0,
+     'vue/order-in-components': 0,
+     'function-paren-newline': 0,
   },
-  
-  overrides: [
-    {
-      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
-      env: {
-        jest: true
-      }
-    }
-  ]
 };

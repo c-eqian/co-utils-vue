@@ -1,32 +1,75 @@
 {
-  "compilerOptions": {
-    /* 基础选项 */
-    "target": "esnext",                          /* 指定 ECMAScript 目标版本：'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
-    "module": "esnext",                     /* 输出的代码使用什么方式进行模块化： 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
-    "lib": [ /* 指定引用的标准库 */
-      "esnext",
-      "dom",
-      "dom.iterable",
-    ],                            
-    "allowJs": true,                       /* 允许编译 js 文件 */
-    "removeComments": true,                /* 输出不包含注释 */
-    /* 严格类型检查选项 */
-    "strict": true,                           /* 启用所有严格类型检查选项 */
-    "noImplicitAny": true,                 /*  检查隐含 any 类型的表达式和声明 */
-    "strictNullChecks": false,              /* 严格空检查. */
-    /* 额外检查 */
-    "noUnusedLocals": true,                /* 检查无用的变量. */
-    /* Module Resolution Options */
-    "moduleResolution": "node",            /* 指定模块查找策略： 'node' (Node.js) or 'classic' (TypeScript pre-1.6) */
-    "baseUrl": "./",                       /* 查找模块的基础目录 */
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },                           /* 记录 baseUrl 的模块路径查找别名 */
-    "types": [],                           /* 类型声明文件 */
-  },
-  "include": [ /* 指定编译处理的文件列表 */
-    "src/*.ts"
+  "include": [
+    "src/*.ts",
+    "src/**/*.ts",
+    "src/**/*.vue"
   ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compileOnSave": true,
+  // 编译选项
+  "compilerOptions": {
+    // 输出目录
+    "outDir": "./dist",
+    // 是否包含可以用于 debug 的 sourceMap
+    "sourceMap": true,
+    // 解决template标签飘蓝
+    "jsx": "preserve",
+    // 定义this
+    "noImplicitThis": false,
+    // 以严格模式解析
+    "strict": true,
+    // 编译输出目标 ES 版本
+    "target": "es5",
+    // 编译过程中需要引入的库文件的列表
+    "lib": ["es2015", "es2017", "ESNext", "dom"],
+    // 采用的模块系统
+    "module": "esnext",
+    // 如何处理模块
+    "moduleResolution": "node",
+    // 无需要设定默认值
+    "strictPropertyInitialization": false,
+    // 允许从没有设置默认导出的模块中默认导入
+    "allowSyntheticDefaultImports": true,
+    // 将每个文件作为单独的模块
+    "isolatedModules": true,
+    // 允许从没有设置默认导出的模块中默认导入
+    "esModuleInterop": true,
+    "useDefineForClassFields": true,
+    "resolveJsonModule": true,
+    // 启用装饰器
+    "experimentalDecorators": true,
+    // 启用设计类型元数据（用于反射）
+    "emitDecoratorMetadata": true,
+    // 在表达式和声明上有隐含的any类型时报错
+    "noImplicitAny": false,
+    // 不是函数的所有返回路径都有返回值时报错。
+    "noImplicitReturns": true,
+    // 从 tslib 导入外部帮助库: 比如__extends，__rest等
+    "importHelpers": true,
+    // 编译过程中打印文件名
+    "listFiles": true,
+    // 移除注释
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+    // 是否允许编译javascript文件
+    "allowJs": false,
+    // 是否允许跳过检查
+    "skipLibCheck": true,
+    "pretty": true,
+    "noEmitOnError": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    // 解析非相对模块名的基准目录
+    "baseUrl": "./",
+    // 指定特殊模块的路径
+    "paths": {
+      "@/*": ["src/*"], // 这里 只建议使用 @/   使用其他的别名可能不会生效
+    },
+ 
+ },
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -41,7 +41,7 @@ export function isValidKey(
  * @param hash
  * @returns
  */
-export const cloneDeep = <T extends unknown>(source: T, hash = new WeakMap()): T => {
+export const cloneDeep = <T>(source: T, hash = new WeakMap()): T => {
   // 如果不是引用类型，直接return
   if (typeof source !== 'object' || source === null) return source;
   // 使用hash判断循环引用问题,如果存在，则获取这个值，并返回
