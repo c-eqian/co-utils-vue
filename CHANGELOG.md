@@ -3,6 +3,13 @@
 
 ### [1.1.4](https://github.com/C1320/co-utils/compare/v1.1.3...v1.1.4) (2022-11-24)
 
+
+###   Chores | 其他更新
+
+* **release:** 1.1.4 ([a2511b4](https://github.com/C1320/co-utils/commit/a2511b4f811a2b5c54e7448a4172838104a99b7d))
+
+### [1.1.4](https://github.com/C1320/co-utils/compare/v1.1.3...v1.1.4) (2022-11-24)
+
 ### [1.1.3](https://gitee.com/cyq13/cz-utils/compare/v1.1.2...v1.1.3) (2022-11-20)
 
 ### [1.1.2](https://gitee.com/cyq13/cz-utils/compare/v1.1.1...v1.1.2) (2022-11-20)
