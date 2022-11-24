@@ -1,6 +1,14 @@
 # 更新日志 
 
 
+### [1.1.5](https://github.com/C1320/co-utils/compare/v1.1.3...v1.1.5) (2022-11-24)
+
+
+###   Chores | 其他更新
+
+* **release:** 1.1.4 ([573fd97](https://github.com/C1320/co-utils/commit/573fd9740295b5be4dfa6bb6bb3c660dbae768c5))
+* **release:** 1.1.4 ([a2511b4](https://github.com/C1320/co-utils/commit/a2511b4f811a2b5c54e7448a4172838104a99b7d))
+
 ### [1.1.4](https://github.com/C1320/co-utils/compare/v1.1.3...v1.1.4) (2022-11-24)
 
 
