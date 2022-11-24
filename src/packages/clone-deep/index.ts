@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-09-24 11:56:13
  * @LastEditors: 十三
- * @LastEditTime: 2022-11-18 19:07:01
+ * @LastEditTime: 2022-11-24 20:59:30
  */
 /**
  * 如果是基础数据类型，直接return
@@ -81,22 +81,9 @@ export const cloneDeep = <T>(source: T, hash = new WeakMap()): T => {
   //     }
   //   }
   // }
-  // for (const key in source) {
-  //   // 判断原型上是否存在自身属性
-  //   if (Object.prototype.hasOwnProperty.call(source, key)) {
-  //     // 在判断是是引用类型
-  //     if (typeof source[key] === 'object' && source[key] !== null) {
-  //       // 是引用类型-> 递归
-  //       target[key] = cloneDeep(source[key], hash);
-  //     } else {
-  //       // 不是，直接赋值
-  //       target[key] = source[key];
-  //     }
-  //   }
-  // }
-  const keys = Object.keys(source);
-  keys.forEach(key => {
-    if (isValidKey(key, keys)) {
+  for (const key in source) {
+    // 判断原型上是否存在自身属性
+    if (Object.prototype.hasOwnProperty.call(source, key)) {
       // 在判断是是引用类型
       if (typeof source[key] === 'object' && source[key] !== null) {
         // 是引用类型-> 递归
@@ -106,7 +93,20 @@ export const cloneDeep = <T>(source: T, hash = new WeakMap()): T => {
         target[key] = source[key];
       }
     }
-  });
+  }
+  // const keys = Object.keys(source);
+  // keys.forEach(key => {
+  //   if (isValidKey(key, keys)) {
+  //     // 在判断是是引用类型
+  //     if (typeof source[key] === 'object' && source[key] !== null) {
+  //       // 是引用类型-> 递归
+  //       target[key] = cloneDeep(source[key], hash);
+  //     } else {
+  //       // 不是，直接赋值
+  //       target[key] = source[key];
+  //     }
+  //   }
+  // });
   // 最后返回深拷贝内容
   return target;
 };
