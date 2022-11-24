@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-09-24 11:56:13
  * @LastEditors: 十三
- * @LastEditTime: 2022-11-24 20:59:30
+ * @LastEditTime: 2022-11-25 01:00:34
  */
 /**
  * 如果是基础数据类型，直接return
@@ -56,14 +56,12 @@ export const cloneDeep = <T>(source: T, hash = new WeakMap()): T => {
   if (symKeys.length) {
     // 遍历
     symKeys.forEach(symKey => {
-      if (isValidKey(symKey, symKeys)) {
-        // 再判断是否是引用类型
-        if (typeof source[symKey] !== 'object' || source[symKey] === null) {
-          target[symKey] = source[symKey];
-        } else {
-          // 是引用类型，使用递归
-          target[symKey] = cloneDeep(source[symKey], hash);
-        }
+      // 再判断是否是引用类型
+      if (typeof source[symKey] !== 'object' || source[symKey] === null) {
+        target[symKey] = source[symKey];
+      } else {
+        // 是引用类型，使用递归
+        target[symKey] = cloneDeep(source[symKey], hash);
       }
     });
   }
