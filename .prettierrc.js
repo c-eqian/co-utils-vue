@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-02 22:29:54
  * @LastEditors: 十三
- * @LastEditTime: 2022-11-18 18:54:20
+ * @LastEditTime: 2022-11-25 13:55:34
  */
 // prettier.config.ts or .prettierrc.js
 module.exports = {
@@ -46,6 +46,8 @@ module.exports = {
   // 根据显示样式决定 html 要不要折行
   htmlWhitespaceSensitivity: 'css',
   // 换行符使用 lf
-  endOfLine: 'lf'
+  // endOfLine: 'lf'
+  // 重点是这一个要配置为auto
+  endOfLine: 'auto'
 };
 //
