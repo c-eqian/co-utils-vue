@@ -1,3 +1,8 @@
+# 更新日志 
+
+
+### [1.1.6](https://github.com/C1320/co-utils/compare/v1.1.5...v1.1.6) (2022-11-25)
+
 ## [1.1.5](https://github.com/C1320/co-utils/compare/v1.1.3...v1.1.5) (2022-11-24)
 
 
@@ -28,6 +33,3 @@
 * 配置规范校验 ([a518ff0](https://github.com/C1320/co-utils/commit/a518ff0))
 * 新增文件 ([736c124](https://github.com/C1320/co-utils/commit/736c124))
 * init ([2fbc4f5](https://github.com/C1320/co-utils/commit/2fbc4f5))
-
-
-
