@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-18 11:17:57
  * @LastEditors: 十三
- * @LastEditTime: 2022-11-25 14:40:45
+ * @LastEditTime: 2022-11-28 14:42:36
  */
 
 /**
@@ -16,7 +16,8 @@
 export const formatDate = (date: number | string | Date, format = 'yyyy-MM-dd'): string => {
   if (!date) return `${date}`;
   // 处理在IOS上对 2022-11-16 20:47:50格式会显示NAN的情况
-  const _d = new Date(typeof date === 'string' ? date.replace(/-/, '/') : date);
+  // UTC转为中国标准时间
+  const _d = new Date(date);
   if (_d instanceof Date) {
     const dateDict: Record<string, string> = {
       yyyy: `${_d.getFullYear()}`,
