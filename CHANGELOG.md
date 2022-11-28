@@ -1,6 +1,8 @@
 # 更新日志 
 
 
+### [1.1.7](https://github.com/C1320/co-utils/compare/v1.1.6...v1.1.7) (2022-11-28)
+
 ### [1.1.6](https://github.com/C1320/co-utils/compare/v1.1.5...v1.1.6) (2022-11-25)
 
 ## [1.1.5](https://github.com/C1320/co-utils/compare/v1.1.3...v1.1.5) (2022-11-24)
