@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-18 11:17:57
  * @LastEditors: 十三
- * @LastEditTime: 2022-11-28 14:42:36
+ * @LastEditTime: 2022-11-29 19:22:55
  */
 
 /**
@@ -50,7 +50,8 @@ export const beforeDate = (
   resDefault: string | number | null = ''
 ) => {
   // 获取日期时间戳
-  const _date = formatDate(date, 'yyyy/M/dd HH:mm:ss');
+  const _date = formatDate(date, 'yyyy-MM-dd HH:mm:ss');
+  console.log(13, _date);
   const dateTimeStamp = new Date(_date).getTime();
   // 获取当前时间戳
   const nowTimeStamp = new Date().getTime();
