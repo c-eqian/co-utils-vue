@@ -6,7 +6,7 @@
  * @LastEditors: 十三
  * @LastEditTime: 2022-11-19 21:38:42
  */
-import { isIdCard } from '../reg';
+import { isIdCard } from '../is';
 import { getCardInfo } from '../helper';
 import { formatDate } from '../format/formatDate';
 

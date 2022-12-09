@@ -7,3 +7,4 @@
  * @LastEditTime: 2022-11-25 15:27:51
  */
 export * from './formatDate';
+export * from './formatPrice';
