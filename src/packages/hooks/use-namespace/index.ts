@@ -4,10 +4,11 @@
  * @Author: 十三
  * @Date: 2022-12-04 19:47:25
  * @LastEditors: 十三
- * @LastEditTime: 2022-12-04 19:55:03
+ * @LastEditTime: 2022-12-23 14:09:09
  */
 import { cst } from '@/packages/constants';
 import { ref, computed, unref } from 'vue';
+import { firstLetterToUpperCase } from '@/packages/helper';
 
 /**
  * 组件名转换 CzButton => cz-button
@@ -41,25 +42,6 @@ export const getNextGlobalId = () => globalId.value + 1;
 export const setGlobalZIndex = (val: number) => {
   globalZIndex.value = val;
 };
-
-/**
- * 短杆拼接转大写
- * @param str
- * @returns
- * test-icon => testIcon
- */
-export const camelize = (str: string): string => {
-  return str.replace(/-(\w)/g, (_, c) => c.toUpperCase());
-};
-
-/**
- * 首字母转大写
- * @param str
- * @returns
- */
-export function firstLetterToUpperCase(str: string): string {
-  return str.replace(/^[a-z]/, firstLetter => firstLetter.toUpperCase());
-}
 
 /**
  * 创建组件名称

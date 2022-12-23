@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-18 11:17:57
  * @LastEditors: 十三
- * @LastEditTime: 2022-11-29 19:22:55
+ * @LastEditTime: 2022-12-23 14:28:40
  */
 
 /**
@@ -67,7 +67,7 @@ export const beforeDate = (
   const timeStamp = nowTimeStamp - dateTimeStamp;
   if (timeStamp < 0) return resDefault ?? _date;
   if (timeStamp / year >= 1) return `${parseInt(`${timeStamp / year}`, 10)}年前`;
-  if (timeStamp / months >= 1) return `${parseInt(`${timeStamp / months}`, 10)}月前`;
+  if (timeStamp / months >= 1) return `${parseInt(`${timeStamp / months}`, 10)}个月前`;
   if (timeStamp / weekdays >= 1) return `${parseInt(`${timeStamp / weekdays}`, 10)}周前`;
   if (timeStamp / days >= 1) return `${parseInt(`${timeStamp / days}`, 10)}天前`;
   if (timeStamp / hours >= 1) return `${parseInt(`${timeStamp / hours}`, 10)}小时前`;
