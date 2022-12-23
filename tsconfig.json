@@ -51,7 +51,7 @@
     // 编译过程中打印文件名
     "listFiles": true,
     // 移除注释
-    "removeComments": true,
+    "removeComments": false,
     "suppressImplicitAnyIndexErrors": true,
     // 是否允许编译javascript文件
     "allowJs": false,
