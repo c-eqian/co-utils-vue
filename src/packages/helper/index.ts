@@ -4,10 +4,48 @@
  * @Author: 十三
  * @Date: 2022-11-19 20:58:50
  * @LastEditors: 十三
- * @LastEditTime: 2022-12-09 19:10:59
+ * @LastEditTime: 2022-12-23 14:08:11
  */
 import { isIdCard, isNumber } from '../is';
+/**
+ * 短杆拼接转驼峰
+ * @param str
+ * @returns
+ * test-icon => testIcon
+ */
+export const camelize = (str: string): string => {
+  return str.replace(/-(\w)/g, (_, c) => c.toUpperCase());
+};
 
+/**
+ * 驼峰命名转短杆或者下划线命名
+ * @param str userName
+ * @param mark 默认 '-'
+ * @returns user-name
+ */
+export const camelizeToKebabCase = (str: string, mark: '-'| '_' = '-') => {
+  str = firstLetterToLowerCase(str)
+  return str.replace(/[A-Z]/g,  (item) => {
+    return mark + item.toLowerCase();
+});
+
+}
+/**
+ * 首字母转大写
+ * @param str
+ * @returns
+ */
+export function firstLetterToUpperCase(str: string): string {
+  return str.replace(/^[a-z]/, firstLetter => firstLetter.toUpperCase());
+}
+/**
+ * 首字母大写转小写
+ * @param str
+ * @returns
+ */
+export function firstLetterToLowerCase(str: string): string {
+  return str.replace(/^[A-z]/, firstLetter => firstLetter.toLowerCase());
+}
 export interface ICard {
   birth: string;
   gender: string;

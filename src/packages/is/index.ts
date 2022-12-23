@@ -4,10 +4,18 @@
  * @Author: 十三
  * @Date: 2022-11-19 20:45:42
  * @LastEditors: 十三
- * @LastEditTime: 2022-12-09 13:40:42
+ * @LastEditTime: 2022-12-23 14:12:45
  */
 
 import { getTag } from '@/packages/helper';
+/**
+ * 是否为大陆手机号
+ * @param phone 
+ * @returns 
+ */
+export const isPhone = (phone: string) => {
+  return  /^1[3,4,5,6,7,8,9][0-9]{9}$/.test(phone);
+}
 /**
  * 校验身份证
  * @param card 身份证
