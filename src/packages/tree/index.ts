@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-20 12:26:10
  * @LastEditors: 十三
- * @LastEditTime: 2022-11-20 16:53:50
+ * @LastEditTime: 2022-12-26 13:51:47
  */
 
 /**
@@ -15,17 +15,31 @@
  * @param pid 作为父节点值
  * @returns
  */
-export const arr2Tree = (arrData: object[], parent = 'parent', key = 'id', pid = null) => {
-  const res: object[] = [];
+export type IProps<T = any> = T & {
+  children: T[];
+};
+export interface IOptions {
+  parent: string;
+  key: string;
+  pid: string | number | null;
+}
+//
+export const arr2Tree = <T>(
+  arrData: T[],
+  options: IOptions = {
+    parent: 'parent',
+    key: 'id',
+    pid: null
+  }
+) => {
+  const res: IProps<T>[] = [];
   arrData.forEach(item => {
-    if (item[parent] === pid) {
+    if (item[options.parent] === options.pid) {
       const children = arr2Tree(
-        arrData.filter(v => v[parent] !== pid),
-        parent,
-        key,
-        item[key]
+        arrData.filter(v => v[options.parent] !== options.pid),
+        { parent: options.parent, key: options.key, pid: item[options.key] }
       );
-      children.length ? res.push({ ...item, children }) : res.push({ ...item });
+      children.length ? res.push({ ...item, children }) : res.push({ ...item, children: [] });
     }
   });
   return res;
