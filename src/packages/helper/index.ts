@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-19 20:58:50
  * @LastEditors: 十三
- * @LastEditTime: 2022-12-26 10:57:16
+ * @LastEditTime: 2022-12-26 15:29:35
  */
 import { isIdCard, isNumber } from '../is';
 /**
@@ -82,4 +82,30 @@ export const toFixedFix = (value: number, decimals: number = 2) => {
   return isNumber(value) && isFinite(value)
     ? Math.floor(value * Math.pow(10, Math.abs(decimals))) / Math.pow(10, Math.abs(decimals))
     : value;
+};
+
+/**
+ * 剔除某些属性，然后返回一个新类型
+ */
+export type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
+
+/**
+ * 选取指定一组属性，返回一个新的类型定义
+ */
+export type Pick<T, K extends keyof T> = {
+  [P in K]: T[P];
+};
+
+/**
+ * 将类型中所有选项变为可选
+ */
+export type Partial<T> = {
+  [P in keyof T]?: T[P];
+};
+
+/**
+ * 将类型中所有选项变为必选
+ */
+export type Required<T> = {
+  [P in keyof T]-?: T[P];
 };
