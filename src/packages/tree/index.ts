@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-20 12:26:10
  * @LastEditors: 十三
- * @LastEditTime: 2022-12-26 16:54:50
+ * @LastEditTime: 2022-12-26 17:07:21
  */
 import { Omit, Partial } from '@/packages/helper';
 import { cloneDeep } from '@/packages/clone-deep';
@@ -54,6 +54,9 @@ export const arrToTree = <T>(
   return res;
 };
 
+export interface ITreeOptions {
+  children?: string;
+}
 /**
  * 
  * @param data 树形结构扁平化
@@ -62,9 +65,7 @@ export const arrToTree = <T>(
  */
 export const treeToArr = <T>(
   data: T[],
-  options: Partial<{
-    children: string;
-  }> = {
+  options: ITreeOptions = {
     children: 'children'
   }
 ) => {
