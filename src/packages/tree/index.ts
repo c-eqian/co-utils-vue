@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-20 12:26:10
  * @LastEditors: 十三
- * @LastEditTime: 2022-12-26 13:51:47
+ * @LastEditTime: 2022-12-26 14:47:47
  */
 
 /**
@@ -33,11 +33,18 @@ export const arr2Tree = <T>(
   }
 ) => {
   const res: IProps<T>[] = [];
+  options.key = options.key || 'id';
+  options.parent = options.parent || 'parent';
+  options.pid = options.pid === undefined ? null : options.pid;
   arrData.forEach(item => {
     if (item[options.parent] === options.pid) {
       const children = arr2Tree(
-        arrData.filter(v => v[options.parent] !== options.pid),
-        { parent: options.parent, key: options.key, pid: item[options.key] }
+        arrData.filter(v => v[options.parent ?? 'parent'] !== options.pid),
+        {
+          parent : options.parent,
+          key: options.key,
+          pid:item[options.key]
+        }
       );
       children.length ? res.push({ ...item, children }) : res.push({ ...item, children: [] });
     }
