@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-20 12:26:10
  * @LastEditors: 十三
- * @LastEditTime: 2022-12-26 16:52:41
+ * @LastEditTime: 2022-12-26 16:54:50
  */
 import { Omit, Partial } from '@/packages/helper';
 import { cloneDeep } from '@/packages/clone-deep';
@@ -72,8 +72,8 @@ export const treeToArr = <T>(
   let res: Omit<T, 'children'>[] = [];
   for (let i = 0; i < data.length; i++) {
     const cloneData = cloneDeep(data[i]);
-    if (data[i]['children']?.length) {
-      res = res.concat(treeToArr(data[i]['children'], options));
+    if (data[i][options.children]?.length) {
+      res = res.concat(treeToArr(data[i][options.children], options));
     }
     delete cloneData[options.children];
     res.push(cloneData);
