@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-19 20:58:50
  * @LastEditors: 十三
- * @LastEditTime: 2022-12-23 14:08:11
+ * @LastEditTime: 2022-12-26 10:57:16
  */
 import { isIdCard, isNumber } from '../is';
 /**
@@ -78,7 +78,7 @@ export const getTag = <T>(value: T) => {
  * @param decimals 小数位
  * @returns
  */
-export const toFixedFix = (value: number, decimals: number) => {
+export const toFixedFix = (value: number, decimals: number = 2) => {
   return isNumber(value) && isFinite(value)
     ? Math.floor(value * Math.pow(10, Math.abs(decimals))) / Math.pow(10, Math.abs(decimals))
     : value;
