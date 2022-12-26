@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-19 20:58:50
  * @LastEditors: 十三
- * @LastEditTime: 2022-12-26 15:29:35
+ * @LastEditTime: 2022-12-26 17:24:04
  */
 import { isIdCard, isNumber } from '../is';
 /**
@@ -23,13 +23,12 @@ export const camelize = (str: string): string => {
  * @param mark 默认 '-'
  * @returns user-name
  */
-export const camelizeToKebabCase = (str: string, mark: '-'| '_' = '-') => {
-  str = firstLetterToLowerCase(str)
-  return str.replace(/[A-Z]/g,  (item) => {
+export const camelizeToKebabCase = (str: string, mark: '-' | '_' = '-') => {
+  str = firstLetterToLowerCase(str);
+  return str.replace(/[A-Z]/g, item => {
     return mark + item.toLowerCase();
-});
-
-}
+  });
+};
 /**
  * 首字母转大写
  * @param str
@@ -108,4 +107,21 @@ export type Partial<T> = {
  */
 export type Required<T> = {
   [P in keyof T]-?: T[P];
+};
+
+/**
+ * 从T中剔除可以赋值给U的类型
+ */
+export type Exclude<T, U> = T extends U ? never : T;
+
+/**
+ * 提取T中可以赋值给U的类型
+ */
+export type Extract<T, U> = T extends U ? T : never;
+
+/**
+ * 将 K 中的所有属性值都转换为 T 类型，并返回新的对象类型
+ */
+export type Record<K extends keyof any, T> = {
+  [P in K]: T;
 };
