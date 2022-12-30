@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-11-20 13:39:54
  * @LastEditors: 十三
- * @LastEditTime: 2022-11-20 14:32:20
+ * @LastEditTime: 2022-12-29 09:31:22
  */
 module.exports = {
   root: true,
@@ -30,6 +30,13 @@ module.exports = {
   // extends: ['plugin:vue/recommended', 'eslint:recommended'],
  
   rules: {
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
     'max-len': 'off',
      // 统一豁免规则，原因：直接修改可能对现有功能产生影响
      'eqeqeq': 1,

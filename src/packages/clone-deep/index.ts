@@ -4,7 +4,7 @@
  * @Author: 十三
  * @Date: 2022-09-24 11:56:13
  * @LastEditors: 十三
- * @LastEditTime: 2022-12-26 10:55:08
+ * @LastEditTime: 2022-12-29 09:31:57
  */
 
 export function isValidKey(
@@ -13,7 +13,6 @@ export function isValidKey(
 ): key is keyof typeof object {
   return key in object;
 }
-
 /**
  * 深拷贝
  * @param source
