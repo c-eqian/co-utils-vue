@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [0.0.1](https://github.com/C1320/co-utils/compare/v1.1.17...v0.0.1) (2023-01-06)
+
+
+###   Bug Fixes | Bug 修复
+
+* 修改包名 ([90b5432](https://github.com/C1320/co-utils/commit/90b54322daffe8dbdef95a67b017cf421d4c6618))
+
 ### [1.1.17](https://github.com/C1320/co-utils/compare/v1.1.16...v1.1.17) (2022-12-30)
 
 ### [1.1.16](https://github.com/C1320/co-utils/compare/v1.1.15...v1.1.16) (2022-12-26)
