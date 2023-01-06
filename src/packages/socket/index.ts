@@ -145,7 +145,7 @@ export class CoSocket<T = any, P = any> {
 
   /**
    * 自定义发送消息事件
-   * @param callback
+   * @param data
    */
   send(data: T | string | ArrayBufferLike | Blob | ArrayBufferView) {
     // TODO:
