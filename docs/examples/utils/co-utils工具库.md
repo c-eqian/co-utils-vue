@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 title: co-utils工具库v2
 date: 2022-11-24 19:26:06
@@ -17,6 +16,8 @@ type TTest1 = "age" | "address" | "email"
 ```bash
 npm install co-utils -D
 ```
+=======
+
 
 # 使用
 
