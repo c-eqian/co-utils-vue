@@ -29,7 +29,7 @@ export default {
 function sidebarExamplesUtils(){
   return [
     {
-      text: '使用方式',
+      text: 'co-utils',
       items: [
         { text: '安装', link: '/guild/installation' },
         { text: 'co-utils工具库', link: '/examples/utils/co-utils工具库' },
