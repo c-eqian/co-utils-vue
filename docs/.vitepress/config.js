@@ -8,6 +8,7 @@
  */
 export default {
   title: 'cz-文档',
+  base: '/cz-utils/',
   themeConfig: {
     logo: "/logo-cz.png",
     nav: customerNav(),
