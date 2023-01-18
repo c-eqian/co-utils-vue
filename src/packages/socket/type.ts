@@ -15,6 +15,7 @@ export interface ICoSocketOptions<T> {
   protocols?: string | string[]; // 通信协议
   heartTime?: number; // 心跳时间间隔
   heartMessage?: string; // 心跳信息,默认为'ping'
+  isOpenHeart?: boolean; // 是否开启心跳
   isReconnect?: boolean; // 是否自动重连
   reconnectTime?: number; // 重连时间间隔
   reconnectCount?: number; // 重连次数 -1 则不限制
