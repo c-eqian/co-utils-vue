@@ -151,5 +151,21 @@ function customerNav() {
     //   text: 'Gitee',
     //   link: 'https://gitee.com/cyq13/cz-utils'
     // },
+    // {
+    //   text: '后端',
+    //   items: [
+    //     { text: 'Python', link: '/examples/python/python', activeMatch: '/examples/python/' },
+    //   ]
+    // },
+    // {
+    //   text: '面试题',
+    //   items: [
+    //     { text: 'vue3', link: '/examples/notice/vue面试题', activeMatch: '/examples/notice/' },
+    //   ]
+    // },
+    // {
+    //   text: 'Gitee',
+    //   link: 'https://gitee.com/cyq13/cz-utils'
+    // },
   ]
 }
