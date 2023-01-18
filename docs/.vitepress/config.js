@@ -8,13 +8,15 @@
  */
 export default {
   title: 'cz-文档',
-  base: '/cz-utils/',
+  base: '/co-utils/',
   themeConfig: {
     logo: "/logo-cz.png",
     nav: customerNav(),
     socialLinks: [{ icon: "github", link: "https://github.com/C1320/co-utils" }],
     sidebar: {
       "/guild/": sidebarGuild(),
+      // "/examples/notice": sidebarExamplesNotice(),
+      // "/examples/vue": sidebarExamplesVue(),
       // "/examples/notice": sidebarExamplesNotice(),
       // "/examples/vue": sidebarExamplesVue(),
       "/examples/utils": sidebarExamplesUtils()
@@ -25,9 +27,11 @@ export default {
 function sidebarExamplesUtils(){
   return [
     {
-      text: '使用方式',
+      text: 'co-utils',
       items: [
+        { text: '安装', link: '/guild/installation' },
         { text: 'co-utils工具库', link: '/examples/utils/co-utils工具库' },
+        { text: '更新日志', link: '/examples/version/CHANGELOG' },
       ]
     },
   ]
@@ -79,10 +83,6 @@ function sidebarGuild(){
           text: "安装",
           link: "/guild/installation",
         },
-        {
-          text: "快速开始",
-          link: "/guild/quickstart",
-        },
       ],
     },
   ]
@@ -100,13 +100,35 @@ function customerNav() {
       // items: [
       //   { text: 'co-utils工具库', link: '/examples/utils/co-utils工具库' },
       //   { text: 'cz-coco组件库', link: 'https://c1320.github.io/cz-coco/' },
+      // text: '使用',
+      // link: '/examples/utils/co-utils工具库'
+      // items: [
+      //   { text: 'co-utils工具库', link: '/examples/utils/co-utils工具库' },
+      //   { text: 'cz-coco组件库', link: 'https://c1320.github.io/cz-coco/' },
         
+      // ]
       // ]
     },
     {
       text: '更新日志',
       link: '/examples/version/CHANGELOG'
     },
+    // {
+    //   text: '后端',
+    //   items: [
+    //     { text: 'Python', link: '/examples/python/python', activeMatch: '/examples/python/' },
+    //   ]
+    // },
+    // {
+    //   text: '面试题',
+    //   items: [
+    //     { text: 'vue3', link: '/examples/notice/vue面试题', activeMatch: '/examples/notice/' },
+    //   ]
+    // },
+    // {
+    //   text: 'Gitee',
+    //   link: 'https://gitee.com/cyq13/cz-utils'
+    // },
     // {
     //   text: '后端',
     //   items: [
