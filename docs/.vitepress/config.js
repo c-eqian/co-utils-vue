@@ -11,11 +11,11 @@ export default {
   themeConfig: {
     logo: "/logo-cz.png",
     nav: customerNav(),
-    socialLinks: [{ icon: "github", link: "https://gitee.com/cyq13/cz-utils" }],
+    socialLinks: [{ icon: "github", link: "https://github.com/C1320/co-utils" }],
     sidebar: {
       "/guild/": sidebarGuild(),
-      "/examples/notice": sidebarExamplesNotice(),
-      "/examples/vue": sidebarExamplesVue(),
+      // "/examples/notice": sidebarExamplesNotice(),
+      // "/examples/vue": sidebarExamplesVue(),
       "/examples/utils": sidebarExamplesUtils()
     },
   },
@@ -24,7 +24,7 @@ export default {
 function sidebarExamplesUtils(){
   return [
     {
-      text: 'co-utils工具库',
+      text: '使用方式',
       items: [
         { text: 'co-utils工具库', link: '/examples/utils/co-utils工具库' },
       ]
@@ -94,28 +94,29 @@ function customerNav() {
       link: '/'
     },
     {
-      text: '前端',
-      items: [
-        { text: 'co-utils工具库', link: '/examples/utils/co-utils工具库' },
-        { text: 'cz-coco组件库', link: 'https://c1320.github.io/cz-coco/' },
+      text: '使用',
+      link: '/examples/utils/co-utils工具库'
+      // items: [
+      //   { text: 'co-utils工具库', link: '/examples/utils/co-utils工具库' },
+      //   { text: 'cz-coco组件库', link: 'https://c1320.github.io/cz-coco/' },
         
-      ]
+      // ]
     },
-    {
-      text: '后端',
-      items: [
-        { text: 'Python', link: '/examples/python/python', activeMatch: '/examples/python/' },
-      ]
-    },
-    {
-      text: '面试题',
-      items: [
-        { text: 'vue3', link: '/examples/notice/vue面试题', activeMatch: '/examples/notice/' },
-      ]
-    },
-    {
-      text: 'Gitee',
-      link: 'https://gitee.com/cyq13/cz-utils'
-    },
+    // {
+    //   text: '后端',
+    //   items: [
+    //     { text: 'Python', link: '/examples/python/python', activeMatch: '/examples/python/' },
+    //   ]
+    // },
+    // {
+    //   text: '面试题',
+    //   items: [
+    //     { text: 'vue3', link: '/examples/notice/vue面试题', activeMatch: '/examples/notice/' },
+    //   ]
+    // },
+    // {
+    //   text: 'Gitee',
+    //   link: 'https://gitee.com/cyq13/cz-utils'
+    // },
   ]
 }

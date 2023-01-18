@@ -25,6 +25,7 @@ export class CoSocket<T = any, P = any> {
     heartTime: 5000, // 心跳间隔时间
     heartMessage: 'ping',
     isReconnect: true, // 是否自动重连
+    isOpenHeart: true, // 默认开启心跳
     reconnectTime: 5000, // 重连时间间隔
     reconnectCount: 5, // 重连次数 -1 则不限制
     openCallBack: (_e: Event) => {
@@ -197,6 +198,7 @@ export class CoSocket<T = any, P = any> {
    * 开启心跳
    */
   private start(callback: _.Callback) {
+    if (!this.defaultOptions.isOpenHeart) return;
     this.heartTimeOut = setTimeout((e: Event) => {
       callback(e);
       this.ServerHeartbeatTimeout = setTimeout((ev: Event) => {
