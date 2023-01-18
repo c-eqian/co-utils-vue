@@ -1,19 +1,3 @@
----
-title: co-utils工具库v2
-date: 2022-11-24 19:26:06
-author: 秋谨
----
-<Boxx/>
-
-# 介绍
-
-co-utils工具库是基于typescript实现的一个常用库封装
-
-# 安装
-
-```bash
-npm install co-utils -D
-```
 
 # 使用
 

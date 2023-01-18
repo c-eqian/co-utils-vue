@@ -8,7 +8,7 @@
  */
 export default {
   title: 'cz-文档',
-  base: '/cz-utils/',
+  base: '/co-utils/',
   themeConfig: {
     logo: "/logo-cz.png",
     nav: customerNav(),
@@ -25,9 +25,11 @@ export default {
 function sidebarExamplesUtils(){
   return [
     {
-      text: '使用方式',
+      text: 'co-utils',
       items: [
+        { text: '安装', link: '/guild/installation' },
         { text: 'co-utils工具库', link: '/examples/utils/co-utils工具库' },
+        { text: '更新日志', link: '/examples/version/CHANGELOG' },
       ]
     },
   ]
@@ -78,10 +80,6 @@ function sidebarGuild(){
         {
           text: "安装",
           link: "/guild/installation",
-        },
-        {
-          text: "快速开始",
-          link: "/guild/quickstart",
         },
       ],
     },
