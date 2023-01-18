@@ -102,14 +102,8 @@ function customerNav() {
       // items: [
       //   { text: 'co-utils工具库', link: '/examples/utils/co-utils工具库' },
       //   { text: 'cz-coco组件库', link: 'https://c1320.github.io/cz-coco/' },
-      // text: '使用',
-      // link: '/examples/utils/co-utils工具库'
-      // items: [
-      //   { text: 'co-utils工具库', link: '/examples/utils/co-utils工具库' },
-      //   { text: 'cz-coco组件库', link: 'https://c1320.github.io/cz-coco/' },
         
       // ]
-      // ]
     },
     {
       text: '更新日志',
@@ -119,14 +113,22 @@ function customerNav() {
       text: '更新日志',
       link: '/examples/version/CHANGELOG'
     },
-    {
-      text: '更新日志',
-      link: '/examples/version/CHANGELOG'
-    },
-    {
-      text: '更新日志',
-      link: '/examples/version/CHANGELOG'
-    },
+    // {
+    //   text: '后端',
+    //   items: [
+    //     { text: 'Python', link: '/examples/python/python', activeMatch: '/examples/python/' },
+    //   ]
+    // },
+    // {
+    //   text: '面试题',
+    //   items: [
+    //     { text: 'vue3', link: '/examples/notice/vue面试题', activeMatch: '/examples/notice/' },
+    //   ]
+    // },
+    // {
+    //   text: 'Gitee',
+    //   link: 'https://gitee.com/cyq13/cz-utils'
+    // },
     // {
     //   text: '后端',
     //   items: [
