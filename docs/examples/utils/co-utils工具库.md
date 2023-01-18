@@ -1,17 +1,22 @@
 <<<<<<< HEAD
-<!--
- * @Descripttion:
- * @version:
- * @Author: 十三
- * @Date: 2022-11-21 23:01:39
- * @LastEditors: 十三
- * @LastEditTime: 2022-11-21 23:06:14
--->
+---
+title: co-utils工具库v2
+date: 2022-11-24 19:26:06
+author: 秋谨
+---
+<Boxx/>
 
-# 环境要求
+# 介绍
 
 建议使用 node=v16.x 以上
-=======
+
+// 相当于
+type TTest1 = "age" | "address" | "email"
+```
+
+```bash
+npm install co-utils -D
+```
 
 # 使用
 
@@ -498,10 +503,8 @@ type TTest = "name" | "phone"
 type ITestModel =  'name' | 'age' | 'address' | 'phone' | 'email' ;
 
 type TTest = Exclude<ITestModel, 'name' | 'phone'>;
->>>>>>> 📃 docs: 修改文档
 
 // 相当于
 type TTest1 = "age" | "address" | "email"
 ```
 
-# 使用介绍

@@ -19,8 +19,8 @@ export default {
       // "/examples/vue": sidebarExamplesVue(),
       // "/examples/notice": sidebarExamplesNotice(),
       // "/examples/vue": sidebarExamplesVue(),
-      // "/examples/notice": sidebarExamplesNotice(),
-      // "/examples/vue": sidebarExamplesVue(),
+      // // "/examples/notice": sidebarExamplesNotice(),
+      // // "/examples/vue": sidebarExamplesVue(),
       "/examples/utils": sidebarExamplesUtils()
     },
   },
@@ -29,7 +29,7 @@ export default {
 function sidebarExamplesUtils(){
   return [
     {
-      text: 'co-utils',
+      text: '使用方式',
       items: [
         { text: '安装', link: '/guild/installation' },
         { text: 'co-utils工具库', link: '/examples/utils/co-utils工具库' },
@@ -105,30 +105,6 @@ function customerNav() {
         
       // ]
     },
-    {
-      text: '更新日志',
-      link: '/examples/version/CHANGELOG'
-    },
-    {
-      text: '更新日志',
-      link: '/examples/version/CHANGELOG'
-    },
-    // {
-    //   text: '后端',
-    //   items: [
-    //     { text: 'Python', link: '/examples/python/python', activeMatch: '/examples/python/' },
-    //   ]
-    // },
-    // {
-    //   text: '面试题',
-    //   items: [
-    //     { text: 'vue3', link: '/examples/notice/vue面试题', activeMatch: '/examples/notice/' },
-    //   ]
-    // },
-    // {
-    //   text: 'Gitee',
-    //   link: 'https://gitee.com/cyq13/cz-utils'
-    // },
     // {
     //   text: '后端',
     //   items: [
