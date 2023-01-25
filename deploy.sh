@@ -4,7 +4,11 @@
 set -e
 
 # 构建
+<<<<<<< HEAD
 # npm run build:types && rollup -c
+=======
+npm run build:types && rollup -c
+>>>>>>> 🐳 chore: 添加自动化构建
 
 # 发布
 npm run release
