@@ -9,7 +9,8 @@
   "scripts": {
     "clean:dist": "rimraf dist",
     "build:types": "npm run clean:dist && tsc -b ./tsconfig.types.json",
-    "build": "npm run build:types && rollup -c",
+    // "build": "npm run build:types && rollup -c",
+    "build": "bash deploy.sh",
     "test": "node test/test.js",
     "pretest": "npm run build",
     "lint": "eslint \"src/**/*.{js,jsx,ts,vue}\" --fix",
