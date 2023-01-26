@@ -4,7 +4,7 @@
 set -e
 
 # 构建
-npm run build:types && rollup -c
+# npm run build:types && rollup -c
 
 # 发布
 npm run release
