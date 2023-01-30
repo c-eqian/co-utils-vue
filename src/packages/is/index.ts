@@ -8,14 +8,15 @@
  */
 
 import { getTag } from '@/packages/helper';
+
 /**
  * 是否为大陆手机号
- * @param phone 
- * @returns 
+ * @param phone
+ * @returns
  */
 export const isPhone = (phone: string) => {
-  return  /^1[3,4,5,6,7,8,9][0-9]{9}$/.test(phone);
-}
+  return /^1[3,4,5,6,7,8,9][0-9]{9}$/.test(phone);
+};
 /**
  * 校验身份证
  * @param card 身份证
@@ -44,3 +45,5 @@ export const isObjectLike = <T>(value: T) => {
 export const isNumber = <T>(value: T): boolean => {
   return typeof value === 'number' || (isObjectLike(value) && getTag(value) === '[object Number]');
 };
+
+// export const isHasMediaDevice = () => {};
