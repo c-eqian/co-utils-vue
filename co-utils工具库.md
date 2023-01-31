@@ -363,6 +363,62 @@ console.log(isIdCard('45060319990886273529')) // false
 
 ### isValidKey
 
+## CoSocket
+
+### 描述
+
+`Cosocket`基于`websocket`进行封装；具备心跳检测，断线重连等功能机制。
+
+### 例子
+
+在`vue`文件中，你可以这样使用：
+
+```typescript
+const ws = ref<CoSocket>(); // 定义变量
+const initWebSocket = async () => {
+  ws.value = new CoSocket({
+    url: '服务地址',// 服务器地址
+    reconnectCount: 5, // 重连次数
+    messageCallBack: wsReceiveMsg, // 收到信息的回调
+    isReconnect: true,// 是否进行重连
+    openCallBack: () => { // 连接成功的回调方法
+      // ElMessage.success('连接成功');
+    },
+    errorCallBack: () => { // 连接错误的回调方法
+        //
+    }，
+     closeCallBack: () => { // 关闭连接的回调方法
+      //
+    }
+  });
+};
+ws.value?.send(msg);// 发送数据
+```
+
+你应该注意的是，如果开启了心跳检测，默认的心跳信息是`ping`,并且如果能够从服务器中得到的响应信息也是`ping`,即相同于心跳信息，此时，数据将会被过滤，因此，在发送数据时，尽量避免与心跳信息的数据一致，你可以通过设置`heartMessage`来设置你的心跳数据。
+
+### 属性
+
+| 属性名         | 类型               | 默认值 | 说明                                                       | 可选 |
+| -------------- | ------------------ | ------ | ---------------------------------------------------------- | ---- |
+| url            | string             | -      | 链接的通道的地址                                           | 否   |
+| protocols      | string \| string[] | `ws`   | 通信协议,可接受`ws`或者`wss`协议                           | 是   |
+| heartTime      | number             | 5000   | 心跳时间间隔,需要需要`开启isOpenHeart`属性，才可生效       | 是   |
+| heartMessage   | string             | `ping` | 心跳信息,默认为`ping`，需要`开启isOpenHeart`属性，才可生效 | 是   |
+| isOpenHeart    | boolean            | `true` | 是否开启心跳                                               | 是   |
+| isReconnect    | boolean            | `true` | 是否自动重连，需要`开启isOpenHeart`属性，才可生效          | 是   |
+| reconnectTime  | number             | 5000   | 重连时间间隔，需要`开启isOpenHeart`属性，才可生效          | 是   |
+| reconnectCount | number             | 5      | 重连次数 -1 则不限制                                       | 是   |
+
+### 事件
+
+| 事件名          | 说明           | 可选 |
+| --------------- | -------------- | ---- |
+| openCallBack    | 连接成功的回调 | 是   |
+| closeCallBack   | 关闭的回调     | 是   |
+| messageCallBack | 消息的回调     | 是   |
+| errorCallBack   | 错误的回调     | 是   |
+
 ## 其他
 
 ### getTag
