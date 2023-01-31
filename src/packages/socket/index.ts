@@ -155,7 +155,14 @@ export class CoSocket<T = any, P = any> {
     }
     this.ws.send(data as string);
   }
-
+  /**
+   * 自定义关闭连接事件
+   * @param code
+   * @param reason
+   */
+  close(code?: number | undefined, reason?: string | undefined) {
+    this.ws.close(code, reason);
+  }
   /**
    * 重连事件
    */
