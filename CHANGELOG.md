@@ -1,6 +1,16 @@
 # 更新日志 
 
 
+### [0.0.5](https://github.com/C1320/co-utils/compare/v0.0.4...v0.0.5) (2023-01-31)
+
+
+### ✨ Features | 新功能
+
+* 更新依赖 ([efeeb9c](https://github.com/C1320/co-utils/commit/efeeb9c49212db2c43092c6d5a19a312a24363a0))
+* 新增CoSocket文档 ([e562b7e](https://github.com/C1320/co-utils/commit/e562b7ec2adc82799939b9d3134a988e4c7e48c1))
+* 新增CoSocket文档 ([853eb0d](https://github.com/C1320/co-utils/commit/853eb0d2d297d892ed8c44d1a2bda49479cb15af))
+* 优化CoSocket ([7e29a45](https://github.com/C1320/co-utils/commit/7e29a45808cb8a9ee3ab10f2ba4e7303a95a3ad9))
+
 ### [0.0.4](https://github.com/C1320/co-utils/compare/v0.0.3...v0.0.4) (2023-01-31)
 
 ### [0.0.3](https://github.com/C1320/co-utils/compare/v0.0.2...v0.0.3) (2023-01-31)
