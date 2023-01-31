@@ -109,14 +109,6 @@ function customerNav() {
       text: '更新日志',
       link: '/examples/version/CHANGELOG'
     },
-    {
-      text: '更新日志',
-      link: '/examples/version/CHANGELOG'
-    },
-    {
-      text: '更新日志',
-      link: '/examples/version/CHANGELOG'
-    },
     // {
     //   text: '后端',
     //   items: [
