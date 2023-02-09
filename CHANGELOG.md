@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [0.0.6](https://github.com/C1320/co-utils/compare/v0.0.5...v0.0.6) (2023-02-09)
+
+
+###   Bug Fixes | Bug 修复
+
+* 修复主动关闭连接后出现重连问题 ([bc1f491](https://github.com/C1320/co-utils/commit/bc1f4915b9e3925c350deb51ac9cd44829e720db))
+
 ### [0.0.5](https://github.com/C1320/co-utils/compare/v0.0.4...v0.0.5) (2023-01-31)
 
 
