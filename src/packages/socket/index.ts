@@ -157,11 +157,13 @@ export class CoSocket<T = any, P = any> {
   }
   /**
    * 自定义关闭连接事件
-   * @param code
-   * @param reason
+   * @param code -一个数值，指示状态码，解释为什么连接被关闭。如果不指定该参数，则默认值为1005
+   * 有关允许的值，请参阅CloseEvent的状态代码列表。
+   * @param reason reason -一个人类可读的字符串，解释为什么连接关闭。该字符串必须不超过123字节的UTF-8文本(不是字符)
    */
-  close(code?: number | undefined, reason?: string | undefined) {
-    this.ws.close(code, reason);
+  close(code: number | undefined = 1005, reason?: string | undefined) {
+    // this.ws.close(code, reason);
+    this.destroy(code, reason);
   }
   /**
    * 重连事件
@@ -187,12 +189,12 @@ export class CoSocket<T = any, P = any> {
   /**
    * 销毁事件
    */
-  destroy() {
+  destroy(code?: number | undefined, reason?: string | undefined) {
     // TODO:
     this.reset();
     this.reconnectTimer && clearTimeout(this.reconnectTimer);
     this.defaultOptions.isReconnect = false;
-    this.ws.close();
+    this.ws.close(code, reason);
   }
 
   // 重置

@@ -393,6 +393,7 @@ const initWebSocket = async () => {
   });
 };
 ws.value?.send(msg);// 发送数据
+ws.value?.close();// 关闭连接
 ```
 
 你应该注意的是，如果开启了心跳检测，默认的心跳信息是`ping`,并且如果能够从服务器中得到的响应信息也是`ping`,即相同于心跳信息，此时，数据将会被过滤，因此，在发送数据时，尽量避免与心跳信息的数据一致，你可以通过设置`heartMessage`来设置你的心跳数据。
@@ -418,6 +419,8 @@ ws.value?.send(msg);// 发送数据
 | closeCallBack   | 关闭的回调     | 是   |
 | messageCallBack | 消息的回调     | 是   |
 | errorCallBack   | 错误的回调     | 是   |
+| send            | 发送数据       | 否   |
+| close           | 主动关闭连接   | 否   |
 
 ## 其他
 
