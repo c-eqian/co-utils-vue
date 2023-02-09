@@ -161,7 +161,7 @@ export class CoSocket<T = any, P = any> {
    * 有关允许的值，请参阅CloseEvent的状态代码列表。
    * @param reason reason -一个人类可读的字符串，解释为什么连接关闭。该字符串必须不超过123字节的UTF-8文本(不是字符)
    */
-  close(code: number | undefined = 1005, reason?: string | undefined) {
+  close(code: number | undefined, reason?: string | undefined) {
     // this.ws.close(code, reason);
     this.destroy(code, reason);
   }
