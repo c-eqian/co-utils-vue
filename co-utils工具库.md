@@ -70,6 +70,12 @@ console.log(formatPriceToThousand(3600.2566,1,'-', false)) // 3-600.2
 console.log(formatPriceToThousand('9655544.58777',3,'-')) // 9-655-544.587
 ```
 
+### formatBytes
+
+`formatBytes`将文件字节转换成`	MB`等格式
+
+参数`bytes`可以是`number`类型；参数`decimals需要保留小数点 默认2
+
 ### desIdCard
 
 `desIdCard`身份证脱敏处理

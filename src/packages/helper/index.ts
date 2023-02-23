@@ -77,7 +77,7 @@ export const getTag = <T>(value: T) => {
  * @param decimals 小数位
  * @returns
  */
-export const toFixedFix = (value: number, decimals: number = 2) => {
+export const toFixedFix = (value: number, decimals = 2) => {
   return isNumber(value) && isFinite(value)
     ? Math.floor(value * Math.pow(10, Math.abs(decimals))) / Math.pow(10, Math.abs(decimals))
     : value;

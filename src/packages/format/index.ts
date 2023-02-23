@@ -9,3 +9,4 @@
 export * from './formatDate';
 export * from './formatPrice';
 export * from './formatDes';
+export * from './formatBytes';
