@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [0.0.8](https://github.com/C1320/co-utils/compare/v0.0.7...v0.0.8) (2023-02-23)
+
+
+### ✨ Features | 新功能
+
+* 新增formatBytes ([47c26bb](https://github.com/C1320/co-utils/commit/47c26bb7ee2b09bb555befbdd1da972030037876))
+
 ### [0.0.7](https://github.com/C1320/co-utils/compare/v0.0.6...v0.0.7) (2023-02-09)
 
 

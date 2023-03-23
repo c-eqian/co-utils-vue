@@ -9,3 +9,5 @@
 export * from './use-namespace';
 export * from './use-sfc-with-install';
 export * from './use-full-screen';
+export * from './use-omit';
+export * from './use-pick';
