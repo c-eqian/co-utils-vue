@@ -1,6 +1,6 @@
 {
   "name": "@co/utils",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "工具库",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -9,7 +9,7 @@
   "scripts": {
     "clean:dist": "rimraf dist",
     "build:types": "npm run clean:dist && tsc -b ./tsconfig.types.json",
-    "build": "npm run build:types && rollup -c && bash deploy.sh",
+    "build": "npm run build:types && rollup -c",
     "test": "node test/test.js",
     "pretest": "npm run build",
     "lint": "eslint \"src/**/*.{js,jsx,ts,vue}\" --fix",
