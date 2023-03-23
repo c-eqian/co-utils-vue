@@ -1,6 +1,15 @@
 # 更新日志 
 
 
+### [0.0.10](https://github.com/C1320/co-utils/compare/v0.0.9...v0.0.10) (2023-03-23)
+
+### [0.0.9](https://github.com/C1320/co-utils/compare/v0.0.8...v0.0.9) (2023-03-23)
+
+
+### ✨ Features | 新功能
+
+* 新增usePick、useOmit ([62b6841](https://github.com/C1320/co-utils/commit/62b6841930478349d6c38054ead2648d12866458))
+
 ### [0.0.8](https://github.com/C1320/co-utils/compare/v0.0.7...v0.0.8) (2023-02-23)
 
 
