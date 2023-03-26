@@ -1,6 +1,21 @@
 # 更新日志 
 
 
+## [1.2.0](https://github.com/C1320/co-utils/compare/v0.0.10...v1.2.0) (2023-03-26)
+
+
+### ✨ Features | 新功能
+
+* 添加防抖useDebounce、useDebounceRef ([8735981](https://github.com/C1320/co-utils/commit/873598184d808aadcbaa11b49e362d3877aae736))
+* 新增usePick、useOmit ([35c3ebc](https://github.com/C1320/co-utils/commit/35c3ebc337de35571d41ec4ed29ed96e5d59fa81))
+* 新增usePick、useOmit ([0507cae](https://github.com/C1320/co-utils/commit/0507caea9f91afba604474fca858fbde24dac71a))
+
+
+###   Chores | 其他更新
+
+* **release:** 0.0.3 ([2254157](https://github.com/C1320/co-utils/commit/22541571e70eb5c9cbcbd897f104ce5fe16ae33d))
+* **release:** 1.1.0 ([d82694b](https://github.com/C1320/co-utils/commit/d82694bb554d4b614c9fe0cf092fdb89a5375afc))
+
 ## [1.1.0](https://github.com/C1320/co-utils/compare/v0.0.10...v1.1.0) (2023-03-26)
 
 
