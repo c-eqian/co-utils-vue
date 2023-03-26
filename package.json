@@ -1,6 +1,6 @@
 {
-  "name": "@co/utils",
-  "version": "0.0.10",
+  "name": "co-utils-vue",
+  "version": "0.0.3",
   "description": "工具库",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -79,10 +79,6 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "access": "public",
-    "registry": "http://43.138.188.22:4873/"
-  },
   "lint-staged": {
     "src/**/*.{ts,js,vue,tsx}": [
       "eslint --fix",
