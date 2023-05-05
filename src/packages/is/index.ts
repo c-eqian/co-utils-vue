@@ -45,5 +45,14 @@ export const isObjectLike = <T>(value: T) => {
 export const isNumber = <T>(value: T): boolean => {
   return typeof value === 'number' || (isObjectLike(value) && getTag(value) === '[object Number]');
 };
-
+export const isString = value => {
+  const type = typeof value;
+  return (
+    type === 'string' ||
+    (type === 'object' &&
+      value !== null &&
+      !Array.isArray(value) &&
+      getTag(value) === '[object String]')
+  );
+};
 // export const isHasMediaDevice = () => {};

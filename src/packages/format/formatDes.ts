@@ -1,6 +1,6 @@
 /*
- * @Descripttion: 
- * @version: 
+ * @Descripttion:
+ * @version:
  * @Author: 十三
  * @Date: 2022-12-23 13:35:33
  * @LastEditors: 十三
@@ -14,19 +14,19 @@ import { isIdCard, isPhone } from '../is';
  * @returns '450616199905206666'-> '450616****6666'
  */
 export const desIdCard = (idCard: string) => {
-  if (!isIdCard(idCard))  {
-   throw new Error(`${ idCard } is invalid idCard`);
+  if (!isIdCard(idCard)) {
+    throw new Error(`${idCard} is invalid idCard`);
   }
-  return idCard.replace(/^(.{6})(?:\d+)(.{4})$/,  "$1****$2");
-}
+  return idCard.replace(/^(.{6})(?:\d+)(.{4})$/, '$1****$2');
+};
 /**
  * 手机号脱敏处理
- * @param phone 
- * @returns 
+ * @param phone
+ * @returns
  */
 export const desPhone = (phone: string) => {
   if (!isPhone(phone)) {
-    throw new Error(`${ phone } is invalid phone number`);
+    throw new Error(`${phone} is invalid phone number`);
   }
-  return phone.replace(/^(.{3})(?:\d+)(.{4})$/,  "$1****$2");
-}
+  return phone.replace(/^(.{3})(?:\d+)(.{4})$/, '$1****$2');
+};

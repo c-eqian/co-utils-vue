@@ -66,7 +66,7 @@ export const getCardInfo = (card: string): ICard => {
  */
 export const getTag = <T>(value: T) => {
   if (value === null) {
-    return value === undefined ? '[object Undefined]' : '[object Null]';
+    return '[object Null]';
   }
   return toString.call(value);
 };

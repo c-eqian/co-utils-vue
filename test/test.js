@@ -9,23 +9,12 @@
 // import { deepClone } from "../src/index";
 // const {deepClone} = require('../dist/index')
 // import { cloneDeep } from '../dist/index';
-import { cloneDeep } from '../dist/index';
+import { usePick } from '../dist/index';
 
-const target = {
-  test1: 1,
-  test2: undefined,
-  test3: {
-    child: '123'
-  },
-  test4: [{
-    test1: '123',
-    test2: '123',
-    test3: [1, 2, 3]
-  }]
+const test = {
+  book: '倚天屠龙记',
+  name: '金庸',
+  price: '18',
+  likes: '999'
 };
-const a = target;
-const b = cloneDeep(target);
-console.log(target);
-a.test1 = 36;
-b.test1 = 98;
-console.log(a, b.test4, target);
+console.log(usePick(test, ['name', 'likes']));
