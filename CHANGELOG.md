@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+## [1.4.0](https://github.com/C1320/co-utils/compare/v1.3.0...v1.4.0) (2023-05-08)
+
+
+### ✨ Features | 新功能
+
+* 新增useSpiderEffects ([2e60335](https://github.com/C1320/co-utils/commit/2e6033587fc8ad55f4893f4ce215072b7fc4f58f))
+
 ## [1.3.0](https://github.com/C1320/co-utils/compare/v1.2.0...v1.3.0) (2023-05-05)
 
 
