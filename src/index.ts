@@ -14,3 +14,4 @@ export * from './packages/is';
 export * from './packages/hooks';
 export * from './packages/get-age';
 export * from './packages/socket';
+export * from './packages/effects';
