@@ -570,3 +570,30 @@ type TTest = Exclude<ITestModel, 'name' | 'phone'>;
 type TTest1 = "age" | "address" | "email"
 ```
 
+### usePick
+
+与`Pick`选类似，但是usePick取指定一组属性值，返回一个新的属性值
+
+```typescript
+const test = {
+  book: '倚天屠龙记',
+  name: '金庸',
+  price: '18',
+  likes: '999'
+};
+console.log(usePick(test, [])); // {}
+console.log(usePick(test, ['name'])); // {name: '金庸'}
+```
+
+### useFormValueWatcher
+
+在一些场景中，有时候需要进行表单的监听而进行某些操作，例如，修改某些信息时，如果没有发生变化，不能进行编辑或者一些其他的操作，`useFormValueWatcher`由此诞生
+
+```javascript
+// vue3 使用实例
+const origin = cloneDeep(form) // 克隆原始表单数据
+watch(()=>[form], ()=>{
+  console.log(useFormValueWatcher(form, origin)) // 表单发生变化返回true,否则false
+},{ deep: true })
+```
+
