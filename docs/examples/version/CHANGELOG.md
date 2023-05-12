@@ -1,13 +1,6 @@
 # 更新日志 
 
 
-## [1.3.0](https://github.com/C1320/co-utils/compare/v1.2.0...v1.3.0) (2023-05-05)
-
-
-### ✨ Features | 新功能
-
-* 新增useFormValueWatcher ([a724e88](https://github.com/C1320/co-utils/commit/a724e8828d8bc08e2292e2f816aa27488fb2906c))
-
 ## [1.2.0](https://github.com/C1320/co-utils/compare/v0.0.10...v1.2.0) (2023-03-26)
 
 
