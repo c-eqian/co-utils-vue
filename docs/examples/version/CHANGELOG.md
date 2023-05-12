@@ -1,6 +1,27 @@
 # 更新日志 
 
 
+## [1.5.0](https://github.com/C1320/co-utils/compare/v1.4.0...v1.5.0) (2023-05-12)
+
+
+### ✨ Features | 新功能
+
+* 新增useSort ([c369739](https://github.com/C1320/co-utils/commit/c369739e671345ac8926afc00c1ccc020a64a043))
+
+## [1.4.0](https://github.com/C1320/co-utils/compare/v1.3.0...v1.4.0) (2023-05-08)
+
+
+### ✨ Features | 新功能
+
+* 新增useSpiderEffects ([2e60335](https://github.com/C1320/co-utils/commit/2e6033587fc8ad55f4893f4ce215072b7fc4f58f))
+
+## [1.3.0](https://github.com/C1320/co-utils/compare/v1.2.0...v1.3.0) (2023-05-05)
+
+
+### ✨ Features | 新功能
+
+* 新增useFormValueWatcher ([a724e88](https://github.com/C1320/co-utils/commit/a724e8828d8bc08e2292e2f816aa27488fb2906c))
+
 ## [1.2.0](https://github.com/C1320/co-utils/compare/v0.0.10...v1.2.0) (2023-03-26)
 
 
