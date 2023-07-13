@@ -1,6 +1,14 @@
 # 更新日志 
 
 
+## [1.6.0](https://github.com/C1320/co-utils/compare/v1.5.0...v1.6.0) (2023-05-12)
+
+
+### ✨ Features | 新功能
+
+* 新增useSort ([d8efa5a](https://github.com/C1320/co-utils/commit/d8efa5ae0d9f57f23f2f448157f78436643e0f54))
+* 优化useSort ([42421df](https://github.com/C1320/co-utils/commit/42421dfc6220b996dcfc0ad0f4c1a92106c9ec63))
+
 ## [1.5.0](https://github.com/C1320/co-utils/compare/v1.4.0...v1.5.0) (2023-05-12)
 
 

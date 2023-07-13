@@ -9,7 +9,7 @@ import { terser } from 'rollup-plugin-terser'
 // 读取 package.json 配置
 import pkg from './package.json'
 // 当前运行环境，可通过 cross-env 命令行设置
-const env = process.env.NODE_ENV
+// const env = process.env.NODE_ENV
 // umd 模式的编译结果文件输出的全局变量名称
 const name = 'RollupTsTemplate'
 const config = { 
@@ -59,9 +59,8 @@ const config = {
     }),
   ]
 }
-
 // 若打包正式环境，压缩代码
-if (env === 'production') {
+if (process.env.NODE_ENV === 'production') {
   config.plugins.push(terser({
     compress: {
       pure_getters: true,
