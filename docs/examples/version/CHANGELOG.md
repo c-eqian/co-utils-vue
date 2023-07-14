@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+## [1.7.0](https://github.com/C1320/co-utils/compare/v1.6.0...v1.7.0) (2023-07-13)
+
+
+### ✨ Features | 新功能
+
+* 添加useSortByKey ([ec977ea](https://github.com/C1320/co-utils/commit/ec977eaffe52ce3581e45fca395a0328610942c0))
+
 ## [1.6.0](https://github.com/C1320/co-utils/compare/v1.5.0...v1.6.0) (2023-05-12)
 
 
