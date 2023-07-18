@@ -21,9 +21,7 @@ export interface IOptions {
 /**
  * 树形结构转换
  * @param arrData 原数组数据
- * @param parent 关联父节点的字段
- * @param key 每条目唯一标识
- * @param pid 作为父节点值
+ * @param options
  * @returns
  */
 export const arrToTree = <T>(
@@ -58,10 +56,10 @@ export interface ITreeOptions {
   children?: string;
 }
 /**
- * 
+ *
  * @param data 树形结构扁平化
- * @param options 
- * @returns 
+ * @param options
+ * @returns
  */
 export const treeToArr = <T>(
   data: T[],
@@ -69,7 +67,7 @@ export const treeToArr = <T>(
     children: 'children'
   }
 ) => {
-  options.children = options.children ?? 'children'
+  options.children = options.children ?? 'children';
   let res: Omit<T, 'children'>[] = [];
   for (let i = 0; i < data.length; i++) {
     const cloneData = cloneDeep(data[i]);
