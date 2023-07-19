@@ -1,18 +1,11 @@
----
-title: co-utils工具库v2
-date: 2022-11-24 19:26:06
-author: 秋谨
----
-<Boxx/>
-
 # 介绍
 
-co-utils工具库是基于typescript实现的一个常用库封装
+co-utils-vue工具库是基于typescript实现的一个常用库封装
 
 # 安装
 
 ```bash
-npm install co-utils -D
+npm install co-utils-vue -D
 ```
 
 # 使用
@@ -596,4 +589,16 @@ watch(()=>[form], ()=>{
   console.log(useFormValueWatcher(form, origin)) // 表单发生变化返回true,否则false
 },{ deep: true })
 ```
+
+### useSortByKey
+
+根据某个数组值进行排序，如数据类型是`object[]`形式,可以通过`key`自定义需要的排序的键
+
+`options`配置项
+
+| 参数        | 类型         | 默认值 | 说明                     |
+| ----------- | ------------ | ------ | ------------------------ |
+| `order`     | `dec`| `asc` | `dec`  | 排序的方式，升序或者降序 |
+| `key`       | `object`的键 |        |                          |
+| `compareFn` | Funtion      | -      | 提供自定义比较函数       |
 
