@@ -66,7 +66,7 @@ export const useSortByKey = <T = any>(
         ? (_a as string).localeCompare(_b as string)
         : (_b as string).localeCompare(_a as string);
     }
-    if (isNumber(a) && isNumber(b)) {
+    if (isNumber(_a) && isNumber(_b)) {
       return options.order === 'asc'
         ? (_a as number) - (_b as number)
         : (_b as number) - (_a as number);

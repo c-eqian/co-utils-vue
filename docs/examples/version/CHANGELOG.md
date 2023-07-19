@@ -1,6 +1,19 @@
 # 更新日志 
 
 
+## [1.8.0](https://github.com/C1320/co-utils/compare/v1.7.0...v1.8.0) (2023-07-19)
+
+
+### ✨ Features | 新功能
+
+* 添加passwordStrengthLevel ([88d9a17](https://github.com/C1320/co-utils/commit/88d9a1734f75d9911f6d012a974538e2619d2983))
+* 添加useLabelByVal ([db5a7ee](https://github.com/C1320/co-utils/commit/db5a7eede003791cee262b2442cc6703323d89c5))
+
+
+###   Bug Fixes | Bug 修复
+
+* isNumber修复 ([4ad71ed](https://github.com/C1320/co-utils/commit/4ad71edb1030dc26065b53bf0a3926d010a003e6))
+
 ## [1.7.0](https://github.com/C1320/co-utils/compare/v1.6.0...v1.7.0) (2023-07-13)
 
 
