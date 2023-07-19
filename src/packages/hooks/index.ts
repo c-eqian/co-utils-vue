@@ -14,3 +14,4 @@ export * from './use-pick';
 export * from './use-debounce';
 export * from './use-form-value-watcher';
 export * from './use-label';
+export * from './use-sort';
