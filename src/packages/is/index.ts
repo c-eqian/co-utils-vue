@@ -43,7 +43,8 @@ export const isObjectLike = <T>(value: T) => {
  * @returns Boolean
  */
 export const isNumber = <T>(value: T): boolean => {
-  return typeof value === 'number' || (isObjectLike(value) && getTag(value) === '[object Number]');
+  // return typeof value === 'number' || (isObjectLike(value) && getTag(value) === '[object Number]');
+  return typeof value === 'number';
 };
 export const isString = value => {
   const type = typeof value;
