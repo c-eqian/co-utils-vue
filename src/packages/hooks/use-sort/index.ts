@@ -60,7 +60,7 @@ export const useSortByKey = <T = any>(
       return options.compareFn ? options.compareFn(a, b) : 0;
     }
     const _a = isObjectLike(a) ? a[options.key] : a;
-    const _b = isObjectLike(a) ? a[options.key] : a;
+    const _b = isObjectLike(b) ? b[options.key] : b;
     if (isString(_a) && isString(_b)) {
       return options.order === 'asc'
         ? (_a as string).localeCompare(_b as string)
