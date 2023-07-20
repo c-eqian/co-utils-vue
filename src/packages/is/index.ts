@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-12-23 14:12:45
  */
 
-import { getTag } from '@/packages/helper';
+import { getTag } from '../helper';
 
 /**
  * 是否为大陆手机号
