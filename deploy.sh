@@ -9,10 +9,10 @@ set -e
 npm run release
 # 复制版本日志到文档日志
 # shellcheck disable=SC2046
-cp CHANGELOG.md $(pwd)/docs/examples/version/
+cp -f CHANGELOG.md $(pwd)/docs/examples/version/
 # 复制文档
 # shellcheck disable=SC2046
-cp co-utils工具库.md $(pwd)/docs/examples/utils/
+cp -f README.md $(pwd)/docs/examples/utils/co-utils工具库.md
 
 # 推送分支及发布仓库
 git push origin master&&git push origin --tags&&npm publish
