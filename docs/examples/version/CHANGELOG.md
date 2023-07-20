@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+## [1.9.0](https://github.com/C1320/co-utils/compare/v1.8.3...v1.9.0) (2023-07-20)
+
+
+### ✨ Features | 新功能
+
+* 添加isNumeric，优化useSortByKey ([df084e6](https://github.com/C1320/co-utils/commit/df084e6debd2246c0b2c7d53bd486f3a4e8b8bec))
+
 ### [1.8.3](https://github.com/C1320/co-utils/compare/v1.8.2...v1.8.3) (2023-07-19)
 
 
