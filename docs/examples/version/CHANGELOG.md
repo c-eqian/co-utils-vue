@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [1.8.3](https://github.com/C1320/co-utils/compare/v1.8.2...v1.8.3) (2023-07-19)
+
+
+###   Bug Fixes | Bug 修复
+
+* isNumber修复 ([479318b](https://github.com/C1320/co-utils/commit/479318ba2132d48e91b11b9dd47478bcdf3ff130))
+
 ### [1.8.2](https://github.com/C1320/co-utils/compare/v1.8.1...v1.8.2) (2023-07-19)
 
 

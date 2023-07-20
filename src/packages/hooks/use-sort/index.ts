@@ -1,5 +1,5 @@
 import { ref, Ref, watchEffect } from 'vue';
-import { isFunction, isNumber, isObjectLike, isString } from '@/packages/is';
+import { isFunction, isNumeric, isObjectLike, isString } from '@/packages/is';
 
 export interface SortOption<T> {
   key?: keyof T;
@@ -61,15 +61,13 @@ export const useSortByKey = <T = any>(
     }
     const _a = isObjectLike(a) ? a[options.key] : a;
     const _b = isObjectLike(b) ? b[options.key] : b;
+    if (isNumeric(_a) && isNumeric(_b)) {
+      return options.order === 'asc' ? +_a - +_b : +_b - +_a;
+    }
     if (isString(_a) && isString(_b)) {
       return options.order === 'asc'
         ? (_a as string).localeCompare(_b as string)
         : (_b as string).localeCompare(_a as string);
-    }
-    if (isNumber(_a) && isNumber(_b)) {
-      return options.order === 'asc'
-        ? (_a as number) - (_b as number)
-        : (_b as number) - (_a as number);
     }
     return 0;
   });
