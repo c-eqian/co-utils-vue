@@ -1,6 +1,28 @@
 # 更新日志 
 
 
+## [1.10.0](https://github.com/C1320/co-utils-vue/compare/v1.9.0...v1.10.0) (2023-07-24)
+
+
+###   Documentation | 文档
+
+* 更新文档 ([18ed67c](https://github.com/C1320/co-utils-vue/commit/18ed67c7531a1d2d158d424e767ed24ee7a05fe2))
+* 更新文档 ([f758ee2](https://github.com/C1320/co-utils-vue/commit/f758ee2e328128aa7c2438dbfec54e3259928677))
+* 更新文档 ([1885767](https://github.com/C1320/co-utils-vue/commit/18857679d9129ec216ee5f11e41df2752489ab76))
+* 更新文档 ([80aaae0](https://github.com/C1320/co-utils-vue/commit/80aaae018a3b7c79a9953693bc3dc2c49b56a628))
+
+
+### ✨ Features | 新功能
+
+* 新增useClearObject ([0d1f1e6](https://github.com/C1320/co-utils-vue/commit/0d1f1e655799c6782aa9d8adf748f4e8c6e28941))
+
+
+### ✅ Tests | 测试
+
+* 添加测试覆盖率 ([509733e](https://github.com/C1320/co-utils-vue/commit/509733e0353384026a3555b40bd3d26e40f39c0e))
+* 添加jest ([e9bcd19](https://github.com/C1320/co-utils-vue/commit/e9bcd19b16870b08d06e40be49e0e0106a2ff27d))
+* cloneDeep添加测试用例 ([ece6f7f](https://github.com/C1320/co-utils-vue/commit/ece6f7f25ef9be27f1d36b08e6177df70e9531e7))
+
 ## [1.9.0](https://github.com/C1320/co-utils/compare/v1.8.3...v1.9.0) (2023-07-20)
 
 
