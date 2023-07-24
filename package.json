@@ -1,6 +1,6 @@
 {
   "name": "co-utils-vue",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "工具库",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
