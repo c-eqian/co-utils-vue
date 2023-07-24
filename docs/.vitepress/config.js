@@ -8,7 +8,7 @@
  */
 export default {
   title: 'cz-文档',
-  base: '/co-utils/',
+  base: '/co-utils-vue/',
   themeConfig: {
     logo: "/logo-cz.png",
     nav: customerNav(),
