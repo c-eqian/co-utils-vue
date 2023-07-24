@@ -50,7 +50,7 @@ export const useSort = <T>(data: Ref<T[]>, options: SortOption<T> = {}) => {
 export const useSortByKey = <T = any>(
   data: T[],
   options: {
-    order: 'dec' | 'asc';
+    order?: 'dec' | 'asc';
     key: keyof T;
     compareFn?: (a: T, b: T) => number;
   }

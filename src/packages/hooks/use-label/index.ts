@@ -1,8 +1,3 @@
-export type IUseLabelList = {
-  value?: string;
-  label?: string;
-};
-
 /**
  * 根据val值提取对应的label标签
  * @param list 一个数组数据
@@ -14,7 +9,7 @@ export type IUseLabelList = {
  *      value: 'value'
  *      return: 'label'
  */
-export const useLabelByVal = <T extends IUseLabelList>(
+export const useLabelByVal = <T>(
   list: T[],
   value: string | number,
   options?: {

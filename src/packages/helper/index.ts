@@ -126,3 +126,10 @@ export type Extract<T, U> = T extends U ? T : never;
 export type Record<K extends keyof any, T> = {
   [P in K]: T;
 };
+
+/**
+ * 深度递归对象变为可选
+ */
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};

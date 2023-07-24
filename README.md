@@ -1,6 +1,6 @@
 # 介绍
 
- ![npm](https://img.shields.io/npm/v/co-utils-vue)
+ ![npm](https://img.shields.io/npm/v/co-utils-vue)![下载](https://img.shields.io/npm/dm/co-utils-vue.svg)
 
 co-utils-vue工具库是基于typescript实现的一个常用库封装
 

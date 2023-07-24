@@ -51,7 +51,6 @@ export const beforeDate = (
 ) => {
   // 获取日期时间戳
   const _date = formatDate(date, 'yyyy-MM-dd HH:mm:ss');
-  console.log(13, _date);
   const dateTimeStamp = new Date(_date).getTime();
   // 获取当前时间戳
   const nowTimeStamp = new Date().getTime();
