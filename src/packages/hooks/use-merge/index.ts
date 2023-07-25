@@ -1,8 +1,5 @@
 import { isObjectLike } from '@/packages/is';
-
-export type ObjectType<T = any> = {
-  [key: string | number]: T | ObjectType<T>;
-};
+import { DeepPartial } from '@/packages/helper';
 
 /**
  * useMerge 函数使用了递归的方式，可以深度合并多个对象。
@@ -12,15 +9,25 @@ export type ObjectType<T = any> = {
  * @param target
  * @param sources
  */
-export const useMerge = <T>(target: T, ...sources: T[]): T => {
-  for (const source of sources) {
+export const useMerge = <T>(target: T, ...sources: DeepPartial<T>[]): T => {
+  if (!sources.length) {
+    return target;
+  }
+  const source = sources.shift();
+
+  if (source && isObjectLike(source)) {
     for (const key in source) {
-      if (isObjectLike(source[key]) && isObjectLike(target[key])) {
-        useMerge(target[key], source[key]);
-      } else {
-        target[key as keyof typeof target] = source[key];
+      if (source.hasOwnProperty(key)) {
+        if (source[key] && isObjectLike(source[key]) && !Array.isArray(source[key])) {
+          if (!target[key] || !isObjectLike(target[key])) {
+            target[key] = {} as any;
+          }
+          useMerge(target[key as any], source[key as any]);
+        } else {
+          target[key as any] = source[key as keyof typeof source];
+        }
       }
     }
   }
-  return target;
+  return useMerge(target, ...sources);
 };

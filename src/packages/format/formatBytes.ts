@@ -1,6 +1,14 @@
-export const formatBytes = (bytes: number, decimal: number) => {
-  if (0 === bytes) return '0B';
-  let e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-    f = Math.floor(Math.log(bytes) / Math.log(1024));
-  return parseFloat((bytes / Math.pow(1024, f)).toFixed(decimal || 2)) + e[f];
+export const formatBytes = (value: number, decimal = 2) => {
+  if (value === 0) {
+    return '0 Bytes';
+  }
+
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  const k = 1024;
+  const dm = decimal < 0 ? 0 : decimal;
+  const i = Math.floor(Math.log(value) / Math.log(k));
+  if (i >= sizes.length) {
+    return 'Number too large';
+  }
+  return parseFloat((value / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 };

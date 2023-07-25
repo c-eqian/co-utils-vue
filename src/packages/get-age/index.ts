@@ -8,7 +8,7 @@
  */
 import { isIdCard } from '../is';
 import { getCardInfo } from '../helper';
-import { formatDate } from '../format/formatDate';
+import { formatDate } from '@/packages/format';
 
 /**
  * 计算年龄

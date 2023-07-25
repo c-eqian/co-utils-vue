@@ -1,4 +1,4 @@
-import { treeToArr } from '../index';
+import { treeToArr } from '../packages/tree';
 import { useSortByKey } from '@/packages/hooks';
 
 describe('treeToArr', () => {

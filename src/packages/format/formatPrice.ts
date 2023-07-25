@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-12-09 19:41:00
  */
 
-import { isNumber } from '@/packages/is';
+import { isNumeric } from '@/packages/is';
 import { toFixedFix } from '@/packages/helper';
 
 /**
@@ -15,7 +15,7 @@ import { toFixedFix } from '@/packages/helper';
  * @param price 金额
  * @param decimals 需要保留小数点 默认2
  * @param separator 千分位符号 默认","
- * @param round 为true时保留位数向下取整，否则向上取整，默认为true
+ * @param round 是否四舍五入
  * @returns
  */
 export const formatPriceToThousand = (
@@ -25,15 +25,13 @@ export const formatPriceToThousand = (
   round = true
 ) => {
   // 是否是原始数值类型，isFinite处理Infinity、NaN
-  if (isNumber(+price) && isFinite(+price)) {
+  if (isNumeric(+price) && isFinite(+price)) {
     // 校验decimals
-    if (!(isNumber(decimals) && isFinite(decimals))) {
+    if (!(isNumeric(decimals) && isFinite(decimals))) {
       decimals = 2;
     }
     // 处理小数
-    let _price = `${
-      decimals ? toFixedFix(+price, decimals) : round ? Math.floor(+price) : Math.ceil(+price)
-    }`.split('.');
+    let _price = `${toFixedFix(+price, decimals, round)}`.split('.');
     const re = /(-?\d+)(\d{3})/;
     while (re.test(_price[0])) {
       _price[0] = _price[0].replace(re, '$1' + separator + '$2');
