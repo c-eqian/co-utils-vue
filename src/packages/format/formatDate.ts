@@ -60,18 +60,27 @@ export const formatDate = (date: number | string | Date, format = 'yyyy-MM-dd'):
 /**
  * 计算日期时间与当前日期时间的差值
  * @param date 比较日期时间
+ * @param target 与目标时间比较，默认为空，则选取当前时间
  * @param resDefault 当比较时间大于当前时间时，设置的默认返回值，如无设置，默认返回格式化后时间
  * @returns 比较差值时间：几（年、月、天、时、分、秒）前
  */
 export const beforeDate = (
   date: number | string | Date,
+  target:number | string | Date = '',
   resDefault: string | number | null = ''
 ) => {
   // 获取日期时间戳
   const _date = formatDate(date, 'yyyy-MM-dd HH:mm:ss');
   const dateTimeStamp = new Date(_date).getTime();
-  // 获取当前时间戳
-  const nowTimeStamp = new Date().getTime();
+  let nowTimeStamp = 0
+  if(!target){
+    // 获取当前时间戳
+    nowTimeStamp = new Date().getTime();
+  } else {
+    // 获取目标时间日期时间戳
+    const _date = formatDate(target, 'yyyy-MM-dd HH:mm:ss');
+    nowTimeStamp = new Date(_date).getTime();
+  }
   // 单位换算：
   const seconds = 1000;
   const minutes = seconds * 60;
@@ -82,7 +91,7 @@ export const beforeDate = (
   const year = months * 12;
   // 时间间隔（时间戳）
   const timeStamp = nowTimeStamp - dateTimeStamp;
-  if (timeStamp < 0) return resDefault ?? _date;
+  if (timeStamp < 0) return resDefault;
   if (timeStamp / year >= 1) return `${parseInt(`${timeStamp / year}`, 10)}年前`;
   if (timeStamp / months >= 1) return `${parseInt(`${timeStamp / months}`, 10)}个月前`;
   if (timeStamp / weekdays >= 1) return `${parseInt(`${timeStamp / weekdays}`, 10)}周前`;
