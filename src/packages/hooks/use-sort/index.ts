@@ -51,16 +51,16 @@ export const useSortByKey = <T = any>(
   data: T[],
   options: {
     order?: 'dec' | 'asc';
-    key: keyof T;
+    key?: keyof T;
     compareFn?: (a: T, b: T) => number;
   }
 ): T[] => {
   return data.sort((a, b) => {
-    if (isFunction(options.compareFn)) {
-      return options.compareFn ? options.compareFn(a, b) : 0;
+    if (isFunction(options?.compareFn)) {
+      return options.compareFn ? options?.compareFn(a, b) : 0;
     }
-    const _a = isObjectLike(a) ? a[options.key] : a;
-    const _b = isObjectLike(b) ? b[options.key] : b;
+    const _a = isObjectLike(a) ? a[options.key!] : a;
+    const _b = isObjectLike(b) ? b[options.key!] : b;
     if (isNumeric(_a) && isNumeric(_b)) {
       return options.order === 'asc' ? +_a - +_b : +_b - +_a;
     }
