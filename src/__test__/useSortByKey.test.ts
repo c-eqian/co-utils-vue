@@ -38,5 +38,89 @@ describe('useSortByKey', () => {
         age: 18
       }
     ]);
+    expect(
+      useSortByKey(
+        [
+          {
+            name: '2',
+            age: '19'
+          },
+          {
+            name: '1',
+            age: '18'
+          }
+        ],
+        {
+          order: 'dec',
+          key: 'age'
+        }
+      )
+    ).toEqual([
+      {
+        name: '2',
+        age: '19'
+      },
+      {
+        name: '1',
+        age: '18'
+      }
+    ]);
+    expect(
+      useSortByKey(
+        [
+          {
+            name: '2',
+            age: 19
+          },
+          {
+            name: '1',
+            age: 18
+          }
+        ],
+        {
+          order: 'dec',
+          key: 'name'
+        }
+      )
+    ).toEqual([
+      {
+        name: '2',
+        age: 19
+      },
+      {
+        name: '1',
+        age: 18
+      }
+    ]);
+    expect(
+      useSortByKey(
+        [
+          {
+            name: '2',
+            age: 19
+          },
+          {
+            name: '1',
+            age: 18
+          }
+        ],
+        {
+          order: 'dec',
+          key: 'age',
+          compareFn: (a, b) => {
+            return b.age - a.age;
+          }
+        }
+      )
+    ).toEqual([
+      {
+        name: '2',
+        age: 19
+      },
+      {
+        name: '1',
+        age: 18
+      }
+    ]);
   });
 });

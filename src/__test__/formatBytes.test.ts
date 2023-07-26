@@ -9,11 +9,22 @@ describe('formatBytes', () => {
     {
       value: 1048576,
       expect: '1 MB'
+    },
+    {
+      value: 0,
+      expect: '0 Bytes'
+    },
+    {
+      value: 104857610485761048576104857610485761048576,
+      expect: 'Number too large'
     }
   ];
   bytes.forEach(item => {
     it('should ', () => {
       expect(formatBytes(item.value)).toBe(item.expect);
     });
+  });
+  it('should ', () => {
+    expect(formatBytes(1048576, -1)).toBe('1 MB');
   });
 });

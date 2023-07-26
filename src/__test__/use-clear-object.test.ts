@@ -58,5 +58,35 @@ describe('useClearObject', () => {
         }
       }
     });
+    expect(
+      useClearObject(
+        {
+          key: '8899797',
+          nested: {
+            ll: '123',
+            aa: 123,
+            cc: true,
+            dd: [1223],
+            ee: null,
+            deep: {
+              nestedKey: 'nestedValue'
+            }
+          }
+        },
+        {
+          key: '',
+          nested: {
+            ll: '',
+            aa: 0,
+            cc: false,
+            dd: [],
+            ee: null,
+            deep: {
+              nestedKey: ''
+            }
+          }
+        }
+      )
+    );
   });
 });

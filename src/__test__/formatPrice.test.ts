@@ -22,5 +22,7 @@ describe('formatPriceToThousand', () => {
     expect(formatPriceToThousand(201314.36548, 3, '-')).toBe('201-314.365');
     expect(formatPriceToThousand(201314.36568, 3, '-', true)).toBe('201-314.366');
     expect(formatPriceToThousand(201314.36568, 3, '-', false)).toBe('201-314.365');
+    expect(formatPriceToThousand(201314.36568, Infinity, '-', false)).toBe('201-314.36');
+    expect(formatPriceToThousand('tt201314.36568', 3, '-', false)).toBe('00.00');
   });
 });

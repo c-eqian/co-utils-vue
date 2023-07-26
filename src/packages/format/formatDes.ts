@@ -15,7 +15,7 @@ import { isIdCard, isPhone } from '../is';
  */
 export const desIdCard = (idCard: string) => {
   if (!isIdCard(idCard)) {
-    throw new Error(`${idCard} is invalid idCard`);
+    return idCard;
   }
   return idCard.replace(/^(.{6})(?:\d+)(.{4})$/, '$1****$2');
 };
@@ -26,7 +26,7 @@ export const desIdCard = (idCard: string) => {
  */
 export const desPhone = (phone: string) => {
   if (!isPhone(phone)) {
-    throw new Error(`${phone} is invalid phone number`);
+    return phone;
   }
   return phone.replace(/^(.{3})(?:\d+)(.{4})$/, '$1****$2');
 };

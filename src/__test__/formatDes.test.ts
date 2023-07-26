@@ -15,4 +15,8 @@ describe('desIdCard', () => {
   it('should ', () => {
     expect(desPhone('19994402236')).toBe('199****2236');
   });
+  it('测试异常 ', () => {
+    expect(desPhone('199944026')).toBe('199944026');
+    expect(desIdCard('199944026')).toBe('199944026');
+  });
 });

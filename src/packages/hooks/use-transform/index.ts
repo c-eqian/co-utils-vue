@@ -7,14 +7,22 @@
  * @LastEditTime: 2022-12-26 17:07:21
  */
 import { Omit, Partial } from '@/packages/helper';
-import { cloneDeep } from '@/packages/clone-deep';
 
 export type IProps<T = any> = T & {
   children: T[];
 };
 export interface IOptions {
+  /**
+   * 父节点的键名称
+   */
   parent: string;
+  /**
+   * 数据节点标识
+   */
   key: string;
+  /**
+   * 作为父节点的依据值
+   */
   pid: string | number | null;
 }
 
@@ -24,7 +32,7 @@ export interface IOptions {
  * @param options
  * @returns
  */
-export const arrToTree = <T>(
+export const useTransformTree = <T>(
   arrData: T[],
   options: Partial<IOptions> = {
     parent: 'parent',
@@ -38,7 +46,7 @@ export const arrToTree = <T>(
   options.pid = options.pid === undefined ? null : options.pid;
   arrData.forEach(item => {
     if (item[options.parent!] === options.pid) {
-      const children = arrToTree(
+      const children = useTransformTree(
         arrData.filter(v => v[options.parent ?? 'parent'] !== options.pid),
         {
           parent: options.parent,
@@ -52,30 +60,40 @@ export const arrToTree = <T>(
   return res;
 };
 
-export interface ITreeOptions {
-  children?: string;
-}
 /**
  *
  * @param data 树形结构扁平化
  * @param options
  * @returns
  */
-export const treeToArr = <T>(
+interface ITreeOptions {
+  children?: string;
+}
+
+export const useTransformList = <T>(
   data: T[],
   options: ITreeOptions = {
     children: 'children'
   }
-) => {
-  options.children = options.children ?? 'children';
+): Omit<T, 'children'>[] => {
+  const { children = 'children' } = options;
   let res: Omit<T, 'children'>[] = [];
-  for (let i = 0; i < data.length; i++) {
-    const cloneData = cloneDeep(data[i]);
-    if (data[i][options.children]?.length) {
-      res = res.concat(treeToArr(data[i][options.children], options));
-    }
-    delete cloneData[options.children];
+
+  const transform = (node: T): void => {
+    const cloneData = { ...node };
+    delete cloneData[children];
     res.push(cloneData);
+
+    if (node[children] && node[children].length) {
+      for (const child of node[children]) {
+        transform(child);
+      }
+    }
+  };
+
+  for (const node of data) {
+    transform(node);
   }
+
   return res;
 };

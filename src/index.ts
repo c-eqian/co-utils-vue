@@ -8,7 +8,7 @@
  */
 export * from './packages/clone-deep';
 export * from './packages/format';
-export * from './packages/tree';
+export * from './packages/hooks/use-transform';
 export * from './packages/helper';
 export * from './packages/is';
 export * from './packages/hooks';

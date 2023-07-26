@@ -1,7 +1,7 @@
-import { treeToArr } from '../packages/tree';
+import { useTransformList } from '@/packages/hooks';
 import { useSortByKey } from '@/packages/hooks';
 
-describe('treeToArr', () => {
+describe('useTransformList', () => {
   const three = [
     {
       parent: null,
@@ -82,7 +82,7 @@ describe('treeToArr', () => {
     key: 'id'
   });
   it('数组扁平化', () => {
-    const res = useSortByKey(treeToArr(three), {
+    const res = useSortByKey(useTransformList(three), {
       key: 'id'
     });
     expect(res).toEqual(_arr);

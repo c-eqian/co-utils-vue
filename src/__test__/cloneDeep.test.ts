@@ -107,4 +107,23 @@ describe('cloneDeep', () => {
       }).not.toEqual(item.expect);
     });
   });
+  it('测试Symbol类型 ', function () {
+    const a = Symbol('a');
+    expect(
+      cloneDeep({
+        [a]: 1
+      })
+    ).toEqual({
+      [a]: 1
+    });
+  });
+  it('测试循环引用 ', function () {
+    const data: any = {
+      name: '11',
+      age: 18,
+      info: [1, 2, 3]
+    };
+    data.e = data;
+    expect(cloneDeep(data)).toEqual(data);
+  });
 });
