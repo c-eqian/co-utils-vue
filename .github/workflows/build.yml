@@ -1,0 +1,124 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+# 触发条件：在 push 到 master 分支后
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - run: yarn
+      # 测试，并生成测试覆盖率文件
+      - run: yarn run test:coverage
+      - run: yarn run build
+      # 上报
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.ACCESS_TOKEN }}
+
+  # publish-npm任务
+  publish-npm:
+    # 在ubuntu最新版本的虚拟机执行
+    runs-on: ubuntu-latest
+    # 设置变量
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      # 检查并切换到master分支
+      - name: 检查master分支
+        # 使用actions/checkout插件
+        uses: actions/checkout@v3
+
+      # 初始化缓存
+      - name:  缓存
+        uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{runner.OS}}-${{hashFiles('**/yarn.lock')}}
+
+      # 安装node
+      - name: 设置Node.js
+        # 使用actions/setup-node插件
+        uses: actions/setup-node@v3
+        with:
+          # node版本
+          node-version: ${{ matrix.node-version }}
+      - run: yarn
+      - run: yarn run build
+      # 发布版本号
+      - run: yarn run release
+      # 复制版本日志到文档日志
+      - run: cp -f CHANGELOG.md $(pwd)/docs/examples/version/
+      # 复制文档
+      - run: cp -f README.md $(pwd)/docs/examples/utils/co-utils工具库.md
+
+      # 读取当前版本号
+      - name: 读取当前版本号
+        id: version
+        uses: notiz-dev/github-action-json-property@release
+        with:
+          # 读取版本号
+          path: './package.json'
+          prop_path: 'version'
+
+      - run: echo ${{steps.version.outputs.prop}}
+
+      # 创建Release
+      - name: release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./dist/index.umd.js
+          name: v${{steps.version.outputs.prop}}
+          tag_name: v${{steps.version.outputs.prop}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
+      # 发布NPM包
+      - name: 发布NPM包
+        # 执行发布代码
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npm publish
+        env:
+          # 配置 npm access token 环境变量
+          NPM_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: 构建文档
+        run: yarn run docs:build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs/.vitepress/dist
+      # 刷新缓存
+      - name: 刷新缓存
+        run: |
+          curl https://purge.jsdelivr.net/npm/iemotion-pic@latest/lib/name.json
