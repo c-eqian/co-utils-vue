@@ -20,13 +20,15 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - run: yarn
+      - run: git config --global user.email "2429120006@qq.com"
+      - run:  git config --global user.name "leisure"
       # 测试，并生成测试覆盖率文件
       - run: yarn run test:coverage
       - run: yarn run build
@@ -48,7 +50,7 @@ jobs:
       # 检查并切换到master分支
       - name: 检查master分支
         # 使用actions/checkout插件
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       # 初始化缓存
       - name:  缓存
@@ -66,6 +68,8 @@ jobs:
           # node版本
           node-version: ${{ matrix.node-version }}
       - run: yarn
+      - run: git config --global user.email "2429120006@qq.com"
+      - run:  git config --global user.name "leisure"
       - run: yarn run build
       # 发布版本号
       - run: yarn run release
@@ -106,7 +110,7 @@ jobs:
           NPM_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           persist-credentials: false
 
