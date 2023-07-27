@@ -81,10 +81,8 @@ jobs:
          cp -f README.md $(pwd)/docs/examples/utils/co-utils工具库.md
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      - name: ''
-        uses: |
-          actions/checkout@v3
-          actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
          # 发布NPM包
       - name: 发布NPM包
       # 发布NPM包
