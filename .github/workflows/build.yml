@@ -90,7 +90,9 @@ jobs:
         run: |
           echo "Updating package.json version"
       - name: Update package.json
-        run: sed -i "s/\"version\": \".*\"/\"version\": \"$(standard-version --dry-run | awk '/tagging release/ {print $4}')\"/" package.json
+        run: |
+          version=$(standard-version --dry-run | awk '/tagging release/ {print $4}')
+          sed -i "s/\"version\": \".*\"/\"version\": \"$version\"/" package.json
       - name: Commit changes
         run: |
           git config --global user.email "2429120006@qq.com"
