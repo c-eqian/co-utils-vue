@@ -36,7 +36,7 @@ jobs:
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
-          repo_token: ${{ secrets.COVERALLS_ACCESS_TOKEN }}
+          github-token: ${{ secrets.COVERALLS_ACCESS_TOKEN }}
 
   # publish-npm任务
   publish-npm:
