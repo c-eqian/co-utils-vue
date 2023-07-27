@@ -33,7 +33,7 @@ export const getAge = (birth: string) => {
   // 年差值
   const year = nowYear - parseInt(birthYear, 10);
   if (year > 0) {
-    if (`${nowMonth}` === birthMonth) {
+    if (parseInt(String(nowMonth), 10) === parseInt(birthMonth, 10)) {
       return nowDay - parseInt(birthDay, 10) < 0 ? year - 1 : year;
     }
     return nowMonth - parseInt(birthMonth, 10) < 0 ? year - 1 : year;

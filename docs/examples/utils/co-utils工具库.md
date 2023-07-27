@@ -1,6 +1,7 @@
 # 介绍
 
- ![npm](https://img.shields.io/npm/v/co-utils-vue)![下载](https://img.shields.io/npm/dm/co-utils-vue.svg)
+ ![npm](https://img.shields.io/npm/v/co-utils-vue)![下载](https://img.shields.io/npm/dm/co-utils-vue.svg)[![Coverage Status](https://coveralls.io/repos/github/C1320/co-utils-vue/badge.svg?branch=master)](https://coveralls.io/github/C1320/co-utils-vue?branch=master)
+
 
 co-utils-vue工具库是基于typescript实现的一个常用库封装
 
@@ -134,7 +135,6 @@ console.log(getAge("1999-12-25")) // 23
 test-bb.vue:48 console.log(getAge("450603200012253396")) // 22
 test-bb.vue:49 console.log(getAge("78888")) // -1 (格式错误或出生日期晚于当前时间)
 ```
-
 ## 数学
 
 ### toFixedFix
@@ -151,9 +151,13 @@ console.log(toFixedFix("45588.28, 3")) // 45588.28
 
 ## 数据
 
-### arrToTree
+### useTransformTree <sup>1.10.0</sup>
+::: warning 注意
+V1.10.0版本之后将会使用```useTransformTree```代替```arrToTree```
+:::
 
-`arrToTree`数组数据转树形结构，`arrToTree`具有两个参数，`arrData`是必须的数组数据，`options`参数是可选项，`parent`是可选的绑定父节点字段，默认为`parent`，`key` 默认是可选的每组数据的唯一标识字段,默认值为`id`（这两个字段是可以自定义的）,`pid`字段是作为父节点时的值，默认为`null`
+
+` useTransformTree `数组数据转树形结构，` useTransformTree `具有两个参数，`arrData`是必须的数组数据，`options`参数是可选项，`parent`是可选的绑定父节点字段，默认为`parent`，`key` 默认是可选的每组数据的唯一标识字段,默认值为`id`（这两个字段是可以自定义的）,`pid`字段是作为父节点时的值，默认为`null`
 
 **`options`参数**
 
@@ -246,9 +250,11 @@ const arr = [{ parent: null, id: 1, name: '北京' },
 ]
 ```
 
-### treeToArr
-
-`treeToArr`树形结构数据进行扁平化，其中在每一组数据中，应该包含`children`字段，如果不是该字段，那么此时应该传入**可选参数**`options`进行替换
+### useTransformList  <sup>1.10.0</sup>
+::: warning 注意
+V1.10.0版本之后将会使用```useTransformList```代替```treeToArr```
+:::
+`useTransformList`树形结构数据进行扁平化，其中在每一组数据中，应该包含`children`字段，如果不是该字段，那么此时应该传入**可选参数**`options`进行替换
 
 ```javascript
 {
