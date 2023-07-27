@@ -120,7 +120,7 @@ jobs:
           persist-credentials: false
 
       - name: 构建文档
-        run: yarn run docs:build
+        run: yarn && yarn run docs:build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
