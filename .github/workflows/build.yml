@@ -71,12 +71,25 @@ jobs:
       - run:  git config --global user.name "leisure"
       - run: yarn
       - run: yarn run build
-      # 发布版本号
-      - run: yarn run release
-      # 复制版本日志到文档日志
-      - run: cp -f CHANGELOG.md $(pwd)/docs/examples/version/
-      # 复制文档
-      - run: cp -f README.md $(pwd)/docs/examples/utils/co-utils工具库.md
+        # 发布版本号
+        # 复制版本日志到文档日志
+        # 复制文档
+      - name: Release
+        run: | 
+         yarn run release
+         cp -f CHANGELOG.md $(pwd)/docs/examples/version/
+         cp -f README.md $(pwd)/docs/examples/utils/co-utils工具库.md
+         npm publish
+        # 发布NPM包
+        uses: |
+             actions/checkout@v3
+             actions/setup-node@v3
+        with:
+          registry-url: https://registry.npmjs.org/
+        env:
+          # 配置 npm access token 环境变量
+          NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       # 读取当前版本号
       - name: 读取当前版本号
@@ -98,16 +111,6 @@ jobs:
           tag_name: v${{steps.version.outputs.prop}}
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-
-      # 发布NPM包
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          registry-url: https://registry.npmjs.org/
-      - run: npm publish
-        env:
-          # 配置 npm access token 环境变量
-          NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
 
       - name: Checkout
         uses: actions/checkout@v3
