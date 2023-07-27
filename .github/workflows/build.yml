@@ -26,6 +26,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
+      - run: git config --global user.email "2429120006@qq.com"
+      - run:  git config --global user.name "leisure"
       - run: yarn
       # 测试，并生成测试覆盖率文件
       - run: yarn run test:coverage
@@ -65,6 +67,8 @@ jobs:
         with:
           # node版本
           node-version: ${{ matrix.node-version }}
+      - run: git config --global user.email "2429120006@qq.com"
+      - run:  git config --global user.name "leisure"
       - run: yarn
       - run: yarn run build
       # 发布版本号
