@@ -30,13 +30,13 @@ jobs:
       - run:  git config --global user.name "leisure"
       - run: yarn
       # 测试，并生成测试覆盖率文件
-#       - run: yarn run test:coverage
-#       - run: yarn run build
-      # 上报
-#       - name: Coveralls
-#         uses: coverallsapp/github-action@master
-#         with:
-#           github-token: ${{ secrets.COVERALLS_ACCESS_TOKEN }}
+      - run: yarn run test:coverage
+      - run: yarn run build
+#       上报
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.COVERALLS_ACCESS_TOKEN }}
 
   # publish-npm任务
   publish-npm:
@@ -78,13 +78,15 @@ jobs:
         # 发布版本号
         # 复制版本日志到文档日志
         # 复制文档
-#       - name: Release
-#         run: | 
-#          yarn run release
-#           cp -f CHANGELOG.md $(pwd)/docs/examples/version/
-#           cp -f README.md $(pwd)/docs/examples/utils/co-utils工具库.md
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Release
+        run: | 
+         yarn run release
+         npm publish
+         cp -f CHANGELOG.md $(pwd)/docs/examples/version/
+         cp -f README.md $(pwd)/docs/examples/utils/co-utils工具库.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
 
       # 读取当前版本号
       - name: 读取当前版本号
@@ -98,14 +100,14 @@ jobs:
       - run: echo ${{steps.version.outputs.prop}}
 
       # 创建Release
-#       - name: release
-#         uses: softprops/action-gh-release@v1
-#         with:
-#           files: ./dist/index.umd.js
-#           name: v${{steps.version.outputs.prop}}
-#           tag_name: v${{steps.version.outputs.prop}}
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./dist/index.umd.js
+          name: v${{steps.version.outputs.prop}}
+          tag_name: v${{steps.version.outputs.prop}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       # 发布NPM包
 #       - name: 发布NPM包
