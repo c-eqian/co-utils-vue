@@ -1,4 +1,4 @@
-import { cloneDeep } from '@/packages/clone-deep';
+import { cloneDeep } from '../src/packages';
 
 describe('cloneDeep', () => {
   const test1 = [

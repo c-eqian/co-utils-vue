@@ -14,7 +14,7 @@ import pkg from './package.json'
 const name = 'RollupTsTemplate'
 const config = { 
   // 入口文件，src/index.ts
-  input: path.resolve(__dirname, 'src/index.ts'),
+  input: path.resolve(__dirname, 'src/packages/index.ts'),
   // 输出文件
   output: [
     // commonjs

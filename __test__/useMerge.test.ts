@@ -1,4 +1,4 @@
-import { useMerge } from '@/packages/hooks/use-merge';
+import { useMerge } from '../src/packages/hooks/use-merge';
 
 describe('useMerge', () => {
   const source = {

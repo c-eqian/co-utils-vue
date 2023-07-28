@@ -1,4 +1,4 @@
-import { useClearObject } from '@/packages/hooks/use-clear-object';
+import { useClearObject } from '../src/packages/hooks/use-clear-object';
 describe('useClearObject', () => {
   const data = {
     key: '8899797',

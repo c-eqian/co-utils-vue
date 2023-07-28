@@ -1,4 +1,4 @@
-import { usePick } from '@/packages/hooks';
+import { usePick } from '../src/packages/hooks';
 describe('usePick', () => {
   const data = {
     name: '张三',

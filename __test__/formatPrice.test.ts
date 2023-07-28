@@ -1,4 +1,4 @@
-import { formatPriceToThousand } from '@/packages/format';
+import { formatPriceToThousand } from '../src/packages/format';
 describe('formatPriceToThousand', () => {
   /**
    * price – 金额

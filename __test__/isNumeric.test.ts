@@ -1,4 +1,4 @@
-import { isNumeric } from '@/packages/is';
+import { isNumeric } from '../src/packages/is';
 const testConfig = [
   {
     value: '1222',

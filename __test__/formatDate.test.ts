@@ -1,4 +1,4 @@
-import {beforeDate, formatDate} from '@/packages/format';
+import {beforeDate, formatDate} from '../src/packages/format';
 describe('formatDate', () => {
   // 1G=1024M=1048576KB
   const data = [

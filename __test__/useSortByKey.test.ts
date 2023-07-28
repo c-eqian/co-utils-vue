@@ -1,4 +1,4 @@
-import { useSortByKey } from '@/packages/hooks';
+import { useSortByKey } from '../src/packages/hooks';
 describe('useSortByKey', () => {
   it('should ', function () {
     expect(

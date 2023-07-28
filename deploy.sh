@@ -5,8 +5,12 @@ set -e
 #jest --coverage
 # 构建
 # npm run build:types && rollup -c
-# 发布
-npm run release
+# 正式发布
+#npm run release
+# 内侧版本
+#npm run release:alpha
+# 预发布版本
+npm run release:rc
 # 复制版本日志到文档日志
 # shellcheck disable=SC2046
 cp -f CHANGELOG.md $(pwd)/docs/examples/version/

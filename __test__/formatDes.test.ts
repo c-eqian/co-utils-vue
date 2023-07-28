@@ -1,4 +1,4 @@
-import { desIdCard, desPhone } from '@/packages/format';
+import { desIdCard, desPhone } from '../src/packages/format';
 describe('desIdCard', () => {
   // 1G=1024M=1048576KB
   const test = [

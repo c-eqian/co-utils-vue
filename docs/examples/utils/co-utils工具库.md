@@ -1,6 +1,6 @@
 # 介绍
 
- ![npm](https://img.shields.io/npm/v/co-utils-vue)![下载](https://img.shields.io/npm/dm/co-utils-vue.svg)[![Coverage Status](https://coveralls.io/repos/github/C1320/co-utils-vue/badge.svg?branch=master)](https://coveralls.io/github/C1320/co-utils-vue?branch=master)
+![npm](https://img.shields.io/npm/v/co-utils-vue)![下载](https://img.shields.io/npm/dm/co-utils-vue.svg)[![Coverage Status](https://coveralls.io/repos/github/C1320/co-utils-vue/badge.svg?branch=master)](https://coveralls.io/github/C1320/co-utils-vue?branch=master)
 
 
 co-utils-vue工具库是基于typescript实现的一个常用库封装
@@ -258,7 +258,7 @@ V1.10.0版本之后将会使用```useTransformList```代替```treeToArr```
 
 ```javascript
 {
-  children?: string;
+    children?: string;
 }
 ```
 
@@ -312,7 +312,7 @@ ns.is('closeable') // is-closeable
 `setGlobalZIndex`设置全局 `z-index`，`getNextGlobalZIndex`全局` z-index` 自动自增，默认值2000，两者搭配使用
 
 ```javascript
-setGlobalZIndex(0) 
+setGlobalZIndex(0)
 getNextGlobalZIndex() // 1
 getNextGlobalZIndex() // 2
 getNextGlobalZIndex() // 3
@@ -357,7 +357,7 @@ console.log(isPhone("15448896666774")) // false
 
 ### isIdCard
 
-`isIdCard`接收一个字符串，判断是否是15或者18位身份证  
+`isIdCard`接收一个字符串，判断是否是15或者18位身份证
 
 ```javascript
 console.log(isIdCard('450603199906273529')) // true
@@ -383,21 +383,21 @@ console.log(isIdCard('45060319990886273529')) // false
 ```typescript
 const ws = ref<CoSocket>(); // 定义变量
 const initWebSocket = async () => {
-  ws.value = new CoSocket({
-    url: '服务地址',// 服务器地址
-    reconnectCount: 5, // 重连次数
-    messageCallBack: wsReceiveMsg, // 收到信息的回调
-    isReconnect: true,// 是否进行重连
-    openCallBack: () => { // 连接成功的回调方法
-      // ElMessage.success('连接成功');
-    },
-    errorCallBack: () => { // 连接错误的回调方法
-        //
-    }，
+    ws.value = new CoSocket({
+        url: '服务地址',// 服务器地址
+        reconnectCount: 5, // 重连次数
+        messageCallBack: wsReceiveMsg, // 收到信息的回调
+        isReconnect: true,// 是否进行重连
+        openCallBack: () => { // 连接成功的回调方法
+            // ElMessage.success('连接成功');
+        },
+        errorCallBack: () => { // 连接错误的回调方法
+            //
+        }，
      closeCallBack: () => { // 关闭连接的回调方法
-      //
-    }
-  });
+         //
+     }
+});
 };
 ws.value?.send(msg);// 发送数据
 ws.value?.close();// 关闭连接
@@ -451,14 +451,14 @@ console.log(getTag(Object)) //  [object Function]
 
 ```typescript
 interface ITest {
-  name: string;
-  age: number;
-  sex: string;
+    name: string;
+    age: number;
+    sex: string;
 }
 type TTest = Omit<ITest, 'age' | 'sex'>;
 // 相当于
 interface ITest1 {
-  name: string;
+    name: string;
 }
 ```
 
@@ -468,16 +468,16 @@ interface ITest1 {
 
 ```typescript
 interface ITest {
-  name: string;
-  age: number;
-  sex: string;
+    name: string;
+    age: number;
+    sex: string;
 }
 type TTest = Pick<ITest, 'age' | 'sex'>;
 
 // 相当于
 interface ITest1 {
-  age: number;
-  sex: string;
+    age: number;
+    sex: string;
 }
 ```
 
@@ -487,17 +487,17 @@ interface ITest1 {
 
 ```typescript
 interface ITest {
-  name: string;
-  age: number;
-  sex: string;
+    name: string;
+    age: number;
+    sex: string;
 }
 type TTest = Partial<ITest>;
 
 // 相当于
 interface ITest1 {
-  name?: string;
-  age?: number;
-  sex?: string;
+    name?: string;
+    age?: number;
+    sex?: string;
 }
 ```
 
@@ -507,17 +507,17 @@ interface ITest1 {
 
 ```typescript
 interface ITest {
-  name?: string;
-  age?: number;
-  sex?: string;
+    name?: string;
+    age?: number;
+    sex?: string;
 }
 type TTest = Required<ITest>;
 
 // 相当于
 interface ITest1 {
-  name: string;
-  age: number;
-  sex: string;
+    name: string;
+    age: number;
+    sex: string;
 }
 ```
 
@@ -529,19 +529,19 @@ interface ITest1 {
 type ITest = 'name' | 'age' | 'address' | 'phone' | 'email' | 'id'
 
 interface ITestModel {
-  test: string;
-  other: string;
+    test: string;
+    other: string;
 }
 type TTest = Record<ITest, ITestModel>;
 
 // 相当于
 interface ITest1 {
-  name: ITestModel;
-  age: ITestModel;
-  address: ITestModel;
-  phone: ITestModel;
-  email: ITestModel;
-  id: ITestModel;
+    name: ITestModel;
+    age: ITestModel;
+    address: ITestModel;
+    phone: ITestModel;
+    email: ITestModel;
+    id: ITestModel;
 }
 ```
 
@@ -577,10 +577,10 @@ type TTest1 = "age" | "address" | "email"
 
 ```typescript
 const test = {
-  book: '倚天屠龙记',
-  name: '金庸',
-  price: '18',
-  likes: '999'
+    book: '倚天屠龙记',
+    name: '金庸',
+    price: '18',
+    likes: '999'
 };
 console.log(usePick(test, [])); // {}
 console.log(usePick(test, ['name'])); // {name: '金庸'}
@@ -594,7 +594,7 @@ console.log(usePick(test, ['name'])); // {name: '金庸'}
 // vue3 使用实例
 const origin = cloneDeep(form) // 克隆原始表单数据
 watch(()=>[form], ()=>{
-  console.log(useFormValueWatcher(form, origin)) // 表单发生变化返回true,否则false
+    console.log(useFormValueWatcher(form, origin)) // 表单发生变化返回true,否则false
 },{ deep: true })
 ```
 
