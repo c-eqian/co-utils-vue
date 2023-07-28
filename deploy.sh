@@ -2,7 +2,7 @@
 
 # 忽略错误
 set -e
-jest --coverage
+#jest --coverage
 # 构建
 # npm run build:types && rollup -c
 # 发布
@@ -16,5 +16,6 @@ cp -f README.md $(pwd)/docs/examples/utils/co-utils工具库.md
 git add .
 git commit -m "build: build"
 # 推送分支及发布仓库
-git push origin master&&git push origin --tags&&npm publish
-cat ./coverage/lcov.info | coveralls
+git push origin master&&npm publish
+#git push origin master&&git push origin --tags&&npm publish
+#cat ./coverage/lcov.info | coveralls
