@@ -4,13 +4,13 @@
 set -e
 #jest --coverage
 # 构建
-# npm run build:types && rollup -c
+ npm run build
 # 正式发布
 #npm run release
 # 内侧版本
 #npm run release:alpha
 # 预发布版本
-npm run release:rc
+#npm run release:rc
 # 复制版本日志到文档日志
 # shellcheck disable=SC2046
 cp -f CHANGELOG.md $(pwd)/docs/examples/version/
@@ -21,5 +21,5 @@ git add .
 git commit -m "build: build"
 # 推送分支及发布仓库
 git push origin master&&npm publish
-#git push origin master&&git push origin --tags&&npm publish
-#cat ./coverage/lcov.info | coveralls
+git push origin master&&git push origin --tags&&npm publish
+cat ./coverage/lcov.info | coveralls
