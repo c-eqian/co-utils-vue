@@ -93,7 +93,15 @@ export const toFixedFix = (value: number, decimals = 2, round = true) => {
     return Math.floor(value * multiplier) / multiplier;
   }
 };
-
+/***
+ * 将数值转换为整数
+ * @param value
+ */
+export const toInteger = (value: number | string) => {
+  const result = +value;
+  const remainder = result % 1;
+  return remainder ? result - remainder : result;
+};
 /**
  * 剔除某些属性，然后返回一个新类型
  */

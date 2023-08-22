@@ -1,5 +1,5 @@
-import { useClearObject } from '../src/packages/hooks/use-clear-object';
-describe('useClearObject', () => {
+import { useEmptyObject } from '../src/packages/hooks/use-clear-object';
+describe('useEmptyObject', () => {
   const data = {
     key: '8899797',
     nested: {
@@ -19,11 +19,11 @@ describe('useClearObject', () => {
     }
   };
   it('测试用例1', () => {
-    expect(useClearObject(data)).toEqual(defaultValue);
+    expect(useEmptyObject(data)).toEqual(defaultValue);
   });
   it('测试用例2', () => {
     expect(
-      useClearObject(data, {
+      useEmptyObject(data, {
         nested: {
           deep: {
             nestedKey: '8888'
@@ -42,7 +42,7 @@ describe('useClearObject', () => {
   });
   it('测试用例3', () => {
     expect(
-      useClearObject(data, {
+      useEmptyObject(data, {
         nested: {
           deep: {
             nestedKey: '8989'
@@ -59,7 +59,7 @@ describe('useClearObject', () => {
       }
     });
     expect(
-      useClearObject(
+      useEmptyObject(
         {
           key: '8899797',
           nested: {

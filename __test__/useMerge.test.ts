@@ -76,5 +76,27 @@ describe('useMerge', () => {
       info: [3, 4]
     });
     expect(useMerge<number[]>([], [1, 2], [3, 4])).toEqual([3, 4]);
+    expect(
+      useMerge(
+        {},
+        {
+          name: '张三',
+          gender: '女'
+        },
+        {
+          name: '张三',
+          gender: '女'
+        },
+        {
+          name: '张三',
+          gender: '女',
+          info: [520]
+        }
+      )
+    ).toEqual({
+      name: '张三',
+      gender: '女',
+      info: [520]
+    });
   });
 });

@@ -11,7 +11,7 @@ import { DeepPartial } from '@/packages/helper';
  * @param data
  * @param defaultValue
  */
-export const useClearObject = <T>(data: T, defaultValue?: DeepPartial<T>) => {
+export const useEmptyObject = <T>(data: T, defaultValue?: DeepPartial<T>) => {
   const generateInitialValue = (value: any) => {
     if (typeof value === 'string') {
       return '';

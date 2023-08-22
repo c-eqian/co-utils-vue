@@ -151,9 +151,10 @@ console.log(toFixedFix("45588.28, 3")) // 45588.28
 
 ## 数据
 
-### useTransformTree <sup>1.10.0</sup>
+### useTransformTree <sup>1.10.3</sup>
+
 ::: warning 注意
-V1.10.0版本之后将会使用```useTransformTree```代替```arrToTree```
+V1.10.3版本之后将会使用```useTransformTree```代替```arrToTree```
 :::
 
 
@@ -250,9 +251,10 @@ const arr = [{ parent: null, id: 1, name: '北京' },
 ]
 ```
 
-### useTransformList  <sup>1.10.0</sup>
+### useTransformList  <sup>1.10.3</sup>
+
 ::: warning 注意
-V1.10.0版本之后将会使用```useTransformList```代替```treeToArr```
+V1.10.3版本之后将会使用```useTransformList```代替```treeToArr```
 :::
 `useTransformList`树形结构数据进行扁平化，其中在每一组数据中，应该包含`children`字段，如果不是该字段，那么此时应该传入**可选参数**`options`进行替换
 
@@ -366,7 +368,42 @@ console.log(isIdCard('45060319990886273529')) // false
 
 ### isObjectLike
 
+返回当前是否是`object`类型
+
+```javascript
+console.log(isObjectLike({})) // true
+console.log(isObjectLike([1, 2, 3])) // true
+console.log(isObjectLike(Function)) // false
+console.log(isObjectLike(null)) // false
+```
+
 ### isNumber
+
+用于检测值是否是`number`数值类型
+
+```javascript
+console.log(isNumber('-12.22')) // false
+console.log(isNumber(-12.22)) // true
+```
+
+### isNumeric
+
+用于检测值是否是`数字`数值类型，包含正数负数,可以说是`isNumber`的``增强版``
+
+```javascript
+console.log(isNumeric('1222')) // true
+console.log(isNumeric('+1222')) // true
+console.log(isNumeric('-1222')) // true
+console.log(isNumeric('12.22')) // true
+console.log(isNumeric('+12.22')) // true
+console.log(isNumeric(+12.22)) // true
+console.log(isNumeric('3.14e-10')) // true
+console.log(isNumeric('abc')) // false
+console.log(isNumeric('458.a')) // false
+console.log(isNumeric('122e')) // false
+```
+
+
 
 ### isValidKey
 
@@ -571,6 +608,8 @@ type TTest = Exclude<ITestModel, 'name' | 'phone'>;
 type TTest1 = "age" | "address" | "email"
 ```
 
+## hooks
+
 ### usePick
 
 与`Pick`选类似，但是usePick取指定一组属性值，返回一个新的属性值
@@ -609,4 +648,162 @@ watch(()=>[form], ()=>{
 | `order`     | `dec`| `asc` | `dec`  | 排序的方式，升序或者降序 |
 | `key`       | `object`的键 |        |                          |
 | `compareFn` | Funtion      | -      | 提供自定义比较函数       |
+
+### useMerge <sup>1.10.4</sup>
+
+`useMerge` 使用了递归的方式，可以深度合并多个对象，对于相同的键名，后面的对象会覆盖前面的对象。如果键对应的值是对象，则会递归合并其内部的键值对。
+
+**示例一**
+
+```typescript
+  const source = {
+    name: '张三',
+    gender: '女'
+  };
+  const source1 = {
+    name: '张三',
+    info: '信息'
+  };
+const mergeRes = useMerge(source, source1)
+/**
+{
+      name: '张三',
+      gender: '女',
+      info: '信息'
+    }
+**/
+```
+
+**示例二**
+
+```typescript
+  const source = {
+          name: '张三',
+          gender: '女',
+          info: {
+            name: '张强'
+          }
+        }
+  const source1 = {
+          name: '张4',
+          info: {
+            age: 18
+          }
+        }
+  const mergeRes = useMerge({}, source,source1)
+  /**
+  {
+      name: '张4',
+      gender: '女',
+      info: {
+        name: '张强',
+        age: 18
+      }
+    }
+  **/
+```
+
+**示例三**
+
+```typescript
+useMerge<number[]>([], [1, 2], [3, 4])) //[3, 4]
+
+useMerge(
+        {},
+        {
+          name: '张三',
+          gender: '女'
+        },
+        {
+          name: '张三',
+          gender: '女'
+        },
+        {
+          name: '张三',
+          gender: '女',
+          info: [520]
+        }
+      )
+/**
+      name: '张三',
+      gender: '女',
+      info: [520]
+**/
+```
+
+### useEmptyObject<sup>1.10.4</sup>
+
+`useEmptyObject`用于将对象值深度置空，会根据传入的对象值进行判断并赋予对应的空值。它接收两个参数`data`和`defaultValue`其中`data`是一个泛型，表示要清空的对象，`defaultValue`是一个部分类型* 它与`data`的类型一致，用于设置每个属性的初始值。在设置属性的初始值时，使用`defaultValue`对应字段的值来替换原有的属性值。最后，返回清空后的 `data `对象.
+
+**示例一**
+
+```typescript
+  const data = {
+    key: '8899797',
+    nested: {
+      ll: '123',
+      deep: {
+        nestedKey: 'nestedValue'
+      }
+    }
+  };
+useEmptyObject(data)
+/**
+{
+    key: '',
+    nested: {
+      ll: '',
+      deep: {
+        nestedKey: ''
+      }
+    }
+  }
+**/
+
+```
+
+**示例二**
+
+```typescript
+  const data = {
+    key: '8899797',
+    nested: {
+      ll: '123',
+      deep: {
+        nestedKey: 'nestedValue'
+      }
+    }
+  };
+useEmptyObject(data, {
+        nested: {
+          deep: {
+            nestedKey: '8888'
+          }
+        }
+      })
+/**
+{
+      key: '',
+      nested: {
+        ll: '',
+        deep: {
+          nestedKey: '8888'
+        }
+      }
+    }
+**/
+```
+
+### useChunk<sup>1.10.4</sup>
+
+将数组数据进行分片,内部做了正无穷负无穷处理
+
+```typescript
+useChunk(['a', 'b', 'c', 'd'], 0) // => []
+useChunk(['a', 'b', 'c', 'd'], 2) // => [['a', 'b'], ['c', 'd']]
+useChunk(['a', 'b', 'c', 'd'], 3) // => [['a', 'b', 'c'], ['d']]
+useChunk(['a', 'b', 'c', 'd'], 3.5) // => [['a', 'b', 'c'], ['d']]
+useChunk(['a', 'b', 'c', 'd'], 1 / 0) // => [['a'], ['b'], ['c'], ['d']]
+useChunk(['a', 'b', 'c', 'd'], -1 / 0) // => []
+```
 

@@ -1,5 +1,5 @@
-import { useTransformList } from '../src/packages/hooks';
-import { useSortByKey } from '../src/packages/hooks';
+import { useTransformList } from '../src/packages';
+import { useSortByKey } from '../src/packages';
 
 describe('useTransformList', () => {
   const three = [
