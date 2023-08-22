@@ -21,5 +21,5 @@ git add .
 git commit -m "build: build"
 # 推送分支及发布仓库
 git push origin master&&npm publish
-git push origin master&&git push origin --tags&&npm publish
+#git push origin master&&git push origin --tags&&npm publish
 cat ./coverage/lcov.info | coveralls
