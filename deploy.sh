@@ -16,7 +16,7 @@ npm run release
 cp -f CHANGELOG.md $(pwd)/docs/examples/version/
 # 复制文档
 # shellcheck disable=SC2046
-cp -f README.md $(pwd)/docs/examples/utils/co-utils工具库.md
+#cp -f README.md $(pwd)/docs/examples/utils/co-utils工具库.md
 git add .
 git commit -m "build: build"
 # 推送分支及发布仓库

@@ -2,8 +2,12 @@
 
 ![npm](https://img.shields.io/npm/v/co-utils-vue)![下载](https://img.shields.io/npm/dm/co-utils-vue.svg)[![Coverage Status](https://coveralls.io/repos/github/C1320/co-utils-vue/badge.svg?branch=master)](https://coveralls.io/github/C1320/co-utils-vue?branch=master)
 
-
 co-utils-vue工具库是基于typescript实现的一个常用库封装
+
+[文档]:https://c1320.github.io/co-utils-vue/
+
+
+
 
 # 安装
 
@@ -731,7 +735,7 @@ useMerge(
 **/
 ```
 
-### useEmptyObject<sup>1.10.4</sup>
+### useEmptyObject<sup>1.11.0</sup>
 
 `useEmptyObject`用于将对象值深度置空，会根据传入的对象值进行判断并赋予对应的空值。它接收两个参数`data`和`defaultValue`其中`data`是一个泛型，表示要清空的对象，`defaultValue`是一个部分类型* 它与`data`的类型一致，用于设置每个属性的初始值。在设置属性的初始值时，使用`defaultValue`对应字段的值来替换原有的属性值。最后，返回清空后的 `data `对象.
 
@@ -794,7 +798,7 @@ useEmptyObject(data, {
 **/
 ```
 
-### useChunk<sup>1.10.4</sup>
+### useChunk<sup>1.11.0</sup>
 
 将数组数据进行分片,内部做了正无穷负无穷处理
 
