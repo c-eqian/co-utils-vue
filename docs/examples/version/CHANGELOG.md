@@ -1,6 +1,33 @@
 # 更新日志 
 
 
+### [1.11.1](https://github.com/C1320/co-utils/compare/v1.11.0...v1.11.1) (2023-08-22)
+
+
+###  • Build System | 构建
+
+* build ([a1fc1f1](https://github.com/C1320/co-utils/commit/a1fc1f15d9638b5597ad7b50dab2327c4c382470))
+* build ([85bad23](https://github.com/C1320/co-utils/commit/85bad23d9f5fe3fe2fb7ad4a24b85db4b25fa1c4))
+* build ([802a99c](https://github.com/C1320/co-utils/commit/802a99c827047f296f87fe5ce89055cf18e95f87))
+* build ([2c4aaf4](https://github.com/C1320/co-utils/commit/2c4aaf4806d42ae36702f0ceb4def73cbbcaeea0))
+
+
+### ✅ Tests | 测试
+
+* 测试文件 ([413e503](https://github.com/C1320/co-utils/commit/413e503cf4e6f49b3a43ff395a2a8753136b6613))
+
+
+###   Documentation | 文档
+
+* 修改文档 ([f36fac0](https://github.com/C1320/co-utils/commit/f36fac0c80f93f15545b21c578146b176be2edab))
+* 修改文档 ([7254c0b](https://github.com/C1320/co-utils/commit/7254c0b73198c942b87005d3a3cf8dfdfa6b23ca))
+
+
+###   Continuous Integration | CI 配置
+
+* 脚本修改 ([d04d7ca](https://github.com/C1320/co-utils/commit/d04d7ca82140001f591993420fdfffe42f57ce66))
+* 修改构建流程 ([dcf5b8b](https://github.com/C1320/co-utils/commit/dcf5b8bfc321a052b311680367146cf2de42828a))
+
 ## [1.11.0](https://github.com/C1320/co-utils-vue/compare/v1.10.4-rc.0...v1.11.0) (2023-08-22)
 
 
