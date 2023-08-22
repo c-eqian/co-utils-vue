@@ -1,6 +1,18 @@
 # 更新日志 
 
 
+## [1.11.0](https://github.com/C1320/co-utils-vue/compare/v1.10.4-rc.0...v1.11.0) (2023-08-22)
+
+
+###  • Build System | 构建
+
+* build ([7ec13a4](https://github.com/C1320/co-utils-vue/commit/7ec13a44d8a595d9598ca90262a953839c628a9a))
+
+
+### ✨ Features | 新功能
+
+* 新增useChunk ([fb2494e](https://github.com/C1320/co-utils-vue/commit/fb2494eb8c64eeb8abc8f0afcb40e716fef07cd2))
+
 ### [1.10.4-rc.0](https://github.com/C1320/co-utils-vue/compare/v1.10.3-rc.0...v1.10.4-rc.0) (2023-07-28)
 
 ### [1.10.3-rc.0](https://github.com/C1320/co-utils-vue/compare/v1.10.2...v1.10.3-rc.0) (2023-07-28)
