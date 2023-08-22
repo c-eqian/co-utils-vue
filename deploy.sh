@@ -6,7 +6,7 @@ set -e
 # 构建
  npm run build
 # 正式发布
-#npm run release
+npm run release
 # 内侧版本
 #npm run release:alpha
 # 预发布版本
@@ -20,6 +20,6 @@ cp -f README.md $(pwd)/docs/examples/utils/co-utils工具库.md
 git add .
 git commit -m "build: build"
 # 推送分支及发布仓库
-git push origin master
+git push origin master&&npm publish
 #git push origin master&&git push origin --tags&&npm publish
 #cat ./coverage/lcov.info | coveralls
