@@ -4,7 +4,7 @@
 set -e
 #jest --coverage
 # 构建
- npm run build
+# npm run build
 # 正式发布
 npm run release
 # 内侧版本
