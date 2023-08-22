@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [1.11.2-rc.0](https://github.com/C1320/co-utils/compare/v1.11.2-alpha.0...v1.11.2-rc.0) (2023-08-22)
+
+
+###  • Build System | 构建
+
+* build ([c958122](https://github.com/C1320/co-utils/commit/c9581222f8c81275679504cedd5e2839ce0a3cb7))
+
 ### [1.11.2-alpha.0](https://github.com/C1320/co-utils/compare/v1.11.1...v1.11.2-alpha.0) (2023-08-22)
 
 
