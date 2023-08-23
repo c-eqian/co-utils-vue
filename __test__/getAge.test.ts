@@ -1,4 +1,4 @@
-import { getAge } from '../src/packages';
+import { getAge } from '../src';
 
 describe('getAge', () => {
   it('should ', () => {

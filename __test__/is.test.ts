@@ -1,4 +1,4 @@
-import { isNumeric, isNumber, isObjectLike } from '../src/packages';
+import { isNumeric, isNumber, isObjectLike } from '../src';
 const testConfig = [
   {
     value: '1222',
