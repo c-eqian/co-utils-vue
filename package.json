@@ -1,6 +1,6 @@
 {
   "name": "co-utils-vue",
-  "version": "1.11.2-rc.0",
+  "version": "1.11.2-rc.1",
   "description": "工具库",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -18,7 +18,7 @@
     "version": "conventional-changelog -p custom-config -i CHANGELOG.md -s -n ./changelog-option.js && git add CHANGELOG.md",
     "post:version": "git push --tags",
     "test:coverage": "jest --coverage",
-    "release": "standard-version",
+    "release": "npm run build&&standard-version",
     "release:alpha": "standard-version --prerelease alpha",
     "release:rc": "standard-version --prerelease rc",
     "release:major": "npm run release -- --release-as major",

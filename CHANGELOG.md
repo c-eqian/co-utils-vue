@@ -1,6 +1,8 @@
 # 更新日志 
 
 
+### [1.11.2-rc.1](https://github.com/C1320/co-utils-vue/compare/v1.11.2-rc.0...v1.11.2-rc.1) (2023-08-23)
+
 ### [1.11.2-rc.0](https://github.com/C1320/co-utils/compare/v1.11.2-alpha.0...v1.11.2-rc.0) (2023-08-22)
 
 
