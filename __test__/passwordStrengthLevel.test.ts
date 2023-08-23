@@ -1,4 +1,4 @@
-import { passwordStrengthLevel } from '../src/packages/helper';
+import { passwordStrengthLevel } from '../src';
 describe('passwordStrengthLevel', () => {
   const testGroup = [
     {

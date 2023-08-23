@@ -1,4 +1,5 @@
-import { useEmptyObject } from '../src/packages/hooks/use-clear-object';
+import { useEmptyObject } from '../src';
+
 describe('useEmptyObject', () => {
   const data = {
     key: '8899797',

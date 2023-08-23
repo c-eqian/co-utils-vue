@@ -1,4 +1,4 @@
-import { toFixedFix } from '../src/packages/helper';
+import { toFixedFix } from '../src';
 describe('toFixedFix', () => {
   it('should ', () => {
     expect(toFixedFix(5201314)).toBe(5201314.0);

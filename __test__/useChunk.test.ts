@@ -1,4 +1,4 @@
-import { useChunk } from '../src/packages/hooks/use-chunk';
+import { useChunk } from '../src';
 /**
  * useChunk(['a', 'b', 'c', 'd'], 2)
  * // => [['a', 'b'], ['c', 'd']]

@@ -1,4 +1,4 @@
-import { useDeepOmit, useOmit } from '../src/packages/hooks';
+import { useDeepOmit, useOmit } from '../src';
 describe('useDeepOmit', () => {
   const data = {
     name: '张三',

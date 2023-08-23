@@ -1,4 +1,4 @@
-import { useLabelByVal } from '../src/packages/hooks';
+import { useLabelByVal } from '../src';
 describe('useLabelByVal', () => {
   const testConfig1 = [
     {

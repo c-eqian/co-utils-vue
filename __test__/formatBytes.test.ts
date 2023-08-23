@@ -1,4 +1,4 @@
-import { formatBytes } from '../src/packages/format';
+import { formatBytes } from '../src';
 describe('formatBytes', () => {
   // 1G=1024M=1048576KB
   const bytes = [

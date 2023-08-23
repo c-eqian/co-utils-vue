@@ -1,4 +1,4 @@
-import { useTransformList, useTransformTree } from '../src/packages/hooks';
+import { useTransformList, useTransformTree } from '../src';
 describe('测试树形结构转换', () => {
   const arr = [
     { parent: null, id: 1, name: '北京' },
