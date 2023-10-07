@@ -67,32 +67,61 @@ export const useTransformTree = <T>(
  * @returns
  */
 interface ITreeOptions {
+  /**
+   * 子节点的键 默认值【children】
+   */
   children?: string;
+  /**
+   * 父节点ID的键 默认值【id】
+   */
+  pidKey?: string;
+  /**
+   * 设置父节点的属性值 默认值【null】
+   */
+  pidValue?: string | number | null;
+  /**
+   * 设置父节点键 默认值【parent】
+   */
+  parentKey?: string;
+  /**
+   * 是否需要设置父节点标志 默认值【true】
+   */
+  pidFlag?: boolean;
 }
 
 export const useTransformList = <T>(
   data: T[],
   options: ITreeOptions = {
-    children: 'children'
+    children: 'children',
+    pidKey: 'id',
+    parentKey: 'parent',
+    pidValue: null,
+    pidFlag: true
   }
 ): Omit<T, 'children'>[] => {
-  const { children = 'children' } = options;
+  const {
+    children = 'children',
+    pidKey = 'id',
+    parentKey = 'parent',
+    pidValue = null,
+    pidFlag = true
+  } = options;
   let res: Omit<T, 'children'>[] = [];
 
-  const transform = (node: T): void => {
-    const cloneData = { ...node };
+  const transform = (node: T, pid: string | number | null = null): void => {
+    const cloneData = pidFlag ? { ...node, [parentKey]: pid } : { ...node };
     delete cloneData[children];
     res.push(cloneData);
 
     if (node[children] && node[children].length) {
       for (const child of node[children]) {
-        transform(child);
+        transform(child, node[pidKey]);
       }
     }
   };
 
   for (const node of data) {
-    transform(node);
+    transform(node, pidValue);
   }
 
   return res;

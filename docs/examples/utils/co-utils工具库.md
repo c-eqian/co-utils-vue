@@ -259,8 +259,27 @@ V1.10.3版本之后将会使用```useTransformList```代替```treeToArr```
 `useTransformList`树形结构数据进行扁平化，其中在每一组数据中，应该包含`children`字段，如果不是该字段，那么此时应该传入**可选参数**`options`进行替换
 
 ```javascript
-{
-    children?: string;
+interface ITreeOptions {
+  /**
+   * 子节点的键 默认值【children】
+   */
+  children?: string;
+  /**
+   * 父节点ID的键 默认值【id】
+   */
+  pidKey?: string;
+  /**
+   * 设置父节点的属性值 默认值【null】
+   */
+  pidValue?: string | number | null;
+  /**
+   * 设置父节点键 默认值【parent】
+   */
+  parentKey?: string;
+  /**
+   * 是否需要设置父节点标志 默认值【true】
+   */
+  pidFlag?: boolean;
 }
 ```
 
