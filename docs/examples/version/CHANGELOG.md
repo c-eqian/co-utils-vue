@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+## [1.12.0-rc.0](https://github.com/C1320/co-utils-vue/compare/v1.11.2-rc.3...v1.12.0-rc.0) (2023-10-08)
+
+
+### ✨ Features | 新功能
+
+* useTransformList 新增参数 ([b0e8535](https://github.com/C1320/co-utils-vue/commit/b0e85352c5dfa101f6927098c06d93417c0437c3))
+
 ### [1.11.2-rc.3](https://github.com/C1320/co-utils-vue/compare/v1.11.2-rc.2...v1.11.2-rc.3) (2023-08-23)
 
 ### [1.11.2-rc.2](https://github.com/C1320/co-utils-vue/compare/v1.11.2-rc.1...v1.11.2-rc.2) (2023-08-23)
