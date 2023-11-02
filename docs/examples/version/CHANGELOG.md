@@ -1,6 +1,14 @@
 # 更新日志 
 
 
+## [1.12.0-rc.1](https://github.com/C1320/co-utils-vue/compare/v1.12.0-rc.0...v1.12.0-rc.1) (2023-11-02)
+
+
+###   Bug Fixes | Bug 修复
+
+* 修复cloneDeep深克隆不生效 ([1bce332](https://github.com/C1320/co-utils-vue/commit/1bce332c2d3f0b5cd2c58710f6bd8df040285650))
+* 修复cloneDeep深克隆不生效 ([f065b3d](https://github.com/C1320/co-utils-vue/commit/f065b3dbe0009da336f83dc204bc0ddbfd367621))
+
 ## [1.12.0-rc.0](https://github.com/C1320/co-utils-vue/compare/v1.11.2-rc.3...v1.12.0-rc.0) (2023-10-08)
 
 
