@@ -37,7 +37,6 @@ export const cloneDeep = <T>(data: T): T => {
     }
     // 解决Symbol类型
     const symKeys = Object.getOwnPropertySymbols(_source);
-    console.log(_source, symKeys);
     // 解决存在Symbol类型
     if (symKeys.length) {
       // 遍历
