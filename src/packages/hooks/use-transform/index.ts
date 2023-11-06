@@ -6,7 +6,8 @@
  * @LastEditors: 十三
  * @LastEditTime: 2022-12-26 17:07:21
  */
-import { Omit, Partial } from '@/packages/helper';
+import { Omit } from '@/packages/helper';
+import { useMerge } from '@/packages/hooks';
 
 export type IProps<T = any> = T & {
   children: T[];
@@ -15,15 +16,15 @@ export interface IOptions {
   /**
    * 父节点的键名称
    */
-  parent: string;
+  parent?: string;
   /**
    * 数据节点标识
    */
-  key: string;
+  key?: string;
   /**
    * 作为父节点的依据值
    */
-  pid: string | number | null;
+  pid?: string | number | null;
 }
 
 /**
@@ -32,26 +33,22 @@ export interface IOptions {
  * @param options
  * @returns
  */
-export const useTransformTree = <T>(
-  arrData: T[],
-  options: Partial<IOptions> = {
+export const useTransformTree = <T>(arrData: T[], options?: IOptions) => {
+  const res: IProps<T>[] = [];
+  const defaultValues: IOptions = {
     parent: 'parent',
     key: 'id',
     pid: null
-  }
-) => {
-  const res: IProps<T>[] = [];
-  options.key = options.key || 'id';
-  options.parent = options.parent || 'parent';
-  options.pid = options.pid === undefined ? null : options.pid;
+  };
+  const _options = useMerge(defaultValues, options || {});
   arrData.forEach(item => {
-    if (item[options.parent!] === options.pid) {
+    if (item[_options.parent!] === _options.pid) {
       const children = useTransformTree(
-        arrData.filter(v => v[options.parent ?? 'parent'] !== options.pid),
+        arrData.filter(v => v[_options.parent ?? 'parent'] !== _options.pid),
         {
-          parent: options.parent,
-          key: options.key,
-          pid: item[options.key!]
+          parent: _options.parent,
+          key: _options.key,
+          pid: item[_options.key!]
         }
       );
       children.length ? res.push({ ...item, children }) : res.push({ ...item, children: [] });
