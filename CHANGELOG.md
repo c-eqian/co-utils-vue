@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+## [1.12.0](https://github.com/C1320/co-utils-vue/compare/v1.12.0-rc.1...v1.12.0) (2023-11-06)
+
+
+###   Bug Fixes | Bug 修复
+
+* useTransformTree类型优化 ([a7b79df](https://github.com/C1320/co-utils-vue/commit/a7b79df217c3fdee3c3e2520c8396d4794d2fd47))
+
 ## [1.12.0-rc.1](https://github.com/C1320/co-utils-vue/compare/v1.12.0-rc.0...v1.12.0-rc.1) (2023-11-02)
 
 
