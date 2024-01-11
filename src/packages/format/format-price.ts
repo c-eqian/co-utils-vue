@@ -8,7 +8,7 @@
  */
 
 import { isNumeric } from '../is';
-import { toFixedFix } from '../helper';
+import { useToFixedFix } from '@/packages/hooks/use-fixed';
 
 /**
  * 金额转换千分位
@@ -31,7 +31,7 @@ export const formatPriceToThousand = (
       decimals = 2;
     }
     // 处理小数
-    let _price = `${toFixedFix(+price, decimals, round)}`.split('.');
+    let _price = `${useToFixedFix(+price, decimals, round)}`.split('.');
     const re = /(-?\d+)(\d{3})/;
     while (re.test(_price[0])) {
       _price[0] = _price[0].replace(re, '$1' + separator + '$2');

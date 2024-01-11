@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [1.12.1](https://github.com/C1320/co-utils-vue/compare/v1.12.0...v1.12.1) (2024-01-11)
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* 优化 ([7ddc701](https://github.com/C1320/co-utils-vue/commit/7ddc7017f952e967f404d467f34e7e07aca347f2))
+
 ## [1.12.0](https://github.com/C1320/co-utils-vue/compare/v1.12.0-rc.1...v1.12.0) (2023-11-06)
 
 

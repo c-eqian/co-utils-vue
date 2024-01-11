@@ -6,8 +6,6 @@
  * @LastEditors: 十三
  * @LastEditTime: 2022-12-26 17:24:04
  */
-export * from './password';
-import { isIdCard, isNumeric } from '../is';
 /**
  * 短杆拼接转驼峰
  * @param str
@@ -46,31 +44,6 @@ export function firstLetterToUpperCase(str: string): string {
 export function firstLetterToLowerCase(str: string): string {
   return str.replace(/^[A-z]/, firstLetter => firstLetter.toLowerCase());
 }
-export interface ICard {
-  birth: string;
-  gender: string;
-}
-export const getCardInfo = (card: string): ICard => {
-  if (!isIdCard(card)) {
-    throw new Error(`${card} 不是正确的15或18位身份证格式`);
-  }
-  return {
-    birth: `${card.substring(6, 10)}-${card.substring(10, 12)}-${card.substring(12, 14)}`,
-    gender: parseInt(card.substring(16, 17), 10) % 2 === 1 ? '男' : '女'
-  };
-};
-
-/**
- * 获取数据的toString类型
- * @param value
- * @returns
- */
-export const getTag = <T>(value: T) => {
-  if (value === null) {
-    return '[object Null]';
-  }
-  return toString.call(value);
-};
 
 /**
  * 处理小数点
@@ -79,20 +52,7 @@ export const getTag = <T>(value: T) => {
  * @param round 是否四舍五入
  * @returns
  */
-export const toFixedFix = (value: number, decimals = 2, round = true) => {
-  // return isNumber(value) && isFinite(value)
-  //   ? Math.floor(value * Math.pow(10, Math.abs(decimals))) / Math.pow(10, Math.abs(decimals))
-  //   : value;
-  if (!isNumeric(value)) return value;
-  const multiplier = 10 ** decimals; // 计算 10 的 decimals 次幂作为倍数
-  if (round) {
-    // 进行四舍五入，并乘以倍数后再取整，最后再除以倍数来保留指定小数点位数
-    return Math.round(value * multiplier) / multiplier;
-  } else {
-    // 乘以倍数后再取整，最后再除以倍数来保留指定小数点位数
-    return Math.floor(value * multiplier) / multiplier;
-  }
-};
+
 /***
  * 将数值转换为整数
  * @param value

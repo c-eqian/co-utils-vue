@@ -8,7 +8,6 @@
  */
 export * from './use-namespace';
 export * from './use-sfc-with-install';
-export * from './use-full-screen';
 export * from './use-omit';
 export * from './use-pick';
 export * from './use-debounce';
@@ -19,3 +18,4 @@ export * from './use-transform';
 export * from './use-empty-object';
 export * from './use-chunk';
 export * from './use-merge';
+export * from './use-fixed';
