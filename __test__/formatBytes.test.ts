@@ -1,5 +1,5 @@
-import { formatBytes } from '../src';
-describe('formatBytes', () => {
+import { useFormatBytes } from '../src';
+describe('useFormatBytes', () => {
   // 1G=1024M=1048576KB
   const bytes = [
     {
@@ -21,10 +21,10 @@ describe('formatBytes', () => {
   ];
   bytes.forEach(item => {
     it('should ', () => {
-      expect(formatBytes(item.value)).toBe(item.expect);
+      expect(useFormatBytes(item.value)).toBe(item.expect);
     });
   });
   it('should ', () => {
-    expect(formatBytes(1048576, -1)).toBe('1 MB');
+    expect(useFormatBytes(1048576, -1)).toBe('1 MB');
   });
 });

@@ -22,12 +22,12 @@ export default {
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
     "src/packages/**/*.{js,jsx,ts,tsx}",
-    "!src/packages/hooks/use-namespace/**/*.ts",
-    "!src/packages/hooks/use-sfc-with-install/**/*.ts",
-    "!src/packages/hooks/use-form-value-watcher/**/*.ts",
+    "!src/packages/hooks/useNamespace/**/*.ts",
+    "!src/packages/hooks/useSFCWithInstall/**/*.ts",
+    "!src/packages/hooks/useFormValueWatcher/**/*.ts",
     "!src/packages/hooks/use-full-screen/**/*.ts",
-    "!src/packages/hooks/use-debounce/**/*.ts",
-    "!src/packages/hooks/use-debounce/**/*.ts",
+    "!src/packages/hooks/useDebounceRef/**/*.ts",
+    "!src/packages/hooks/useDebounceRef/**/*.ts",
     "!src/packages/helper/**/*.ts",
     "!src/packages/effects/**/*.ts",
     "!src/packages/socket/**/*.ts",
@@ -177,7 +177,7 @@ export default {
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
   //   // "/node_modules/"
-  //     "./src/package/hooks/use-namespace/.*\\.ts$"
+  //     "./src/package/hooks/useNamespace/.*\\.ts$"
   // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files

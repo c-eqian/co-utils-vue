@@ -1,4 +1,4 @@
-import { cloneDeep } from '../src';
+import { useCloneDeep } from '../src';
 
 describe('cloneDeep', () => {
   const test1 = [
@@ -95,13 +95,13 @@ describe('cloneDeep', () => {
   ];
   test1.forEach((item, index) => {
     it(`cloneDeep 测试用例 ${index}`, () => {
-      expect(cloneDeep(item.value)).toEqual(item.expect);
+      expect(useCloneDeep(item.value)).toEqual(item.expect);
     });
   });
   test2.forEach((item, index) => {
     it('should ', () => {
       expect(() => {
-        const _deep = cloneDeep(item.value);
+        const _deep = useCloneDeep(item.value);
         _deep[0].b = '0';
         return _deep;
       }).not.toEqual(item.expect);
@@ -110,7 +110,7 @@ describe('cloneDeep', () => {
   it('测试Symbol类型 ', function () {
     const a = Symbol('a');
     expect(
-      cloneDeep({
+      useCloneDeep({
         [a]: 1
       })
     ).toEqual({
@@ -124,6 +124,6 @@ describe('cloneDeep', () => {
       info: [1, 2, 3]
     };
     data.e = data;
-    expect(cloneDeep(data)).toEqual(data);
+    expect(useCloneDeep(data)).toEqual(data);
   });
 });

@@ -13,7 +13,7 @@ import pkg from './package.json'
 // umd 模式的编译结果文件输出的全局变量名称
 const name = 'co-utils-vue'
 const config = {
-  // 入口文件，src/index.ts
+  // 入口文件，src/utils.ts
   input: path.resolve(__dirname, 'src/index.ts'),
   // 输出文件
   output: [
