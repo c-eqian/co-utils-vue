@@ -118,7 +118,7 @@ console.log(desPhone("3600.2566")) // Error: 3600.2566 is invalid phone number
 
 ## 身份证
 
-### getCardInfo
+### ~~getCardInfo~~<sup>1.12.1</sup>
 
 `getCardInfo`提取身份证信息（目前只支持出生日期及性别的提取）
 
@@ -126,7 +126,7 @@ console.log(desPhone("3600.2566")) // Error: 3600.2566 is invalid phone number
 console.log(getCardInfo("450603200012254369")) // {birth: '2000-12-25', gender: '女'}
 ```
 
-### getAge
+### ~~getAge~~<sup>1.12.1</sup>
 
 `getAge`根据出生日期或者身份证计算年龄
 
@@ -138,6 +138,10 @@ test-bb.vue:49 console.log(getAge("78888")) // -1 (格式错误或出生日期�
 ## 数学
 
 ### toFixedFix
+
+::: warning 注意
+V1.12.1版本之后请使用`useToFixedFix`
+:::
 
 `toFixedFix`处理小数点, 参数`decimals`保留的小数点位数，默认为2小数位
 
@@ -361,7 +365,11 @@ getNextGlobalId() // 4
 
 `useExitFullScreen`退出全屏
 
-### isFullscreen
+### ~~isFullscreen~~<sup>1.12.1</sup>
+
+::: warning 注意
+V1.12.1版本之后已删除
+:::
 
 `isFullscreen`检查是否处于全屏状态
 
