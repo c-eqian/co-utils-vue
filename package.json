@@ -1,6 +1,6 @@
 {
   "name": "co-utils-vue",
-  "version": "1.12.3",
+  "version": "1.12.4",
   "description": "工具库",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -75,15 +75,14 @@
     "vitepress": "^1.0.0-alpha.29",
     "vue": "^3.3.1",
     "vue-tsc": "^0.34.15",
-    "yarn": "^1.22.19"
-  },
-  "dependencies": {
+    "yarn": "^1.22.19",
     "@babel/core": "^7.19.1",
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "compare-func": "^2.0.0",
     "cross-env": "^7.0.3"
   },
+  "dependencies": {},
   "files": [
     "dist"
   ],
