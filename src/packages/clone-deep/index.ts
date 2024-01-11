@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-12-29 09:31:57
  */
 
-import { isObjectLike } from '@/packages/is';
+import { isObjectLike } from '../is';
 
 export function isValidKey(
   key: string | number | symbol,

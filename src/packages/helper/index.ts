@@ -6,7 +6,7 @@
  * @LastEditors: 十三
  * @LastEditTime: 2022-12-26 17:24:04
  */
-export * from './passwork-strenth-level';
+export * from './password';
 import { isIdCard, isNumeric } from '../is';
 /**
  * 短杆拼接转驼峰

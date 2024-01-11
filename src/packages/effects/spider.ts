@@ -1,4 +1,4 @@
-import { Partial } from '@/packages/helper';
+import { Partial } from '../helper';
 
 export interface ISpiderOptions {
   zIndex: number;

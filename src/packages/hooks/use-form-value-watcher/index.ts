@@ -1,4 +1,4 @@
-import { isNumber, isString } from '@/packages/is';
+import { isNumber, isString } from '../../is';
 
 export const useFormValueWatcher = <T>(targets: T, origins: T) => {
   const formValueDiff = <P>(target: P, origin: P) => {

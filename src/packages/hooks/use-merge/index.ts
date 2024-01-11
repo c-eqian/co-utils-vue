@@ -1,5 +1,5 @@
-import { isObjectLike } from '@/packages/is';
-import { DeepPartial } from '@/packages/helper';
+import { isObjectLike } from '../../is';
+import { DeepPartial } from '../../helper';
 
 /**
  * useMerge 函数使用了递归的方式，可以深度合并多个对象。

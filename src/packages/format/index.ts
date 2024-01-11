@@ -6,7 +6,7 @@
  * @LastEditors: 十三
  * @LastEditTime: 2022-12-23 13:44:31
  */
-export * from './formatDate';
-export * from './formatPrice';
-export * from './formatDes';
-export * from './formatBytes';
+export * from './format-date';
+export * from './format-price';
+export * from './format-des';
+export * from './format-bytes';
