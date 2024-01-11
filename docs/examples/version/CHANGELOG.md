@@ -1,6 +1,15 @@
 # 更新日志 
 
 
+### [2.0.1](https://github.com/C1320/co-utils-vue/compare/v1.12.4...v2.0.1) (2024-01-11)
+
+
+###   Chores | 其他更新
+
+* **release:** 2.0.1 ([e4fe4c0](https://github.com/C1320/co-utils-vue/commit/e4fe4c07f3ef7723721506a7c0ba7e4647313212))
+
+### [2.0.1](https://github.com/C1320/co-utils-vue/compare/v1.12.4...v2.0.1) (2024-01-11)
+
 ### [1.12.4](https://github.com/C1320/co-utils-vue/compare/v1.12.3...v1.12.4) (2024-01-11)
 
 ### [1.12.3](https://github.com/C1320/co-utils-vue/compare/v1.12.3-rc.1...v1.12.3) (2024-01-11)
