@@ -7,8 +7,6 @@
  * 这样，就使用TypeScript实现了类似于Lodash中pick方法，同时注意了边界问题。
  */
 
-// import { isObjectLike } from '@/packages/is';
-
 /**
  * usePick函数接收一个对象和一个键数组作为参数，返回一个新的对象，该对象只包含指定的键值对
  * @param obj 提取的对象

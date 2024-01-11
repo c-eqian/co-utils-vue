@@ -1,4 +1,5 @@
-import { isNumeric, toInteger } from '@/index';
+import { isNumeric } from '../../is';
+import { toInteger } from '../../helper';
 
 /**
  * 将数组数据进行分片

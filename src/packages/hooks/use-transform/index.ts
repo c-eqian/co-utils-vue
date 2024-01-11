@@ -6,8 +6,8 @@
  * @LastEditors: 十三
  * @LastEditTime: 2022-12-26 17:07:21
  */
-import { Omit } from '@/packages/helper';
-import { useMerge } from '@/packages/hooks';
+import { Omit } from '../../helper';
+import { useMerge } from '../../hooks';
 
 export type IProps<T = any> = T & {
   children: T[];

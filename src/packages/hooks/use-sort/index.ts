@@ -1,5 +1,5 @@
 import { ref, Ref, watchEffect } from 'vue';
-import { isFunction, isNumeric, isObjectLike, isString } from '@/packages/is';
+import { isFunction, isNumeric, isObjectLike, isString } from '../../is';
 
 export interface SortOption<T> {
   key?: keyof T;

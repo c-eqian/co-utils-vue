@@ -64,11 +64,11 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     // 解析非相对模块名的基准目录
-    "baseUrl": "./",
+    "baseUrl": ".",
     // 指定特殊模块的路径
     "paths": {
       "@/*": ["src/*"], // 这里 只建议使用 @/   使用其他的别名可能不会生效
     },
- 
+
  }
 }

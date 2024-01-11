@@ -6,9 +6,9 @@
  * @LastEditors: 十三
  * @LastEditTime: 2022-12-26 15:24:15
  */
-import { cst } from '@/packages/constants';
+import { cst } from '../../constants';
 import { ref, computed, unref } from 'vue';
-import { firstLetterToUpperCase } from '@/packages/helper';
+import { firstLetterToUpperCase } from '../../helper';
 
 /**
  * 组件名转换 CzButton => cz-button

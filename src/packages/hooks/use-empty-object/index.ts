@@ -1,5 +1,5 @@
-import { isObjectLike } from '@/packages/is';
-import { DeepPartial } from '@/packages/helper';
+import { isObjectLike } from '../../is';
+import { DeepPartial } from '../../helper';
 
 /**
  * 定义了一个 useClearObject 函数，它接收两个参数 data 和 defaultValue，

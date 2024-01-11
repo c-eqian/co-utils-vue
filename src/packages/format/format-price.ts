@@ -7,8 +7,8 @@
  * @LastEditTime: 2022-12-09 19:41:00
  */
 
-import { isNumeric } from '@/packages/is';
-import { toFixedFix } from '@/packages/helper';
+import { isNumeric } from '../is';
+import { toFixedFix } from '../helper';
 
 /**
  * 金额转换千分位
