@@ -1,4 +1,4 @@
-import { isObjectLike } from '@/packages/is/is-object-like';
+import { isObjectLike } from '../is-object-like';
 import { getTag } from '@/packages/helper/get-tag';
 /**
  * 是否是数值类型

@@ -1,4 +1,4 @@
-import { isNumeric } from '../../is';
+import { isNumeric } from '../../is/is-number';
 import { toInteger } from '../../helper';
 
 /**

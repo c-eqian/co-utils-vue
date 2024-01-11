@@ -1,5 +1,5 @@
 import { cloneDeep } from '../../clone-deep';
-import { isObjectLike } from '../../is';
+import { isObjectLike } from '../../is/is-object-like';
 
 /**
  * 排除属性

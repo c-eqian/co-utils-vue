@@ -7,8 +7,8 @@
  * @LastEditTime: 2022-12-09 19:41:00
  */
 
-import { isNumeric } from '../is';
-import { useToFixedFix } from '@/packages/hooks/use-fixed';
+import { isNumeric } from '../is/is-number';
+import { useToFixedFix } from '../hooks/use-fixed';
 
 /**
  * 金额转换千分位

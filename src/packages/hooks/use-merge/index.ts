@@ -1,4 +1,4 @@
-import { isObjectLike } from '../../is';
+import { isObjectLike } from '../../is/is-object-like';
 import { DeepPartial } from '../../helper';
 
 /**

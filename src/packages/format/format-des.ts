@@ -6,7 +6,8 @@
  * @LastEditors: 十三
  * @LastEditTime: 2022-12-23 14:15:07
  */
-import { isIdCard, isPhone } from '../is';
+import { isIdCard } from '../is/is-card';
+import { isPhone } from '../is/is-phone';
 
 /**
  * 身份证脱敏处理

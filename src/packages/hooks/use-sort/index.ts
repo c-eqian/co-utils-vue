@@ -1,6 +1,8 @@
 import { ref, Ref, watchEffect } from 'vue';
-import { isFunction, isNumeric, isObjectLike, isString } from '../../is';
-
+import { isObjectLike } from '../../is/is-object-like';
+import { isFunction } from '../../is/is-funtion';
+import { isNumeric } from '../../is/is-number';
+import { isString } from '../../is/is-string';
 export interface SortOption<T> {
   key?: keyof T;
   sortOrder?: 'desc' | 'asc';

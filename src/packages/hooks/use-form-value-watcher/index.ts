@@ -1,5 +1,5 @@
-import { isNumber, isString } from '../../is';
-
+import { isNumber } from '../../is/is-number';
+import { isString } from '../../is/is-string';
 export const useFormValueWatcher = <T>(targets: T, origins: T) => {
   const formValueDiff = <P>(target: P, origin: P) => {
     if (isString(target) || isNumber(target)) {
