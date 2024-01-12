@@ -1,6 +1,19 @@
 # 更新日志 
 
 
+### [2.0.2](https://github.com/C1320/co-utils-vue/compare/v2.0.1...v2.0.2) (2024-01-12)
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* 优化结构 ([51ee979](https://github.com/C1320/co-utils-vue/commit/51ee979a6937747e41d9b6d6925fbb40d4e5cb08))
+
+
+###   Bug Fixes | Bug 修复
+
+* 修复引入问题 ([de230f2](https://github.com/C1320/co-utils-vue/commit/de230f25bd3056e5800bff023a5cd2da05615c0a))
+* 修复引入vue-demi问题 ([3808cad](https://github.com/C1320/co-utils-vue/commit/3808cad9f384dd06abd53567e4b08273363b9ae8))
+
 ### [2.0.1](https://github.com/C1320/co-utils-vue/compare/v1.12.4...v2.0.1) (2024-01-11)
 
 
