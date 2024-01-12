@@ -2,13 +2,14 @@ import path from 'path'
 import { fileURLToPath } from 'node:url'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import rollupTypescript from '@rollup/plugin-typescript'
+// import rollupTypescript from '@rollup/plugin-typescript'
+import esbuild from 'rollup-plugin-esbuild';
 import babel from '@rollup/plugin-babel'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
-import  terser  from '@rollup/plugin-terser'
+// import  terser  from '@rollup/plugin-terser'
 
 // 读取 package.json 配置
-import pkg from './package.json' assert {type: 'json'}
+// import pkg from './package.json' assert {type: 'json'}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,7 +17,7 @@ const dir = path.resolve(__dirname, 'src/index.ts')
 // 当前运行环境，可通过 cross-env 命令行设置
 // const env = process.env.NODE_ENV
 // umd 模式的编译结果文件输出的全局变量名称
-// const name = 'co-utils-vue'
+const name = 'co-utils-vue'
 const config = {
   // 入口文件，src/utils.ts
   input: dir,
@@ -25,26 +26,26 @@ const config = {
     // commonjs
     {
       // package.json 配置的 main 属性
-      file: pkg.main,
+      file: "./dist/index.cjs",
       format: 'cjs',
       sourcemap: false,
-      name: pkg.name
+      name
     },
     // es module
     {
       // package.json 配置的 module 属性
-      file: pkg.module,
+      file: "./dist/index.mjs",
       format: 'es',
       sourcemap: true,
-      name: pkg.name
+      name
     },
     // umd
     {
       // umd 导出文件的全局变量
-      name: pkg.name,
+      name,
       sourcemap: true,
       // package.json 配置的 umd 属性
-      file: pkg.umd,
+      file: "./dist/index.umd.js",
       format: 'umd'
     }
   ],
@@ -54,10 +55,7 @@ const config = {
     // 解析第三方依赖
     resolve(),
     // rollup 编译 typescript
-    rollupTypescript({
-      tsconfig:'./tsconfig.json',
-      sourceMap: true
-    }),
+    esbuild(),
     // babel 配置
     babel({
       // 编译库使用 runtime
@@ -72,7 +70,7 @@ const config = {
     }),
   ]
 }
-// // 若打包正式环境，压缩代码
+// 若打包正式环境，压缩代码
 // if (process.env.NODE_ENV === 'production') {
 //   config.plugins.push(terser({
 //     compress: {

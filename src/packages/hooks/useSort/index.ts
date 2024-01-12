@@ -1,4 +1,4 @@
-import { ref, Ref, watchEffect } from 'vue';
+// import { ref, Ref, watchEffect } from 'vue';
 import { isObjectLike } from '../../is/isObjectLike';
 import { isFunction } from '../../is/isFunction';
 import { isNumeric } from '../../is/isNumber';
@@ -18,36 +18,36 @@ export interface SortOption<T> {
  * key、sortOrder和compareFn。key表示需要根据哪个键值进行排序，sortOrder表示升序还是降序，默认降序，
  * compareFn表示自定义的比较函数。
  */
-export const useSort = <T>(data: Ref<T[]>, options: SortOption<T> = {}) => {
-  const sortedData = ref<T[]>([] as T[]);
-
-  watchEffect(() => {
-    const { key, compareFn } = options;
-    const newData = [...data.value];
-
-    if (key) {
-      newData.sort((a, b) => {
-        const aValue = a[key];
-        const bValue = b[key];
-        if (compareFn) {
-          return compareFn(a, b);
-        } else if (typeof aValue === 'number' && typeof bValue === 'number') {
-          return options.sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
-        } else {
-          return options.sortOrder === 'asc'
-            ? String(aValue).localeCompare(String(bValue))
-            : String(bValue).localeCompare(String(aValue));
-        }
-      });
-    } else if (compareFn) {
-      newData.sort(compareFn);
-    }
-
-    sortedData.value = newData as any;
-  });
-
-  return sortedData;
-};
+// export const useSort = <T>(data: Ref<T[]>, options: SortOption<T> = {}) => {
+//   const sortedData = ref<T[]>([] as T[]);
+//
+//   watchEffect(() => {
+//     const { key, compareFn } = options;
+//     const newData = [...data.value];
+//
+//     if (key) {
+//       newData.sort((a, b) => {
+//         const aValue = a[key];
+//         const bValue = b[key];
+//         if (compareFn) {
+//           return compareFn(a, b);
+//         } else if (typeof aValue === 'number' && typeof bValue === 'number') {
+//           return options.sortOrder === 'asc' ? aValue - bValue : bValue - aValue;
+//         } else {
+//           return options.sortOrder === 'asc'
+//             ? String(aValue).localeCompare(String(bValue))
+//             : String(bValue).localeCompare(String(aValue));
+//         }
+//       });
+//     } else if (compareFn) {
+//       newData.sort(compareFn);
+//     }
+//
+//     sortedData.value = newData as any;
+//   });
+//
+//   return sortedData;
+// };
 
 export const useSortByKey = <T = any>(
   data: T[],

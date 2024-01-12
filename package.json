@@ -76,6 +76,7 @@
     "prettier-eslint": "15.0.1",
     "rimraf": "^3.0.2",
     "rollup": "^4.9.4",
+    "rollup-plugin-esbuild": "^6.1.0",
     "standard-version": "^9.5.0",
     "ts-jest": "^29.1.1",
     "typescript": "^4.6.3",

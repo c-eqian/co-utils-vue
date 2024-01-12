@@ -30,7 +30,7 @@
     // 采用的模块系统
     "module": "esnext",
     // 如何处理模块
-    "moduleResolution": "Bundler",
+    "moduleResolution": "Node",
     // 无需要设定默认值
     "strictPropertyInitialization": false,
     // 允许从没有设置默认导出的模块中默认导入
