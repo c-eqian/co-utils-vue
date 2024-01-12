@@ -1,4 +1,4 @@
-import { getTag } from '@/packages/helper/getTag';
+import { getTag } from '../../helper/getTag';
 
 export const isString = (value: any) => {
   const type = typeof value;

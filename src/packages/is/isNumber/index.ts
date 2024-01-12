@@ -1,5 +1,5 @@
 import { isObjectLike } from '../isObjectLike';
-import { getTag } from '@/packages/helper/getTag';
+import { getTag } from '../../helper/getTag';
 /**
  * 是否是数值类型
  * @param value 校验值
