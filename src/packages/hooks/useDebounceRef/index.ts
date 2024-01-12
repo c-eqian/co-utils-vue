@@ -1,4 +1,4 @@
-import { customRef, ref } from 'vue';
+import { customRef, ref } from 'vue-demi';
 
 /**
  * 数据防抖更新

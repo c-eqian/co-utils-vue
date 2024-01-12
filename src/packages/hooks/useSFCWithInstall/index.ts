@@ -6,7 +6,7 @@
  * @LastEditors: 十三
  * @LastEditTime: 2022-12-04 20:06:22
  */
-import type { App, Plugin, AppContext } from 'vue'; // 只是导入类型不是导入App的值
+import type { App, Plugin, AppContext } from 'vue-demi'; // 只是导入类型不是导入App的值
 import { useComponentNameFormat } from '../useNamespace';
 
 // 类型必须导出否则生成不了.d.ts文件

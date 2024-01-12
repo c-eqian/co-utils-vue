@@ -17,7 +17,10 @@ const dir = path.resolve(__dirname, 'src/index.ts')
 // 当前运行环境，可通过 cross-env 命令行设置
 // const env = process.env.NODE_ENV
 // umd 模式的编译结果文件输出的全局变量名称
-const name = 'co-utils-vue'
+const name = 'co-utils-vue';
+const iifeGlobals = {
+  'vue-demi': 'VueDemi'
+}
 const config = {
   // 入口文件，src/utils.ts
   input: dir,
@@ -29,7 +32,8 @@ const config = {
       file: "./dist/index.cjs",
       format: 'cjs',
       sourcemap: false,
-      name
+      name,
+      globals: iifeGlobals
     },
     // es module
     {
@@ -37,6 +41,7 @@ const config = {
       file: "./dist/index.mjs",
       format: 'es',
       sourcemap: true,
+      globals: iifeGlobals,
       name
     },
     // umd
@@ -46,7 +51,8 @@ const config = {
       sourcemap: true,
       // package.json 配置的 umd 属性
       file: "./dist/index.umd.js",
-      format: 'umd'
+      format: 'umd',
+      globals: iifeGlobals
     }
   ],
   plugins: [
@@ -68,6 +74,9 @@ const config = {
         '.ts',
       ],
     }),
+  ],
+  external: [
+      'vue-demi'
   ]
 }
 // 若打包正式环境，压缩代码
