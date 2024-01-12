@@ -6,7 +6,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import esbuild from 'rollup-plugin-esbuild';
 import babel from '@rollup/plugin-babel'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
-// import  terser  from '@rollup/plugin-terser'
+import  terser  from '@rollup/plugin-terser'
 
 // 读取 package.json 配置
 // import pkg from './package.json' assert {type: 'json'}
@@ -80,13 +80,13 @@ const config = {
   ]
 }
 // 若打包正式环境，压缩代码
-// if (process.env.NODE_ENV === 'production') {
-//   config.plugins.push(terser({
-//     compress: {
-//       pure_getters: true,
-//       unsafe: true,
-//       unsafe_comps: true
-//     }
-//   }))
-// }
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(terser({
+    compress: {
+      pure_getters: true,
+      unsafe: true,
+      unsafe_comps: true
+    }
+  }))
+}
 export default config
