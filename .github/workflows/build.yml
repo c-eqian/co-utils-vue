@@ -30,7 +30,7 @@ jobs:
       - run: yarn
       # 测试，并生成测试覆盖率文件
       - run: yarn run test:coverage
-      - run: yarn run build
+#      - run: yarn run build
       #       上报
       - name: Coveralls
         uses: coverallsapp/github-action@master
@@ -109,22 +109,22 @@ jobs:
 
       - run: echo ${{steps.version.outputs.prop}}
 
-      # 创建Release
-      - name: release
-        uses: softprops/action-gh-release@v1
-        with:
-          # files: ./dist/index.umd.js
-          name: v${{steps.version.outputs.prop}}
-          tag_name: v${{steps.version.outputs.prop}}
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-
-          # 发布NPM包
-          #       - name: 发布NPM包
-          #         run: npm publish
-          #         env:
-          # 配置 npm access token 环境变量
-      #           NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
+#      # 创建Release
+#      - name: release
+#        uses: softprops/action-gh-release@v1
+#        with:
+#          # files: ./dist/index.umd.js
+#          name: v${{steps.version.outputs.prop}}
+#          tag_name: v${{steps.version.outputs.prop}}
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+#
+#          # 发布NPM包
+#          #       - name: 发布NPM包
+#          #         run: npm publish
+#          #         env:
+#          # 配置 npm access token 环境变量
+#      #           NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
 
       - name: Checkout
         uses: actions/checkout@v3

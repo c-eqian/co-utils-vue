@@ -1,22 +1,22 @@
 import { consola } from 'consola';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { execSync as exec } from 'node:child_process';
+import { execSync, exec } from 'node:child_process';
 import fs from 'fs-extra';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 export const DIR_ROOT = resolve(__dirname, '..');
 async function build(v: 'rc' | 'alpha' | '' = '') {
   consola.info('Clean up ...');
-  exec('npm run clean:dist', { stdio: 'inherit' });
+  execSync('npm run clean:dist', { stdio: 'inherit' });
   consola.info('Build ...');
-  exec('npm run build', { stdio: 'inherit' });
+  execSync('npm run build', { stdio: 'inherit' });
   consola.info('Rollup ...');
   if (v === 'rc') {
-    exec('npm run release:rc', { stdio: 'inherit' });
+    execSync('npm run release:rc', { stdio: 'inherit' });
   } else if (v === 'alpha') {
-    exec('npm run release:alpha', { stdio: 'inherit' });
+    execSync('npm run release:alpha', { stdio: 'inherit' });
   } else {
-    exec('npm run release', { stdio: 'inherit' });
+    execSync('npm run release', { stdio: 'inherit' });
   }
 }
 
@@ -42,13 +42,18 @@ async function gitPush() {
    */
   const ROOT_PKG = join(DIR_ROOT, 'package.json');
   const { version } = await fs.readJSON(ROOT_PKG);
-  exec('git add .', { stdio: 'inherit' });
-  exec(`git commit -m "chore: release v${version}"`, { stdio: 'inherit' });
-  exec(`git tag -a v${version} -m "v${version}"`, { stdio: 'inherit' });
-  exec(`git push origin master v${version}`, { stdio: 'inherit' });
-  let command = 'npm publish --access public';
-  exec(command, { stdio: 'inherit', cwd: join(DIR_ROOT, 'dist') });
-  consola.success('Published');
+  execSync('git add .', { stdio: 'inherit' });
+  execSync(`git commit -m "chore: release v${version}"`, { stdio: 'inherit' });
+  execSync('git show-ref --tags');
+  exec(`git show-ref --tags v${version}`, (error, stdout) => {
+    if (!error && stdout !== '') {
+      execSync(`git tag -a v${version} -m "v${version}"`, { stdio: 'inherit' });
+    }
+    execSync(`git push origin master v${version}`, { stdio: 'inherit' });
+    let command = 'npm publish --access public';
+    execSync(command, { stdio: 'inherit', cwd: join(DIR_ROOT, 'dist') });
+    consola.success('Published');
+  });
 }
 async function run() {
   await build();
