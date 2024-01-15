@@ -44,7 +44,8 @@ async function gitPush() {
   const { version } = await fs.readJSON(ROOT_PKG);
   exec('git add .', { stdio: 'inherit' });
   exec(`git commit -m "chore: release v${version}"`, { stdio: 'inherit' });
-  exec('git push origin master', { stdio: 'inherit' });
+  exec(`git tag -a v${version} -m "v${version}"`, { stdio: 'inherit' });
+  exec(`git push origin master v${version}`, { stdio: 'inherit' });
   let command = 'npm publish --access public';
   exec(command, { stdio: 'inherit', cwd: join(DIR_ROOT, 'dist') });
   consola.success('Published');
