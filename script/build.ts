@@ -32,8 +32,9 @@ async function updatePackage() {
 async function updateDocs() {
   await fs.copyFile(
     join(DIR_ROOT, 'CHANGELOG.md'),
-    join(DIR_ROOT, '/docs/examples/version/CHANGELOG.md')
+    join(DIR_ROOT, 'docs/examples/version/CHANGELOG.md')
   );
+  await fs.copyFile(join(DIR_ROOT, 'README.md'), join(DIR_ROOT, 'dist/README.md'));
 }
 async function gitPush() {
   /**
