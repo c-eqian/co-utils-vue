@@ -10,7 +10,7 @@ import { DEFAULT_EXTENSIONS } from '@babel/core'
 import  terser  from '@rollup/plugin-terser'
 
 // 读取 package.json 配置
-import pkg from './package.json'
+// import pkg from './package.json'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,8 +30,8 @@ const config = {
     // commonjs
     {
       // package.json 配置的 main 属性
-      // file: "./dist/index.cjs",
-      file: pkg.main,
+      file: "./dist/index.cjs",
+      // file: pkg.main,
       format: 'cjs',
       name,
       globals: iifeGlobals
@@ -39,8 +39,8 @@ const config = {
     // es module
     {
       // package.json 配置的 module 属性
-      // file: "./dist/index.mjs",
-      file: pkg.module,
+      file: "./dist/index.mjs",
+      // file: pkg.module,
       format: 'es',
       globals: iifeGlobals,
       name
@@ -50,8 +50,8 @@ const config = {
       // umd 导出文件的全局变量
       name,
       // package.json 配置的 umd 属性
-      // file: "./dist/index.umd.js",
-      file: pkg.umd,
+      file: "./dist/index.umd.js",
+      // file: pkg.umd,
       format: 'umd',
       globals: iifeGlobals
     }

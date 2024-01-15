@@ -16,7 +16,7 @@ async function build(v: 'rc' | 'alpha' | '' = '') {
   } else if (v === 'alpha') {
     exec('npm run release:alpha', { stdio: 'inherit' });
   } else {
-    // exec('npm run release', { stdio: 'inherit' });
+    exec('npm run release', { stdio: 'inherit' });
   }
 }
 
@@ -43,7 +43,10 @@ async function gitPush() {
   const { version } = await fs.readJSON(ROOT_PKG);
   exec('git add .', { stdio: 'inherit' });
   exec(`git commit -m "chore: release v${version}"`, { stdio: 'inherit' });
-  exec('git push origin master&&npm publish', { stdio: 'inherit' });
+  exec('git push origin master', { stdio: 'inherit' });
+  let command = 'npm publish --access public';
+  exec(command, { stdio: 'inherit', cwd: join(DIR_ROOT, 'dist') });
+  consola.success('Published');
 }
 async function run() {
   await build();
