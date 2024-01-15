@@ -2,6 +2,7 @@ import path from 'path'
 import { fileURLToPath } from 'node:url'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
 // import rollupTypescript from '@rollup/plugin-typescript'
 import esbuild from 'rollup-plugin-esbuild';
 import babel from '@rollup/plugin-babel'
@@ -9,7 +10,7 @@ import { DEFAULT_EXTENSIONS } from '@babel/core'
 import  terser  from '@rollup/plugin-terser'
 
 // 读取 package.json 配置
-// import pkg from './package.json' assert {type: 'json'}
+import pkg from './package.json'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -29,18 +30,18 @@ const config = {
     // commonjs
     {
       // package.json 配置的 main 属性
-      file: "./dist/index.cjs",
+      // file: "./dist/index.cjs",
+      file: pkg.main,
       format: 'cjs',
-      sourcemap: false,
       name,
       globals: iifeGlobals
     },
     // es module
     {
       // package.json 配置的 module 属性
-      file: "./dist/index.mjs",
+      // file: "./dist/index.mjs",
+      file: pkg.module,
       format: 'es',
-      sourcemap: true,
       globals: iifeGlobals,
       name
     },
@@ -48,9 +49,9 @@ const config = {
     {
       // umd 导出文件的全局变量
       name,
-      sourcemap: true,
       // package.json 配置的 umd 属性
-      file: "./dist/index.umd.js",
+      // file: "./dist/index.umd.js",
+      file: pkg.umd,
       format: 'umd',
       globals: iifeGlobals
     }
@@ -62,6 +63,7 @@ const config = {
     resolve(),
     // rollup 编译 typescript
     esbuild(),
+    json(),
     // babel 配置
     babel({
       // 编译库使用 runtime

@@ -16,7 +16,7 @@
     // 输出目录
     "outDir": "./dist",
     // 是否包含可以用于 debug 的 sourceMap
-    "sourceMap": true,
+    "sourceMap": false,
     // 解决template标签飘蓝
     "jsx": "preserve",
     // 定义this
