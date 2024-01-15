@@ -113,7 +113,7 @@ jobs:
       - name: release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./dist/index.umd.js
+          # files: ./dist/index.umd.js
           name: v${{steps.version.outputs.prop}}
           tag_name: v${{steps.version.outputs.prop}}
         env:
