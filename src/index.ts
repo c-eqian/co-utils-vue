@@ -11,6 +11,7 @@ export * from './packages/helper/getTag';
 export * from './packages/helper/password';
 export * from './packages/helper/utils';
 
+export * from './packages/is/isCamelCase';
 export * from './packages/is/isNumber';
 export * from './packages/is/isPhone';
 export * from './packages/is/isObjectLike';

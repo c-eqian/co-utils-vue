@@ -122,5 +122,11 @@ describe('useSortByKey', () => {
         age: 18
       }
     ]);
+    expect(useSortByKey([[], []])).toEqual([[], []]);
+    expect(
+      useSortByKey([9, 8, 6, 8, 7, 2], {
+        order: 'asc'
+      })
+    ).toEqual([2, 6, 7, 8, 8, 9]);
   });
 });

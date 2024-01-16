@@ -19,5 +19,5 @@ export const isNumber = <T>(value: T): boolean => {
  */
 export const isNumeric = (value: any) => {
   if (isNumber(value)) return isNumber(value);
-  return /^[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?$/.test(value);
+  return typeof value !== 'symbol' && /^[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?$/.test(value);
 };

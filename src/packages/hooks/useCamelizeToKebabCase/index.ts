@@ -1,3 +1,4 @@
+import { isCamelCase } from '../../is/isCamelCase';
 /**
  * 驼峰命名转短杆或者下划线命名
  * @param str userName
@@ -5,9 +6,11 @@
  * @returns user-name
  */
 import { useFirstLetterToUpperCase } from '../useFirstLetterToUpperCase';
-export const camelizeToKebabCase = (str: string, mark: '-' | '_' = '-') => {
+export const useCamelizeToKebabCase = (str: string, mark: '-' | '_' = '-') => {
+  if (!isCamelCase(str)) return str;
   str = useFirstLetterToUpperCase(str);
-  return str.replace(/[A-Z]/g, item => {
+  const r = str.replace(/[A-Z]/g, item => {
     return mark + item.toLowerCase();
   });
+  return r.startsWith(mark) ? r.slice(1) : r;
 };
