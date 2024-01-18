@@ -26,11 +26,6 @@ export interface ISocketOptions {
    */
   heartMessage?: string;
   /**
-   * 是否开启心跳
-   * @default true
-   */
-  isOpenHeart?: boolean;
-  /**
    * 自动关闭
    */
   autoClose?: boolean;

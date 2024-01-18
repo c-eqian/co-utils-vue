@@ -456,26 +456,16 @@ interface ITreeOptions {
 例子，在`vue`文件中，你可以这样使用：
 
 ```typescript
-const ws = ref<useSocket>(); // 定义变量
-const initWebSocket = async () => {
-    ws.value = new useSocket({
-        url: '服务地址',// 服务器地址
-        reconnectCount: 5, // 重连次数
-        messageCallBack: wsReceiveMsg, // 收到信息的回调
-        isReconnect: true,// 是否进行重连
-        openCallBack: () => { // 连接成功的回调方法
-            // ElMessage.success('连接成功');
-        },
-        errorCallBack: () => { // 连接错误的回调方法
-            //
-        }，
-     closeCallBack: () => { // 关闭连接的回调方法
-         //
-     }
+const {data, open, send} = useSocket('ws://xxx', {
+    reconnectCount: 5,
+    onMessage(ws, e) {
+        console.log(e.data);
+    },
+    onFailed() {
+        console.log('重连失败');
+    },
 });
-};
-ws.value?.send(msg);// 发送数据
-ws.value?.close();// 关闭连接
+open() // 默认不会进行连接，需要调用此方法
 ```
 
 你应该注意的是，如果开启了心跳检测，默认的心跳信息是`ping`,并且如果能够从服务器中得到的响应信息也是`ping`,即相同于心跳信息，此时，数据将会被过滤，因此，在发送数据时，尽量避免与心跳信息的数据一致，你可以通过设置`heartMessage`来设置你的心跳数据。
@@ -485,24 +475,95 @@ ws.value?.close();// 关闭连接
 | 属性名         | 类型               | 默认值 | 说明                                                       | 可选 |
 | -------------- | ------------------ | ------ | ---------------------------------------------------------- | ---- |
 | url            | string             | -      | 链接的通道的地址                                           | 否   |
-| protocols      | string \| string[] | `ws`   | 通信协议,可接受`ws`或者`wss`协议                           | 是   |
+| protocols      | string \| string[] | -      | 通信协议,可接受`ws`或者`wss`协议                           | 是   |
 | heartTime      | number             | 5000   | 心跳时间间隔,需要需要`开启isOpenHeart`属性，才可生效       | 是   |
 | heartMessage   | string             | `ping` | 心跳信息,默认为`ping`，需要`开启isOpenHeart`属性，才可生效 | 是   |
-| isOpenHeart    | boolean            | `true` | 是否开启心跳                                               | 是   |
 | isReconnect    | boolean            | `true` | 是否自动重连，需要`开启isOpenHeart`属性，才可生效          | 是   |
 | reconnectTime  | number             | 5000   | 重连时间间隔，需要`开启isOpenHeart`属性，才可生效          | 是   |
-| reconnectCount | number             | 5      | 重连次数 -1 则不限制                                       | 是   |
+| reconnectCount | number \| fn       | -1     | 重连次数 -1 则不限制,可以是一个方法，需要返回一个boolean   | 是   |
+| autoClose      | boolean            | true   | 自动关闭，关闭浏览器或者实例销毁时触发                     | 是   |
+| onOpen         | fn                 |        | 连接成功地回调                                             | 是   |
+| onClose        | fn                 |        | 关闭的回调                                                 | 是   |
+| onMessage      | fn                 |        | 消息的回调                                                 | 是   |
+| onError        | fn                 |        | 错误的回调                                                 | 是   |
+| onFailed       | fn                 |        | 重连次数达到峰值失败回调                                   | 是   |
 
-**事件**
+**配置项**
 
-| 事件名          | 说明           | 可选 |
-| --------------- | -------------- | ---- |
-| openCallBack    | 连接成功的回调 | 是   |
-| closeCallBack   | 关闭的回调     | 是   |
-| messageCallBack | 消息的回调     | 是   |
-| errorCallBack   | 错误的回调     | 是   |
-| send            | 发送数据       | 否   |
-| close           | 主动关闭连接   | 否   |
+```typescript
+export interface ISocketOptions {
+  /**
+   * 通信协议
+   */
+  protocols?: string | string[];
+  /**
+   * 心跳时间间隔
+   * @default 5000
+   */
+  heartTime?: number;
+  /**
+   * 心跳信息
+   * @default ping
+   */
+  heartMessage?: string;
+  /**
+   * 自动关闭
+   */
+  autoClose?: boolean;
+  /**
+   * 是否自动重连
+   * @default true
+   */
+  isReconnect?: boolean;
+  /**
+   * 重连时间间隔
+   * @default 5000
+   */
+  reconnectTime?: number;
+  /**
+   *  重连次数
+   *  可以是数值或者返回一个boolean
+   *  @default -1
+   */
+  reconnectCount?: number | (() => boolean);
+  /**
+   * 连接成功地回调
+   * @param ws
+   */
+  onOpen?: (ws: WebSocket) => void;
+  /**
+   * 关闭的回调
+   * @param ws
+   * @param e
+   */
+  onClose?: (ws: WebSocket, e: CloseEvent) => void;
+  /**
+   * 消息的回调
+   * @param ws
+   * @param e
+   */
+  onMessage?: (ws: WebSocket, e: MessageEvent) => void;
+  /**
+   * 错误的回调
+   * @param ws
+   * @param e
+   */
+  onError?: (ws: WebSocket, e: Event) => void;
+  /**
+   * 重连失败回调
+   */
+  onFailed?: () => void;
+}
+export interface ISocketReturn<T> {
+  data?: Ref<T | null>;
+  close: WebSocket['close'];
+  open: () => void;
+  send: (data: string | ArrayBuffer | Blob, useBuffer?: boolean) => boolean;
+  ws: Ref<WebSocket | undefined>;
+}
+```
+
+
 
 # Is
 
