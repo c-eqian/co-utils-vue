@@ -18,6 +18,7 @@ export * from './packages/is/isObjectLike';
 export * from './packages/is/isIdCard';
 export * from './packages/is/isFunction';
 export * from './packages/is/isString';
+export * from './packages/is/isEmpty';
 
 export * from './packages/hooks/useBeforeDate';
 export * from './packages/hooks/useCamelize';

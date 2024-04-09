@@ -622,6 +622,10 @@ console.log(isNumeric('458.a')) // false
 console.log(isNumeric('122e')) // false
 ```
 
+## isEmpty
+
+用于检测值是否为空
+
 # 其他
 
 ## getTag
