@@ -40,7 +40,7 @@ export * from './packages/hooks/useOmit';
 export * from './packages/hooks/usePick';
 export * from './packages/hooks/usePriceToThousand';
 export * from './packages/hooks/useSFCWithInstall';
-export * from './packages/hooks/useSocket';
+export * from './packages/hooks/useWebSocket';
 export * from './packages/hooks/useSort';
 export * from './packages/hooks/useToFixedFix';
 export * from './packages/hooks/useToInteger';

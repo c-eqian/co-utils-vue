@@ -80,7 +80,7 @@ export interface ISocketReturn<T> {
   send: (data: string | ArrayBuffer | Blob, useBuffer?: boolean) => boolean;
   ws: Ref<WebSocket | undefined>;
 }
-export const useSocket = <Data = any>(
+export const useWebSocket = <Data = any>(
   url: string,
   options: ISocketOptions = {}
 ): ISocketReturn<Data> => {

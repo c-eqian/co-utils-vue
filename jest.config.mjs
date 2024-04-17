@@ -30,7 +30,7 @@ export default {
     "!src/packages/hooks/useDebounceRef/**/*.ts",
     "!src/packages/helper/**/*.ts",
     "!src/packages/effects/**/*.ts",
-    "!src/packages/hooks/useSocket/*.ts",
+    "!src/packages/hooks/useWebSocket/*.ts",
   ],
 
   // The directory where Jest should output its coverage files

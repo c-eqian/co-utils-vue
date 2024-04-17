@@ -33,3 +33,4 @@ package-lock.json
 *.gif
 *.svg
 *vue.d.ts
+script
