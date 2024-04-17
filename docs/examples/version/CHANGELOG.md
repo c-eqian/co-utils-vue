@@ -1,6 +1,25 @@
 # 更新日志 
 
 
+## [2.1.0](https://github.com/C1320/co-utils-vue/compare/v2.0.5...v2.1.0) (2024-04-17)
+
+
+###   Chores | 其他更新
+
+* release v2.0.5 ([a0b2354](https://github.com/C1320/co-utils-vue/commit/a0b23540ae629892968afec0122f9b0e968c217d))
+
+
+###   Bug Fixes | Bug 修复
+
+* 修复useSocket ([09b2413](https://github.com/C1320/co-utils-vue/commit/09b2413e06a24594d3f1b4fe58fcb0f6ba32dcdd))
+* 修复useSocket ([dc49f38](https://github.com/C1320/co-utils-vue/commit/dc49f38f29350262bf97b4200772b42afecf7e0f))
+
+
+### ✨ Features | 新功能
+
+* 更名 useWebSocket ([f613277](https://github.com/C1320/co-utils-vue/commit/f613277aa9328229ecb57bc7baede873db9275bd))
+* 新增 isEmpty ([c2de898](https://github.com/C1320/co-utils-vue/commit/c2de8984d91b6446e10b920ead1135251cbaa276))
+
 ### [2.0.5](https://github.com/C1320/co-utils-vue/compare/v2.0.4...v2.0.5) (2024-01-15)
 
 
