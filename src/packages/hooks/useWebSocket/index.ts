@@ -27,6 +27,7 @@ export interface ISocketOptions {
   heartMessage?: string;
   /**
    * 自动关闭
+   * @default true
    */
   autoClose?: boolean;
   /**
@@ -76,7 +77,7 @@ export interface ISocketOptions {
 export interface ISocketReturn<T> {
   data?: Ref<T | null>;
   close: WebSocket['close'];
-  open: () => void;
+  websocketOpen: () => void;
   send: (data: string | ArrayBuffer | Blob, useBuffer?: boolean) => boolean;
   ws: Ref<WebSocket | undefined>;
 }
@@ -106,6 +107,41 @@ export const useWebSocket = <Data = any>(
   let retriedCount = 0;
   // 是否主动关闭，如果主动关闭，则不会进行重连
   let explicitlyClose = false;
+  // 重置
+  const _reset = () => {
+    intervalTime && clearInterval(intervalTime);
+    intervalTime = undefined;
+  };
+  /**
+   * 发送缓存数据
+   */
+  const _sendBufferData = () => {
+    bufferedData.forEach(_data => {
+      wsRef.value?.send(_data);
+    });
+    bufferedData = [];
+  };
+  const send = (_data: string | ArrayBuffer | Blob, buffer = true) => {
+    /**
+     * 未连接状态，缓存数据，下次连接成功重新发送
+     */
+    if (!wsRef.value || wsRef.value?.readyState !== wsRef.value?.OPEN) {
+      if (buffer) bufferedData.push(_data);
+      return false;
+    }
+    _sendBufferData();
+    wsRef.value?.send(_data);
+    return true;
+  };
+  const _heartbeatDetection = () => {
+    _reset();
+    if (isReconnect) {
+      intervalTime = setInterval(() => {
+        // 发送心跳包
+        send(heartMessage, false);
+      }, heartTime);
+    }
+  };
   const _init = () => {
     if (wsRef.value) return;
     const ws = new WebSocket(url, protocols);
@@ -145,48 +181,13 @@ export const useWebSocket = <Data = any>(
       isFunction(onMessage) && onMessage?.(ws!, e);
     };
   };
-  /**
-   * 发送缓存数据
-   */
-  const _sendBufferData = () => {
-    bufferedData.forEach(data => {
-      wsRef.value?.send(data);
-    });
-    bufferedData = [];
-  };
-  const send = (data: string | ArrayBuffer | Blob, buffer = true) => {
-    /**
-     * 未连接状态，缓存数据，下次连接成功重新发送
-     */
-    if (!wsRef.value || wsRef.value?.readyState !== wsRef.value?.OPEN) {
-      if (buffer) bufferedData.push(data);
-      return false;
-    }
-    _sendBufferData();
-    wsRef.value?.send(data);
-    return true;
-  };
-  // 重置
-  const _reset = () => {
-    intervalTime && clearInterval(intervalTime);
-    intervalTime = undefined;
-  };
-  const close: WebSocket['close'] = (code = 1000, reason?: string) => {
+  const close: WebSocket['close'] = (code?: number, reason?: string) => {
+    if (!wsRef.value) return;
     explicitlyClose = true;
     _reset();
-    wsRef.value?.close(code, reason);
-    wsRef.value = undefined;
+    wsRef.value?.close(code || 1000, reason);
   };
-  const _heartbeatDetection = () => {
-    _reset();
-    if (isReconnect) {
-      intervalTime = setInterval(() => {
-        // 发送心跳包
-        send(heartMessage, false);
-      }, heartTime);
-    }
-  };
-  const open = () => {
+  const websocketOpen = () => {
     close();
     explicitlyClose = false;
     retriedCount = 0;
@@ -202,7 +203,7 @@ export const useWebSocket = <Data = any>(
     data,
     send,
     close,
-    open,
+    websocketOpen,
     ws: wsRef
   };
 };
