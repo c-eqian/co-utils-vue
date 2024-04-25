@@ -449,23 +449,32 @@ interface ITreeOptions {
 
 `useSFCWithInstall`进行组件注册，接受一个组件作为参数
 
-## useSocket
+## useWebSocket
 
-`useSocket`基于`websocket`进行封装；具备心跳检测，断线重连等功能机制。
+`useWebSocket`基于`websocket`进行封装；具备心跳检测，断线重连等功能机制。
 
 例子，在`vue`文件中，你可以这样使用：
 
 ```typescript
-const {data, open, send} = useSocket('ws://xxx', {
+const { ws, send, websocketOpen, data } = useWebSocket(
+  url,
+  {
     reconnectCount: 5,
-    onMessage(ws, e) {
-        console.log(e.data);
+    autoClose: true,
+    onOpen: () => {
+      console.log('链接成功');
     },
-    onFailed() {
-        console.log('重连失败');
+    onError: () => {
+      console.log('链接失败1');
     },
-});
-open() // 默认不会进行连接，需要调用此方法
+    onClose: () => {
+      console.log('连接关闭');
+    },
+    onFailed: () => {
+      console.log('重连失败');
+    }
+  }
+);
 ```
 
 你应该注意的是，如果开启了心跳检测，默认的心跳信息是`ping`,并且如果能够从服务器中得到的响应信息也是`ping`,即相同于心跳信息，此时，数据将会被过滤，因此，在发送数据时，尽量避免与心跳信息的数据一致，你可以通过设置`heartMessage`来设置你的心跳数据。
@@ -557,7 +566,7 @@ export interface ISocketOptions {
 export interface ISocketReturn<T> {
   data?: Ref<T | null>;
   close: WebSocket['close'];
-  open: () => void;
+  websocketOpen: () => void;
   send: (data: string | ArrayBuffer | Blob, useBuffer?: boolean) => boolean;
   ws: Ref<WebSocket | undefined>;
 }
