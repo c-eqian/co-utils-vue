@@ -64,6 +64,11 @@ export interface ISocketOptions {
    */
   onMessage?: (ws: WebSocket, e: MessageEvent) => void;
   /**
+   * 数据接收前处理 只处理data
+   * @param e
+   */
+  beforeMessage?: (e: MessageEvent) => any;
+  /**
    * 错误的回调
    * @param ws
    * @param e
@@ -91,6 +96,7 @@ export const useWebSocket = <Data = any>(
     onFailed,
     onError,
     onMessage,
+    beforeMessage,
     heartMessage = DEFAULT_PING_MESSAGE,
     heartTime = 5000,
     reconnectCount = -1,
@@ -177,7 +183,7 @@ export const useWebSocket = <Data = any>(
         _heartbeatDetection();
         if (e.data === heartMessage) return;
       }
-      data.value = e.data;
+      data.value = isFunction(beforeMessage) ? beforeMessage?.(e.data) : e.data;
       isFunction(onMessage) && onMessage?.(ws!, e);
     };
   };
@@ -185,7 +191,7 @@ export const useWebSocket = <Data = any>(
     if (!wsRef.value) return;
     explicitlyClose = true;
     _reset();
-    wsRef.value?.close(code || 1000, reason);
+    wsRef.value && wsRef.value?.close(code || 1000, reason);
   };
   const websocketOpen = () => {
     close();
