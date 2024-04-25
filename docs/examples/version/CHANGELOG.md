@@ -1,6 +1,14 @@
 # 更新日志 
 
 
+## [2.2.0](https://github.com/C1320/co-utils-vue/compare/v2.1.0...v2.2.0) (2024-04-25)
+
+
+### ✨ Features | 新功能
+
+* 优化useWebSocket ([ddeab6e](https://github.com/C1320/co-utils-vue/commit/ddeab6e40f86c0f86b9290b4f39c9e5221d55d2c))
+* 优化useWebSocket ([96697b4](https://github.com/C1320/co-utils-vue/commit/96697b4bfebba2767b2af33ebc520f5710bf37fc))
+
 ## [2.1.0](https://github.com/C1320/co-utils-vue/compare/v2.0.5...v2.1.0) (2024-04-17)
 
 
