@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [2.2.1](https://github.com/C1320/co-utils-vue/compare/v2.2.0...v2.2.1) (2024-04-26)
+
+
+###   Bug Fixes | Bug 修复
+
+* 修复@别名打包问题 ([e9c5d9e](https://github.com/C1320/co-utils-vue/commit/e9c5d9e9faa14d010aec0e58d65c795a11d78a8b))
+
 ## [2.2.0](https://github.com/C1320/co-utils-vue/compare/v2.1.0...v2.2.0) (2024-04-25)
 
 
