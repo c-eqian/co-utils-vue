@@ -2,7 +2,7 @@ import { isObjectLike } from '../../is/isObjectLike';
 import { isFunction } from '../../is/isFunction';
 import { isNumeric } from '../../is/isNumber';
 import { isString } from '../../is/isString';
-import { useMerge } from '@/packages/hooks/useMerge';
+import { useMerge } from '../useMerge';
 
 export interface ISort<T> {
   order?: 'dec' | 'asc';

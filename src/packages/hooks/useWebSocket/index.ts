@@ -6,8 +6,8 @@
  * @Description: desc
  */
 import { ref, Ref, getCurrentScope, onScopeDispose } from 'vue-demi';
-import { isFunction } from '@/packages/is/isFunction';
-import { isNumeric } from '@/packages/is/isNumber';
+import { isFunction } from '../../is/isFunction';
+import { isNumeric } from '../../is/isNumber';
 const DEFAULT_PING_MESSAGE = 'ping';
 
 export interface ISocketOptions {
