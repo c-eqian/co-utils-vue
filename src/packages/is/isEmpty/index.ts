@@ -5,7 +5,7 @@
  * @Description: 判断值是否为空
  */
 
-import { getTag } from '@/packages/helper/getTag';
+import { getTag } from '../../helper/getTag';
 
 /**
  * 判断值是否为空
