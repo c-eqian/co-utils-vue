@@ -19,10 +19,23 @@ export interface UseTableList<T = any, P = any> {
     params?: P;
     /**
      * 分页键
+     * @default pageNum
      */
     pageNumKey?: string;
+    /**
+     * 分页键
+     * @default pageSize
+     */
     pageSizeKey?: string;
+    /**
+     * 返回结果的数据列表键
+     * @default list
+     */
     listKey?: string;
+    /**
+     * 返回结果的数据列表键
+     * @default total
+     */
     totalKey?: string;
     /**
      * 接口请求前处理

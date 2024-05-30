@@ -30,6 +30,59 @@ console.log(usePick(test, [])); // {}
 console.log(usePick(test, ['name'])); // {name: '金庸'}
 ```
 
+## useTableList
+
+表格分页数据请求，返回的数据结果应为：
+
+```json
+{
+    list | listKey: [],
+    total | totalKey:0
+}
+```
+
+配置参数
+
+```typescript
+UseTableList<T = any, P = any> {
+  request: {
+    /**
+     * 请求方法
+     */
+    api: (params: P) => Promise<T>;
+    /**
+     * 请求参数
+     */
+    params?: P;
+    /**
+     * 分页键
+     * @default pageNum
+     */
+    pageNumKey?: string;
+    /**
+     * 分页键
+     * @default pageSize
+     */
+    pageSizeKey?: string;
+    /**
+     * 返回结果的数据列表键
+     * @default list
+     */
+    listKey?: string;
+    /**
+     * 返回结果的数据列表键
+     * @default total
+     */
+    totalKey?: string;
+    /**
+     * 接口请求前处理
+     */
+    handleParams?: (params: P) => P;
+  };
+  // response?: {};
+}
+```
+
 ## useFormValueWatcher
 
 在一些场景中，有时候需要进行表单的监听而进行某些操作，例如，修改某些信息时，如果没有发生变化，不能进行编辑或者一些其他的操作，`useFormValueWatcher`由此诞生
@@ -634,6 +687,17 @@ console.log(isNumeric('122e')) // false
 ## isEmpty
 
 用于检测值是否为空
+
+## isArray
+
+用于检测值是否为一个数组
+
+```typescript
+isArray(null)
+// false
+isArray([])
+// true
+```
 
 # 其他
 
