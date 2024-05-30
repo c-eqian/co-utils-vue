@@ -19,7 +19,9 @@ export * from './packages/is/isIdCard';
 export * from './packages/is/isFunction';
 export * from './packages/is/isString';
 export * from './packages/is/isEmpty';
+export * from './packages/is/isArray';
 
+export * from './packages/hooks/useTableList';
 export * from './packages/hooks/useBeforeDate';
 export * from './packages/hooks/useCamelize';
 export * from './packages/hooks/useCamelizeToKebabCase';

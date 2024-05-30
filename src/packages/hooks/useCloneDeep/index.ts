@@ -47,13 +47,14 @@ export const useCloneDeep = <T>(data: T): T => {
       }
       return target;
     }
-    // 处理函数、日期、正则表达式等等
-    if (_source instanceof Date) {
-      return new Date(_source);
-    }
-    if (_source instanceof RegExp) {
-      return new RegExp(_source.source, _source.flags);
-    }
+    console.log(_source);
+    // // 处理函数、日期、正则表达式等等
+    // if (_source instanceof Date) {
+    //   return _source;
+    // }
+    // if (_source instanceof RegExp) {
+    //   return new RegExp(_source.source, _source.flags);
+    // }
     //其他数据类型直接返回
     return _source;
   };

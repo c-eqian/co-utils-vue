@@ -126,4 +126,14 @@ describe('cloneDeep', () => {
     data.e = data;
     expect(useCloneDeep(data)).toEqual(data);
   });
+  it('测试时间', () => {
+    const _d = new Date();
+    const data: any = {
+      data: _d,
+      aa: {
+        data: _d
+      }
+    };
+    expect(useCloneDeep(data)).toEqual(data);
+  });
 });
