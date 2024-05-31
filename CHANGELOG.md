@@ -1,6 +1,20 @@
 # 更新日志 
 
 
+## [2.3.0](https://github.com/C1320/co-utils-vue/compare/v2.2.1...v2.3.0) (2024-05-31)
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* **is:** 优化类型提示 ([998c017](https://github.com/C1320/co-utils-vue/commit/998c017554468b77b73c1402590afb4e7eef87d6))
+
+
+### ✨ Features | 新功能
+
+* **hooks:** 新增useTableList ([f68570f](https://github.com/C1320/co-utils-vue/commit/f68570fee2e25eba68e795b65d26e3c387b50842))
+* **is:** 新增isArray ([b7f8c08](https://github.com/C1320/co-utils-vue/commit/b7f8c081b06ab1ac8cc70f3c2381f73b842ab31e))
+* useFormatDate新增毫秒级格式化 ([7dd9eeb](https://github.com/C1320/co-utils-vue/commit/7dd9eeb466f69c0ee5f9238374edd38ff7be0012))
+
 ### [2.2.1](https://github.com/C1320/co-utils-vue/compare/v2.2.0...v2.2.1) (2024-04-26)
 
 
