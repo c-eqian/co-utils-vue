@@ -11,6 +11,7 @@ yarn-error.log*
 pnpm-debug.log*
 # Bundle
 dist
+play
 coverage
 # local env files
 *.local
