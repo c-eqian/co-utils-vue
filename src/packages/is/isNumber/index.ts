@@ -5,7 +5,7 @@ import { getTag } from '../../helper/getTag';
  * @param value 校验值
  * @returns Boolean
  */
-export const isNumber = <T>(value: T): boolean => {
+export const isNumber = (value: any): value is number => {
   return typeof value === 'number' || (isObjectLike(value) && getTag(value) === '[object Number]');
 };
 

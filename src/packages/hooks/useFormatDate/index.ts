@@ -18,16 +18,17 @@ export const useFormatDate = (date: number | string | Date, format = 'yyyy-MM-dd
   let _d: Date;
   // 处理带有时间的日期字符串
   if (typeof date === 'string') {
-    const match = date.match(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/);
+    const match = date.match(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2}):(\d{4})/);
     if (match) {
-      const [, year, month, day, hours, minutes, seconds] = match;
+      const [, year, month, day, hours, minutes, seconds, millisecond] = match;
       _d = new Date(
         Number(year),
         Number(month) - 1,
         Number(day),
         Number(hours),
         Number(minutes),
-        Number(seconds)
+        Number(seconds),
+        Number(millisecond)
       );
     } else {
       _d = new Date(date);
@@ -35,7 +36,6 @@ export const useFormatDate = (date: number | string | Date, format = 'yyyy-MM-dd
   } else {
     _d = new Date(date);
   }
-
   const dateDict: Record<string, string> = {
     yyyy: `${_d.getFullYear()}`,
     yy: `${_d.getFullYear() % 100}`,
@@ -50,9 +50,10 @@ export const useFormatDate = (date: number | string | Date, format = 'yyyy-MM-dd
     dd: `${_d.getDate() + 100}`.substring(1),
     HH: `${_d.getHours() + 100}`.substring(1),
     mm: `${_d.getMinutes() + 100}`.substring(1),
-    ss: `${_d.getSeconds() + 100}`.substring(1)
+    ss: `${_d.getSeconds() + 100}`.substring(1),
+    SS: `${_d.getMilliseconds()}`
   };
-  return format.replace(/(yyyy|YYYY|YY|yy)|MM?|dd?|HH?|mm?|ss?/g, (...args) => {
+  return format.replace(/(yyyy|YYYY|YY|yy)|MM?|dd?|HH?|mm?|ss?|SS?/g, (...args) => {
     return dateDict[args[0]];
   });
 };
