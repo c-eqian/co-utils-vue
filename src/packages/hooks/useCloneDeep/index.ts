@@ -18,6 +18,13 @@ export const useCloneDeep = <T>(data: T): T => {
     if (!isObjectLike(_source)) return _source;
     // 使用hash判断循环引用问题,如果存在，则获取这个值，并返回
     if (hash.has(_source as any)) return hash.get(_source as any);
+    // 处理函数、日期、正则表达式等等
+    if (_source instanceof Date || _source instanceof Function) {
+      return _source;
+    }
+    if (_source instanceof RegExp) {
+      return new RegExp(_source.source, _source.flags);
+    }
     // 判断是否是数组
     let target: T = Array.isArray(_source) ? ([] as T) : ({} as T);
     if (Array.isArray(_source)) {
@@ -47,14 +54,6 @@ export const useCloneDeep = <T>(data: T): T => {
       }
       return target;
     }
-    console.log(_source);
-    // // 处理函数、日期、正则表达式等等
-    // if (_source instanceof Date) {
-    //   return _source;
-    // }
-    // if (_source instanceof RegExp) {
-    //   return new RegExp(_source.source, _source.flags);
-    // }
     //其他数据类型直接返回
     return _source;
   };
