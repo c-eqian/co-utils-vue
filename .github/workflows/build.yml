@@ -132,13 +132,15 @@ jobs:
           persist-credentials: false
 
       - name: 构建文档
-        run: yarn && yarn run docs:build
+#        run: yarn && yarn run docs:build
+        run: yarn && typedoc src/index.ts --out ./play
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: docs/.vitepress/dist
+          FOLDER: play
+#          FOLDER: docs/.vitepress/dist
       # 刷新缓存
       - name: 刷新缓存
         run: |
