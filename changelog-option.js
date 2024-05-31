@@ -1,6 +1,6 @@
 /*
- * @Descripttion: 
- * @version: 
+ * @Descripttion:
+ * @version:
  * @Author: 十三
  * @Date: 2022-11-20 02:36:36
  * @LastEditors: 十三
@@ -14,7 +14,7 @@ module.exports = {
     transform: (commit, context) => {
       let discard = true
       const issues = []
-      
+
       commit.notes.forEach(note => {
         note.title = 'BREAKING CHANGES'
         discard = false
@@ -34,27 +34,27 @@ module.exports = {
       else if (discard) {
         return
       }
-      else if (commit.type === 'docs') {
-        commit.type = '📝 Documentation | 文档'
-      }
-      else if (commit.type === 'style') {
-        commit.type = '💄 Styles | 风格'
-      }
-      else if (commit.type === 'refactor') {
-        commit.type = '♻ Code Refactoring | 代码重构'
-      }
-      else if (commit.type === 'test') {
-        commit.type = '✅ Tests | 测试'
-      }
-      else if (commit.type === 'build') {
-        commit.type = '👷‍ Build System | 构建'
-      }
-      else if (commit.type === 'ci') {
-        commit.type = '🔧 Continuous Integration | CI 配置'
-      }
-      else if (commit.type === 'chore') {
-        commit.type = '🎫 Chores | 其他更新'
-      }
+      // else if (commit.type === 'docs') {
+      //   commit.type = '📝 Documentation | 文档'
+      // }
+      // else if (commit.type === 'style') {
+      //   commit.type = '💄 Styles | 风格'
+      // }
+      // else if (commit.type === 'refactor') {
+      //   commit.type = '♻ Code Refactoring | 代码重构'
+      // }
+      // else if (commit.type === 'test') {
+      //   commit.type = '✅ Tests | 测试'
+      // }
+      // else if (commit.type === 'build') {
+      //   commit.type = '👷‍ Build System | 构建'
+      // }
+      // else if (commit.type === 'ci') {
+      //   commit.type = '🔧 Continuous Integration | CI 配置'
+      // }
+      // else if (commit.type === 'chore') {
+      //   commit.type = '🎫 Chores | 其他更新'
+      // }
 
       if (commit.scope === '*') {
         commit.scope = ''
@@ -68,7 +68,7 @@ module.exports = {
         let url = context.repository
           ? `${context.host}/${context.owner}/${context.repository}`
           : context.repoUrl
-        
+
         if (url) {
           url = `${url}/issues/`
           // Issue URLs.
