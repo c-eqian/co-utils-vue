@@ -133,7 +133,7 @@ jobs:
 
       - name: 构建文档
 #        run: yarn && yarn run docs:build
-        run: yarn && yarn global add typedoc && typedoc src/index.ts --out ./play
+        run: yarn && yarn global add typedoc typescript && typedoc src/index.ts --out ./play
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
