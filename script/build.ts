@@ -45,11 +45,15 @@ async function gitPush() {
   execSync('git add .', { stdio: 'inherit' });
   execSync(`git commit -m "chore: release v${version}"`, { stdio: 'inherit' });
   execSync('git show-ref --tags');
-  execSync(`git tag -a v${version} -m "v${version}"`, { stdio: 'inherit' });
-  execSync(`git push origin master v${version}`, { stdio: 'inherit' });
-  let command = 'npm publish --access public';
-  execSync(command, { stdio: 'inherit', cwd: join(DIR_ROOT, 'dist') });
-  consola.success('Published');
+  exec(`git show-ref --tags v${version}`, (error, stdout) => {
+    if (!error && stdout !== '') {
+      execSync(`git tag -a v${version} -m "v${version}"`, { stdio: 'inherit' });
+    }
+    execSync(`git push origin master v${version}`, { stdio: 'inherit' });
+    let command = 'npm publish --access public';
+    execSync(command, { stdio: 'inherit', cwd: join(DIR_ROOT, 'dist') });
+    consola.success('Published');
+  });
 }
 async function run() {
   await build();
