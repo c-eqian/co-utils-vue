@@ -46,8 +46,12 @@ async function gitPush() {
   execSync(`git commit -m "chore: release v${version}"`, { stdio: 'inherit' });
   execSync('git show-ref --tags');
   exec(`git show-ref --tags v${version}`, (error, stdout) => {
-    if (!error && stdout !== '') {
-      execSync(`git tag -a v${version} -m "v${version}"`, { stdio: 'inherit' });
+    if (!error && !stdout) {
+      try {
+        execSync(`git tag -a v${version} -m "v${version}"`, { stdio: 'inherit' });
+      }catch (err){
+        consola.warn(err);
+      }
     }
     execSync(`git push origin master v${version}`, { stdio: 'inherit' });
     let command = 'npm publish --access public';
