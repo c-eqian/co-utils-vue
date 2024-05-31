@@ -9,6 +9,7 @@
   "scripts": {
     "clean:dist": "rimraf dist",
     "start:build": "esno script/build.ts",
+    "build:docs": "typedoc ./src/index.ts --out ./play",
     "build:types": "npm run clean:dist && tsc -b ./tsconfig.types.json",
     "build": "npm run build:types && cross-env NODE_ENV=production rollup -c",
     "test": "jest",
