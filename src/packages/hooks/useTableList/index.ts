@@ -7,6 +7,7 @@
 import { type Ref, ref } from 'vue-demi';
 import { useCloneDeep } from '../useCloneDeep';
 import { isFunction } from '../../is/isFunction';
+import { deepObjectValue } from '../../helper/deepValue';
 export interface UseTableList<T = any, P = any> {
   request: {
     /**
@@ -28,21 +29,33 @@ export interface UseTableList<T = any, P = any> {
      */
     pageSizeKey?: string;
     /**
+     * 接口请求前处理
+     */
+    handleParams?: (params: P) => P;
+  };
+  /**
+   * 响应数据处理
+   */
+  response?: {
+    /**
      * 返回结果的数据列表键
      * @default list
+     * @example
+     * ```ts
+     * // 响应数据为 { data: { list: [] } } 则传递 data.list;
+     * ````
      */
     listKey?: string;
     /**
      * 返回结果的数据列表键
      * @default total
+     * ```ts
+     * // 响应数据为 { data: { list: [], total: 0 } } 则传递 data.total;
+     * ```
      */
     totalKey?: string;
-    /**
-     * 接口请求前处理
-     */
-    handleParams?: (params: P) => P;
+    // handleResponseData?: (list: T[], res?: IResponse) => T[];
   };
-  // response?: {};
 }
 
 /**
@@ -55,11 +68,10 @@ export const useTableList = <T = any, P = any>(config: UseTableList<T, P>) => {
   const {
     pageNumKey = 'pageNum',
     pageSizeKey = 'pageSize',
-    listKey = 'list',
-    totalKey = 'total',
     api,
     handleParams
   } = cloneConfig.request;
+  const { listKey = 'list', totalKey = 'total' } = cloneConfig.response || {};
   const tableData = ref<T[]>([]);
   const tableTotal = ref(0);
   const tableLoading = ref(false);
@@ -74,8 +86,8 @@ export const useTableList = <T = any, P = any>(config: UseTableList<T, P>) => {
     try {
       tableLoading.value = true;
       const res = (await api(params.value)) as T;
-      tableData.value = res[listKey];
-      tableTotal.value = res[totalKey];
+      tableData.value = deepObjectValue(res, listKey);
+      tableTotal.value = deepObjectValue(res, totalKey);
     } catch (e) {
       return Promise.reject(e);
     } finally {

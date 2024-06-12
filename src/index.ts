@@ -10,6 +10,7 @@
 export * from './packages/helper/getTag';
 export * from './packages/helper/password';
 export * from './packages/helper/utils';
+export * from './packages/helper/deepValue';
 
 export * from './packages/is/isCamelCase';
 export * from './packages/is/isNumber';
