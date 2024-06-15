@@ -1,9 +1,21 @@
+import { useFirstToUpper } from '@/packages/hooks/useFirstToUpper';
+import { isKebabCase } from '@/packages/is/isKebabCase';
+
 /**
  * 短杆拼接转驼峰
- * @param str
+ * @param str 字符
+ * @param pascal
  * @returns
- * test-icon => testIcon
+ * @example
+ * ```js
+ * useCamelize('name') // name
+ * useCamelize('user-name') // userName
+ * useCamelize('-user-name') // -user-name
+ * useCamelize('user-name', true) // UserName
+ * ```
  */
-export const useCamelize = (str: string): string => {
-  return str.replace(/-(\w)/g, (_, c) => c.toUpperCase());
+export const useCamelize = (str: string, pascal = false): string => {
+  if (!isKebabCase(str)) return str;
+  const value = str.replace(/-(\w)/g, (_, c) => c.toUpperCase());
+  return pascal ? useFirstToUpper(value) : value;
 };

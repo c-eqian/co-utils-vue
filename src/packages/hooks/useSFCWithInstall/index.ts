@@ -7,7 +7,6 @@
  * @LastEditTime: 2022-12-04 20:06:22
  */
 import type { App, Plugin, AppContext } from 'vue-demi'; // 只是导入类型不是导入App的值
-import { useComponentNameFormat } from '../useNamespace';
 
 // 类型必须导出否则生成不了.d.ts文件
 export type useSFCWithInstall<T> = T & Plugin;
@@ -25,7 +24,6 @@ export interface SFC {
 export const useSFCWithInstall = <T extends SFC>(comp: T) => {
   (comp as useSFCWithInstall<T>).install = (app: App) => {
     app.component(comp.name, comp);
-    app.component(useComponentNameFormat(comp.name), comp);
   };
   return comp as useSFCWithInstall<T>;
 };

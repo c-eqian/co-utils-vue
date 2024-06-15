@@ -8,7 +8,14 @@
  * 首字母转大写
  * @param str
  * @returns
+ * @example
+ * ```ts
+ * useCamel2kebab('abc') // Abc
+ * useCamel2kebab('abc-d') // Abc-d
+ * useCamel2kebab('aBc-d') // ABc-d
+ * useCamel2kebab('ABc-d') // ABc-d
+ * ```
  */
-export function useFirstLetterToUpperCase(str: string): string {
+export function useFirstToUpper(str: string): string {
   return str.replace(/^[a-z]/, firstLetter => firstLetter.toUpperCase());
 }

@@ -1,12 +1,23 @@
 import { isNumeric } from '../../is/isNumber';
 import { useToInteger } from '../useToInteger';
+import { isArray } from '../../is/isArray';
 
 /**
  * 将数组数据进行分片
  * @param value
  * @param size
+ * @example
+ * ```js
+ * useChunk(['a', 'b', 'c', 'd'], 3) // [['a', 'b', 'c'], ['d']]
+ * useChunk(['a', 'b', 'c', 'd'], 0) // [];
+ * useChunk(['a', 'b', 'c', 'd'], -1) // [];
+ * useChunk(['a', 'b', 'c', 'd'], -1 / 0) // [];
+ * useChunk(['a', 'b', 'c', 'd'], 3.5) // [['a', 'b', 'c'], ['d']];
+ * useChunk(['a', 'b', 'c', 'd'], 1 / 0) // [['a'], ['b'], ['c'], ['d']];
+ * ```
  */
-export const useChunk = <T>(value: T[], size = 1) => {
+export const useChunk = <T = any>(value: T[], size = 1) => {
+  if (!isArray(value)) return [];
   if (size === 1 / 0 || size === -1 / 0) {
     size = size === 1 / 0 ? 1 : -1;
   }
@@ -16,14 +27,6 @@ export const useChunk = <T>(value: T[], size = 1) => {
   // 处理size
   const _size = useToInteger(+size);
   if (Math.max(_size, 0) < 1) return [] as T[];
-  /**
-   * 小知识点：
-   * new Array(2) => [[],[]]
-   * new Array(2, 3) => [[2,3]
-   * Math.ceil 去掉小数部分向上取整
-   * Math.floor 去掉小数部分向下取整
-   * Math.round 去四舍五入
-   */
   // 根据数组长度和size的比较进行计算需要分几个二维数组
   const result: T[][] = new Array(Math.ceil(value.length / size));
   let index = 0;
