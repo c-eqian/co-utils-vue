@@ -11,6 +11,13 @@ import { useFormatDate } from '../useFormatDate';
  * @param target 与目标时间比较，默认为空，则选取当前时间
  * @param resDefault 当比较时间大于当前时间时，设置的默认返回值，如无设置，默认返回格式化后时间
  * @returns 比较差值时间：几（年、月、天、时、分、秒）前
+ * @example ```ts
+ * useBeforeDate('2023-07-18 19:50:52', '2023-07-25 20:19:52') // 1周前
+ * useBeforeDate('2023-07-25 19:50:52', '2023-07-25 21:19:52') // 1小时前
+ * useBeforeDate('2023-07-25 20:15:52', '2023-07-25 20:19:52') // 4分钟前
+ * useBeforeDate('2023-07-25 20:15:52', '2023-07-25 20:15:55') // 3秒前
+ * useBeforeDate('2023-07-25 20:15:58', '2023-07-25 20:15:55', '-') // -
+ * ```
  */
 export const useBeforeDate = (
   date: number | string | Date,

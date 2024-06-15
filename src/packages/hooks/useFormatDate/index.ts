@@ -7,13 +7,32 @@
  * @LastEditTime: 2022-12-23 14:28:40
  */
 
+export type FormatDate =
+  | 'yyyy'
+  | 'yyyy-MM'
+  | 'yyyy-MM-dd'
+  | 'yyyy-MM-dd HH:mm'
+  | 'yyyy-MM-dd HH:mm:ss'
+  | 'MM-dd'
+  | string;
 /**
  * 时间日期格式化
- * @param date 1668741829000
- * @param format yyyy-MM-dd
- * @returns 2022-11-18
+ * @param date
+ * @param format - yyyy-MM-dd
+ * @returns 格式化后的时间
+ * @example
+ * ``` ts
+ * useFormatDate('2022-11-24 19:50:52', 'yy-MM-dd HH:mm:ss'); // 22-11-24 19:50:52
+ * useFormatDate('2022-11-24 19:50:52', 'YY-MM-dd HH:mm:ss'); // 22-11-24 19:50:52
+ * useFormatDate('2022-11-24 19:50:52', 'YYYY-MM-dd HH:mm:ss'); // 2022-11-24 19:50:52
+ * useFormatDate('2022-11-24 19:50:52', 'YYYY-M-d HH:mm:ss'); // 2022-11-24 19:50:52
+ * useFormatDate('2022-11-24 19:50:52', 'YYYY/M/d HH:mm:ss'); // 2022/11/24 19:50:52
+ * ```
  */
-export const useFormatDate = (date: number | string | Date, format = 'yyyy-MM-dd'): string => {
+export const useFormatDate = (
+  date: number | string | Date,
+  format: FormatDate = 'yyyy-MM-dd'
+): string => {
   if (!date) return `${date}`;
   let _d: Date;
   // 处理带有时间的日期字符串
