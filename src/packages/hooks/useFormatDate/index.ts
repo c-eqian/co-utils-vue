@@ -14,6 +14,8 @@ export type FormatDate =
   | 'yyyy-MM-dd HH:mm'
   | 'yyyy-MM-dd HH:mm:ss'
   | 'MM-dd'
+  | 'HH:mm'
+  | 'HH:mm:ss'
   | string;
 /**
  * 时间日期格式化

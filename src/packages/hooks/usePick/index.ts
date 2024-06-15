@@ -20,9 +20,9 @@ export const usePick = <T, K extends keyof T>(obj: T, keys: K[]): Pick<T, K> => 
     return acc;
   }, {} as Pick<T, K>);
 };
-export type PickKeys<T, K extends keyof T> = {
-  [P in K]: T[P];
-};
+// export type PickKeys<T, K extends keyof T> = {
+//   [P in K]: T[P];
+// };
 
 // /**
 //  * useDeepPick是基于usePick深度函数接收一个对象和一个键数组作为参数，

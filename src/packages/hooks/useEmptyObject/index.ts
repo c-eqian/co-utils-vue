@@ -1,15 +1,33 @@
 import { isObjectLike } from '../../is/isObjectLike';
+import { isArray } from '../../is/isArray';
 import { DeepPartial } from '../../helper/utils';
 
 /**
- * 定义了一个 useClearObject 函数，它接收两个参数 data 和 defaultValue，
- * 其中 data 是一个泛型，表示要清空的对象，defaultValue 是一个部分类型 DeepPartial<T>，
- * 它与 data 的类型一致，用于设置每个属性的初始值。
- * 在内部，我们使用之前提到的清空对象的方式来清空 data 对象。
- * 在设置属性的初始值时，使用 defaultValue 对应字段的值来替换原有的属性值。
- * 最后，返回清空后的 data 对象。
+ * 根据数据类型返回清空后的数据对象
  * @param data
- * @param defaultValue
+ * @param defaultValue 需要设置的默认值
+ * @example
+ * ```js
+ *   const data = {
+ *     key: '8899797',
+ *     nested: {
+ *       ll: '123',
+ *       deep: {
+ *         nestedKey: 'nestedValue'
+ *       }
+ *     }
+ *   };
+ *   const emptyValue = useEmptyObject(data)
+ *  // const emptyValue = {
+ *    //  key: '',
+ *   //   nested: {
+ *     //   ll: '',
+ *     //   deep: {
+ *     //     nestedKey: ''
+ *     //   }
+ *   //   }
+ *  //  };
+ * ```
  */
 export const useEmptyObject = <T>(data: T, defaultValue?: DeepPartial<T>) => {
   const generateInitialValue = (value: any) => {
@@ -19,7 +37,7 @@ export const useEmptyObject = <T>(data: T, defaultValue?: DeepPartial<T>) => {
       return 0;
     } else if (typeof value === 'boolean') {
       return false;
-    } else if (Array.isArray(value)) {
+    } else if (isArray(value)) {
       return [];
     } else {
       return null;
