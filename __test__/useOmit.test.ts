@@ -2,12 +2,12 @@ import { useDeepOmit, useOmit } from '../src';
 describe('useDeepOmit', () => {
   const data = {
     name: '张三',
-    gender: '女',
+    gender: '1',
     address: '深圳',
     age: 18,
     info: {
       name: '张三',
-      gender: '女',
+      gender: '1',
       address: '深圳',
       age: 18
     }
@@ -28,7 +28,7 @@ describe('useDeepOmit', () => {
       address: '深圳',
       info: {
         name: '张三',
-        gender: '女',
+        gender: '1',
         address: '深圳',
         age: 18
       }

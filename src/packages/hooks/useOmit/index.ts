@@ -1,12 +1,38 @@
 import { useCloneDeep } from '../useCloneDeep';
 import { isObjectLike } from '../../is/isObjectLike';
 
+export type OmitKeys<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /**
  * 排除属性
  * @param obj
  * @param keys
+ * @example
+ * ``` js
+ *   const data = {
+ *     name: '张三',
+ *     gender: '1',
+ *     address: '深圳',
+ *     age: 18,
+ *     info: {
+ *       name: '张三',
+ *       gender: '1',
+ *       address: '深圳',
+ *       age: 18
+ *     }
+ *   };
+ *  useOmit(data, ['gender', 'age'])
+ *  // {
+ *   //    name: '张三',
+ *   //    address: '深圳',
+ *    //   info: {
+ *    //     name: '张三',
+ *    //     gender: '1',
+ *    //     address: '深圳',
+ *    //     age: 18
+ *    //   }
+ *   //  }
+ * ```
  */
-export type OmitKeys<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 export const useOmit = <T extends object, K extends keyof T>(obj: T, keys: K[]): OmitKeys<T, K> => {
   const result: Partial<T> = {};
   const keySet = new Set(keys);
@@ -22,6 +48,30 @@ export const useOmit = <T extends object, K extends keyof T>(obj: T, keys: K[]):
  * 深度剔除属性
  * @param obj
  * @param keys
+ * @example
+ * ``` js
+ *   const data = {
+ *     name: '张三',
+ *     gender: '1',
+ *     address: '深圳',
+ *     age: 18,
+ *     info: {
+ *       name: '张三',
+ *       gender: '1',
+ *       address: '深圳',
+ *       age: 18
+ *     }
+ *   };
+ *  useDeepOmit(data, ['gender', 'age'])
+ *  // {
+ *  //     name: '张三',
+ *   //    address: '深圳',
+ *   //    info: {
+ *    //     name: '张三',
+ *    //     address: '深圳'
+ *    //   }
+ *    // };
+ * ```
  */
 
 export const useDeepOmit = <T, K extends keyof T>(obj: T, keys: K[]): OmitKeys<T, K> => {
