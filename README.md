@@ -12,7 +12,7 @@ npm install co-utils-vue -D
 
 # 使用
 
-[使用文档]((https://c-eqian.github.io/co-utils-vue/))
+**此使用示例可能与实际未同步、存在差异，建议请阅读实时**[使用文档]((https://c-eqian.github.io/co-utils-vue/))
 
 # Hooks
 
@@ -86,12 +86,8 @@ UseTableList<T = any, P = any> {
     /**
      * 返回结果的数据列表键
      * @default total
-     * ```ts
-     * // 响应数据为 { data: { list: [], total: 0 } } 则传递 data.total;
-     * ```
      */
     totalKey?: string;
-    // handleResponseData?: (list: T[], res?: IResponse) => T[];
   };
 }
 ```
@@ -108,7 +104,7 @@ watch(()=>[form], ()=>{
 },{ deep: true })
 ```
 
-## useSortByKey
+## useSort
 
 根据某个数组值进行排序，如数据类型是`object[]`形式,可以通过`key`自定义需要的排序的键
 
