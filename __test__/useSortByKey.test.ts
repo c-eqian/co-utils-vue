@@ -1,18 +1,18 @@
-import { useSortByKey } from '../src';
+import { useSort } from '../src';
 describe('useSortByKey', () => {
   it('should ', function () {
     expect(
-      useSortByKey([4, 8, 3, 4, 5, 7, 9, 40, 574], {
+      useSort([4, 8, 3, 4, 5, 7, 9, 40, 520], {
         order: 'dec'
       })
-    ).toEqual([574, 40, 9, 8, 7, 5, 4, 4, 3]);
+    ).toEqual([520, 40, 9, 8, 7, 5, 4, 4, 3]);
     expect(
-      useSortByKey([4, 8, 3, 4, 5, 7, 9, 40, 574], {
+      useSort([4, 8, 3, 4, 5, 7, 9, 40, 520], {
         order: 'asc'
       })
-    ).toEqual([574, 40, 9, 8, 7, 5, 4, 4, 3].sort((a, b) => a - b));
+    ).toEqual([3, 4, 4, 5, 7, 8, 9, 40, 520]);
     expect(
-      useSortByKey(
+      useSort(
         [
           {
             name: '2',
@@ -39,7 +39,7 @@ describe('useSortByKey', () => {
       }
     ]);
     expect(
-      useSortByKey(
+      useSort(
         [
           {
             name: '2',
@@ -66,7 +66,7 @@ describe('useSortByKey', () => {
       }
     ]);
     expect(
-      useSortByKey(
+      useSort(
         [
           {
             name: '2',
@@ -93,7 +93,7 @@ describe('useSortByKey', () => {
       }
     ]);
     expect(
-      useSortByKey(
+      useSort(
         [
           {
             name: '2',
@@ -122,9 +122,9 @@ describe('useSortByKey', () => {
         age: 18
       }
     ]);
-    expect(useSortByKey([[], []])).toEqual([[], []]);
+    expect(useSort([[], []])).toEqual([[], []]);
     expect(
-      useSortByKey([9, 8, 6, 8, 7, 2], {
+      useSort([9, 8, 6, 8, 7, 2], {
         order: 'asc'
       })
     ).toEqual([2, 6, 7, 8, 8, 9]);

@@ -86,6 +86,38 @@ export interface ISocketReturn<T> {
   send: (data: string | ArrayBuffer | Blob, useBuffer?: boolean) => boolean;
   ws: Ref<WebSocket | undefined>;
 }
+
+/**
+ * websocket 通信，支持心跳检测、断线重连机制
+ * @param url
+ * @param options
+ * @example
+ * ``` js
+ * const { ws, send, websocketOpen, data } = useWebSocket(
+ *   url,
+ *   {
+ *     reconnectCount: 5,
+ *     heartMessage: 'ping',
+ *     autoClose: true,
+ *     onMessage(ws, e) {
+ *     console.log('数据接收');
+ *      },
+ *     onOpen: () => {
+ *       console.log('链接成功');
+ *     },
+ *     onError: () => {
+ *       console.log('链接失败');
+ *     },
+ *     onClose: () => {
+ *       console.log('连接关闭');
+ *     },
+ *     onFailed: () => {
+ *       console.log('达到重连次数（5），重连失败');
+ *     }
+ *   }
+ * );
+ * ```
+ */
 export const useWebSocket = <Data = any>(
   url: string,
   options: ISocketOptions = {}

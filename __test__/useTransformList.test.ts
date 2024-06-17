@@ -1,5 +1,5 @@
 import { useTransformList } from '../src';
-import { useSortByKey } from '../src';
+import { useSort } from '../src';
 
 describe('useTransformList', () => {
   const three = [
@@ -68,11 +68,11 @@ describe('useTransformList', () => {
     { parent: 2, id: 22, name: '虹口' },
     { parent: 22, id: 221, name: '虹口1号' }
   ];
-  const _arr = useSortByKey(arr, {
+  const _arr = useSort(arr, {
     key: 'id'
   });
   it('数组扁平化', () => {
-    const res = useSortByKey(
+    const res = useSort(
       useTransformList(three, {
         pidFlag: true
       }),

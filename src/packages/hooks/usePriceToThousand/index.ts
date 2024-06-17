@@ -7,12 +7,24 @@
 import { isNumeric } from '../../is/isNumber';
 import { useToFixedFix } from '../useToFixedFix';
 /**
- * 金额转换千分位
+ * 转换千分位
  * @param price 金额
  * @param decimals 需要保留小数点 默认2
  * @param separator 千分位符号 默认","
  * @param round 是否四舍五入
  * @returns
+ * @example
+ * ``` js
+ * usePriceToThousand(201314) // 201,314.00
+ * // 不保留小数位
+ * usePriceToThousand(201314, 0) // 201,314
+ * usePriceToThousand(201314.1314, 0) // 201,314
+ * // 四舍五入 并保留2位小数
+ * usePriceToThousand(201314.5354, 2) // 201,314.54
+ * usePriceToThousand(201314.5354, 2, ',', false) // 201,314.53
+ * usePriceToThousand(201314.36568, Infinity, '-', false) // 201-314.36
+ * usePriceToThousand('tt201314.36568', 3, '-', false) // 00.00
+ * ```
  */
 export const usePriceToThousand = (
   price: string | number,

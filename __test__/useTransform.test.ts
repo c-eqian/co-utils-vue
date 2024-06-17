@@ -103,9 +103,9 @@ describe('测试树形结构转换', () => {
           { par: 22, pid: 221, name: '虹口1号' }
         ],
         {
-          key: 'pid',
-          pid: '-',
-          parent: 'par'
+          pidKey: 'pid',
+          pidValue: '-',
+          parentKey: 'par'
         }
       )
     ).toEqual([

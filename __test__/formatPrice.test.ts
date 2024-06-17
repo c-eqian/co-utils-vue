@@ -12,7 +12,6 @@ describe('usePriceToThousand', () => {
      */
     expect(usePriceToThousand(201314)).toBe('201,314.00');
     expect(usePriceToThousand(201314, 0)).toBe('201,314');
-    expect(usePriceToThousand(201314, 0)).toBe('201,314');
     expect(usePriceToThousand(201314.1314, 0)).toBe('201,314');
     expect(usePriceToThousand(201314.5354, 2)).toBe('201,314.54');
     expect(usePriceToThousand(201314.5354, 2, ',', false)).toBe('201,314.53');
