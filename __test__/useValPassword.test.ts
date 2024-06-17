@@ -17,8 +17,8 @@ describe('useValPassword', () => {
     expect(useValPassword('PASSWO396636RD123')).toBeFalsy();
     expect(useValPassword('PAaaWO396636RD123', 6, 20)).toBeFalsy();
   });
-    it('具有数字，特殊字符', () => {
-        expect(useValPassword('@123456')).toBeFalsy();
-        expect(useValPassword('@111396636123!')).toBeFalsy();
-    });
+  it('具有数字，特殊字符', () => {
+    expect(useValPassword('@123456')).toBeFalsy();
+    expect(useValPassword('@111396636123!')).toBeFalsy();
+  });
 });
