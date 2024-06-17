@@ -1,4 +1,4 @@
-interface ITreeOptions {
+export interface ITreeOptions {
   /**
    * 子节点的键
    * @default children
