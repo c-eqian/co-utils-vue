@@ -1,4 +1,4 @@
-import { passwordStrengthLevel } from '../src';
+import { passwordLevel } from '../src';
 describe('passwordStrengthLevel', () => {
   const testGroup = [
     {
@@ -36,7 +36,7 @@ describe('passwordStrengthLevel', () => {
   ];
   it('should  level ', function () {
     testGroup.forEach(item => {
-      expect(passwordStrengthLevel(item.value)).toBe(item.expect);
+      expect(passwordLevel(item.value)).toBe(item.expect);
     });
   });
 });

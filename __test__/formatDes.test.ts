@@ -1,4 +1,4 @@
-import { useEncryptedIdCard, useEncryptedPhone } from '../src';
+import { useEncCard, useEncPhone } from '../src';
 describe('desIdCard', () => {
   // 1G=1024M=1048576KB
   const test = [
@@ -9,14 +9,14 @@ describe('desIdCard', () => {
   ];
   test.forEach(item => {
     it('should ', () => {
-      expect(useEncryptedIdCard(item.value)).toBe(item.expect);
+      expect(useEncCard(item.value)).toBe(item.expect);
     });
   });
   it('should ', () => {
-    expect(useEncryptedPhone('19994402236')).toBe('199****2236');
+    expect(useEncPhone('19994402236')).toBe('199****2236');
   });
   it('测试异常 ', () => {
-    expect(useEncryptedPhone('199944026')).toBe('199944026');
-    expect(useEncryptedIdCard('199944026')).toBe('199944026');
+    expect(useEncPhone('199944026')).toBe('199944026');
+    expect(useEncCard('199944026')).toBe('199944026');
   });
 });

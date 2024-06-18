@@ -1,8 +1,22 @@
 /**
  * 校验密码强度
  * @param password
+ * @return {1 | 2 | 3}
+ * @example
+ * ``` js
+ * passwordLevel(1234567) // 1
+ * passwordLevel(12345678) // 1
+ * passwordLevel(a12345678) // 1
+ * passwordLevel(A12345678) // 1
+ * passwordLevel(@12345678) // 1
+ * //包含大小写，长度小于12
+ * passwordLevel(@12345678aA) // 2
+ * passwordLevel(@12345678aaaaa) // 1
+ * //包含大小写，长度大于等于12
+ * passwordLevel(@12345678aaaAAa) // 3
+ * ```
  */
-export const passwordStrengthLevel = (password: string): number => {
+export const passwordLevel = (password: string): number => {
   const hasLowerCase = /[a-z]/.test(password);
   const hasUpperCase = /[A-Z]/.test(password);
   const hasNumber = /\d/.test(password);
