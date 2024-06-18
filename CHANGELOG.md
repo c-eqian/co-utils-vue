@@ -1,3 +1,31 @@
+# 更新日志 
+
+
+## [2.5.0-rc.0](https://github.com/C1320/co-utils-vue/compare/v2.4.0...v2.5.0-rc.0) (2024-06-18)
+
+
+###   Chores | 其他更新
+
+* release v2.4.0 ([67e007c](https://github.com/C1320/co-utils-vue/commit/67e007c1a51b01a2c18c05bbf2e99c87eb0c727d))
+
+
+###   Bug Fixes | Bug 修复
+
+* **useTableList:** 修复 ([85abd7e](https://github.com/C1320/co-utils-vue/commit/85abd7e70addab362ec5562cdc1d083a6792764d))
+
+
+### ✨ Features | 新功能
+
+* **all:** 新增工具函数及优化 ([49d89a9](https://github.com/C1320/co-utils-vue/commit/49d89a9de4defda272c583d13104d1ade2a7402f))
+* **useValPassword:** 新增useValPassword ([1b8efe9](https://github.com/C1320/co-utils-vue/commit/1b8efe9883134b072172cf0e765551e07340105b))
+* **useValPassword:** 新增useValPassword ([10db0f8](https://github.com/C1320/co-utils-vue/commit/10db0f839cd06ee521eb7a12ac4e71a9fe49d854))
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* 优化 ([17a7a4d](https://github.com/C1320/co-utils-vue/commit/17a7a4d4027bbfcd5a2bfa4ec36c98a036600d65))
+* 优化 ([9ed3df6](https://github.com/C1320/co-utils-vue/commit/9ed3df692c39916c20e4aef3f1c226f10848a745))
+
 # [2.4.0](https://github.com/C1320/co-utils-vue/compare/v2.3.0...v2.4.0) (2024-05-31)
 
 
