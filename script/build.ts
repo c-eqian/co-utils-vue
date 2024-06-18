@@ -60,7 +60,7 @@ async function gitPush() {
   });
 }
 async function run() {
-  await build();
+  await build('rc');
   await updatePackage();
   await updateDocs();
   await gitPush();
