@@ -1,6 +1,6 @@
 /*
- * @Descripttion: 
- * @version: 
+ * @Descripttion:
+ * @version:
  * @Author: 十三
  * @Date: 2022-11-20 13:39:54
  * @LastEditors: 十三
@@ -20,7 +20,7 @@ module.exports = {
     parser:'@typescript-eslint/parser',
   },
   plugins: ['@typescript-eslint'],
-  extends: ['plugin:vue/vue3-recommended','plugin:prettier/recommended','plugin:@typescript-eslint/recommended'],
+  extends: ['plugin:prettier/recommended','plugin:@typescript-eslint/recommended'],
   // js eslint 配置
   // parserOptions: {
   //   parser: 'babel-eslint',
@@ -28,7 +28,7 @@ module.exports = {
   // },
   // plugins: ['html', 'vue'],
   // extends: ['plugin:vue/recommended', 'eslint:recommended'],
- 
+
   rules: {
     "@typescript-eslint/no-explicit-any": ["off"],
     "prettier/prettier": [
@@ -44,7 +44,7 @@ module.exports = {
      // 其中代码本身有问题的规则错误有
      'no-undef': 0,
      'import/no-duplicates': 0,
- 
+
      // 可能引起格式化问题但建议手动修改代码的有
      'no-plusplus': 0,
      'no-eval': 0,
@@ -53,8 +53,6 @@ module.exports = {
      'no-unused-vars': 0,
      'no-useless-escape': 0,
      'camelcase': 0,
-     'vue/no-unused-components': 0,
-     'vue/return-in-computed-property': 0,
      'no-param-reassign': 0,
      'prefer-const': 0,
      'prefer-destructuring': 0,
@@ -62,8 +60,6 @@ module.exports = {
      'no-restricted-syntax': 0,
      'no-nested-ternary': 0,
      'radix': 0,
-     'vue/no-side-effects-in-computed-properties': 0,
-     'vue/order-in-components': 0,
      'function-paren-newline': 0,
   },
 };
