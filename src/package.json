@@ -12,6 +12,10 @@
     "工具库",
     "utils"
   ],
+  "bugs": {
+    "url": "https://github.com/c-eqian/co-utils-vue/issues"
+  },
+  "homepage": "https://c-eqian.github.io/co-utils-vue/",
   "exports": {
     ".": {
       "import": "./index.mjs",
