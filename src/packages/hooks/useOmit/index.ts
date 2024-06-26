@@ -33,7 +33,7 @@ export type OmitKeys<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
  *   //  }
  * ```
  */
-export const useOmit = <T extends object, K extends keyof T>(obj: T, keys: K[]): OmitKeys<T, K> => {
+export const useOmit = <T extends object, K extends keyof T>(obj: T, keys: K[]) => {
   const result: Partial<T> = {};
   const keySet = new Set(keys);
   for (const key in obj) {
