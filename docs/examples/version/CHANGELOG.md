@@ -1,6 +1,18 @@
 # 更新日志 
 
 
+## [2.5.0-rc.1](https://github.com/C1320/co-utils-vue/compare/v2.5.0-rc.0...v2.5.0-rc.1) (2024-07-02)
+
+
+###   Chores | 其他更新
+
+* release v2.5.0-rc.0 ([ec3f5a0](https://github.com/C1320/co-utils-vue/commit/ec3f5a083efb15de7b483ac279e687e41fc37b0c))
+
+
+### ✨ Features | 新功能
+
+* **is:** 新增isObject，isBoolean ([77f12f8](https://github.com/C1320/co-utils-vue/commit/77f12f8b9d11a4ebcac61578045ec7556fdf2f7b))
+
 ## [2.5.0-rc.0](https://github.com/C1320/co-utils-vue/compare/v2.4.0...v2.5.0-rc.0) (2024-06-18)
 
 
