@@ -1,6 +1,18 @@
 # 更新日志 
 
 
+## [2.5.0-rc.2](https://github.com/C1320/co-utils-vue/compare/v2.5.0-rc.1...v2.5.0-rc.2) (2024-07-02)
+
+
+###   Chores | 其他更新
+
+* release v2.5.0-rc.1 ([d96d92c](https://github.com/C1320/co-utils-vue/commit/d96d92c18b099fb0965ccee18b5ac00a0e44cd89))
+
+
+###   Bug Fixes | Bug 修复
+
+* **use:** 修复useFirstToUpper路径导入问题 ([403aae7](https://github.com/C1320/co-utils-vue/commit/403aae74e8b4307452586546869926464fdbd286))
+
 ## [2.5.0-rc.1](https://github.com/C1320/co-utils-vue/compare/v2.5.0-rc.0...v2.5.0-rc.1) (2024-07-02)
 
 
