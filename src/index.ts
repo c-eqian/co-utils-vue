@@ -22,6 +22,8 @@ export * from './packages/is/isString';
 export * from './packages/is/isEmpty';
 export * from './packages/is/isArray';
 export * from './packages/is/isKebabCase';
+export * from './packages/is/isObject';
+export * from './packages/is/isBoolean';
 
 export * from './packages/hooks/useTableList';
 export * from './packages/hooks/useBeforeDate';
