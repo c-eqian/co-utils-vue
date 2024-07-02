@@ -1,5 +1,5 @@
-import { useFirstToUpper } from '@/packages/hooks/useFirstToUpper';
-import { isKebabCase } from '@/packages/is/isKebabCase';
+import { useFirstToUpper } from '../useFirstToUpper';
+import { isKebabCase } from '../../is/isKebabCase';
 
 /**
  * 短杆拼接转驼峰
