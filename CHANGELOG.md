@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+## [2.5.0](https://github.com/C1320/co-utils-vue/compare/v2.5.0-rc.3...v2.5.0) (2024-07-15)
+
+
+###   Chores | 其他更新
+
+* release v2.5.0-rc.3 ([4557868](https://github.com/C1320/co-utils-vue/commit/45578681da9aff25dc977767514121b939c4eb1b))
+
 ## [2.5.0-rc.3](https://github.com/C1320/co-utils-vue/compare/v2.5.0-rc.2...v2.5.0-rc.3) (2024-07-15)
 
 
