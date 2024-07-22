@@ -11,8 +11,8 @@ import { getTag } from '../../helper/getTag';
  * 判断值是否为空
  * @param value
  */
-export const isEmpty = (value: string | object | null) => {
-  if (value === null) {
+export const isEmpty = (value: string | object | null | undefined) => {
+  if (value === null || value === undefined) {
     return true;
   }
   if (Array.isArray(value) || typeof value === 'string') {
