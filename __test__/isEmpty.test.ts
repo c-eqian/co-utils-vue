@@ -12,6 +12,9 @@ describe('test isEmpty', () => {
   it('测试 null', () => {
     expect(isEmpty(null)).toBe(true);
   });
+  it('测试 undefined', () => {
+    expect(isEmpty(undefined)).toBe(true);
+  });
   it('测试对象-无值', () => {
     expect(isEmpty({})).toBe(true);
   });
