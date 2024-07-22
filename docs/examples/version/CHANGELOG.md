@@ -1,6 +1,18 @@
 # 更新日志 
 
 
+### [2.5.1](https://github.com/C1320/co-utils-vue/compare/v2.5.0...v2.5.1) (2024-07-22)
+
+
+###   Chores | 其他更新
+
+* release v2.5.0 ([0671ffb](https://github.com/C1320/co-utils-vue/commit/0671ffb0c5d804aae343f3cc501dd2e9ae11d072))
+
+
+###   Bug Fixes | Bug 修复
+
+* **isEmpty:** 修复isEmpty传入undefined异常 ([fa43a1f](https://github.com/C1320/co-utils-vue/commit/fa43a1fe63c254ddbc3fe94de0708954eecc6355))
+
 ## [2.5.0](https://github.com/C1320/co-utils-vue/compare/v2.5.0-rc.3...v2.5.0) (2024-07-15)
 
 
