@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/c-eqian/co-utils-vue/issues"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "homepage": "https://c-eqian.github.io/co-utils-vue/",
   "exports": {
     ".": {
