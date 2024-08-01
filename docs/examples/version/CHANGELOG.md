@@ -1,6 +1,15 @@
 # 更新日志 
 
 
+### [2.5.2](https://github.com/C1320/co-utils-vue/compare/v2.5.1...v2.5.2) (2024-08-01)
+
+
+###   Chores | 其他更新
+
+* 包名修改为@eqian/utils-vue ([6253619](https://github.com/C1320/co-utils-vue/commit/62536195f018476d59d32802f3f05e14179c7b38))
+* 包名修改为@eqian/utils-vue ([cbfe5d4](https://github.com/C1320/co-utils-vue/commit/cbfe5d4317686a6ccbce9b258b49963f94443e26))
+* release v2.5.1 ([de2168a](https://github.com/C1320/co-utils-vue/commit/de2168a12a93be85b69e55fb93ce8afceb61e386))
+
 ### [2.5.1](https://github.com/C1320/co-utils-vue/compare/v2.5.0...v2.5.1) (2024-07-22)
 
 
