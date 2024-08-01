@@ -2604,6 +2604,13 @@ cliui@^8.0.1:
     strip-ansi "^6.0.1"
     wrap-ansi "^7.0.0"
 
+co-utils-vue@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.npmjs.org/co-utils-vue/-/co-utils-vue-2.5.1.tgz"
+  integrity sha512-LzkwgIsPw0kMSdZWOzo/yQpf821I/ao1U4BXUgdDR3dHgLBL4YO5S/mYljYScE/7L2gKW0arWVEVDDnr9nBv1A==
+  dependencies:
+    vue-demi "^0.14.6"
+
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.npmjs.org/co/-/co-4.6.0.tgz"

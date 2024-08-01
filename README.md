@@ -2,12 +2,12 @@
 
 ![npm](https://img.shields.io/npm/v/co-utils-vue)![img](https://img.shields.io/npm/dm/co-utils-vue.svg)[![Coverage Status](https://coveralls.io/repos/github/C1320/co-utils-vue/badge.svg?branch=master)](https://coveralls.io/github/C1320/co-utils-vue?branch=master)
 
-co-utils-vue工具库是基于typescript、vue3实现的一个常用库封装
+`@eqian/utils-vue`工具库是基于`typescript`、`vue3`实现的一个常用库封装
 
 # 安装
 
 ```bash
-npm install co-utils-vue -D
+npm install @eqian/utils-vue -D
 ```
 
 # 使用
