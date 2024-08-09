@@ -4,11 +4,13 @@
  * @email: 2429120006@qq.com
  * @Description: 数据请求列表
  */
-import { type Ref, ref } from 'vue-demi';
+import { type Ref, ref, watch } from 'vue-demi';
 import { useCloneDeep } from '../useCloneDeep';
 import { isFunction } from '../../is/isFunction';
 import { deepObjectValue } from '../../helper/deepValue';
-export interface UseTableList<T = any, P = any> {
+import { isArray } from '../../is/isArray';
+import { isEmpty } from '../../is/isEmpty';
+export interface UseTableList<T = any, P = any, D = any> {
   request: {
     /**
      * 请求方法
@@ -32,6 +34,12 @@ export interface UseTableList<T = any, P = any> {
      * 接口请求前处理
      */
     handleParams?: (params: P) => P;
+    /**
+     * 观察
+     * 默认监听pageNumKey，pageSizeKe变化触发请求
+     * 如果传入空数组，不监听
+     */
+    watcher?: (keyof P)[];
   };
   /**
    * 响应数据处理
@@ -54,7 +62,11 @@ export interface UseTableList<T = any, P = any> {
      * ```
      */
     totalKey?: string;
-    // handleResponseData?: (list: T[], res?: IResponse) => T[];
+    /**
+     * 自定义响应时处理，返回值必须包含listKey，totalKey，如果为空，应返回对应的默认值，即list、total
+     * @param res
+     */
+    responseHandler?: (res: D) => any;
   };
 }
 
@@ -62,8 +74,8 @@ export interface UseTableList<T = any, P = any> {
  * 表格分页数据请求
  * @param config
  */
-export const useTableList = <T = any, P = any>(config: UseTableList<T, P>) => {
-  const { params: requestParams = {} as P } = config.request;
+export const useTableList = <T = any, P = any, D = any>(config: UseTableList<T, P, D>) => {
+  const { params: requestParams = {} as P, watcher } = config.request;
   const cloneConfig = useCloneDeep(config);
   const {
     pageNumKey = 'pageNum',
@@ -71,27 +83,37 @@ export const useTableList = <T = any, P = any>(config: UseTableList<T, P>) => {
     api,
     handleParams
   } = cloneConfig.request;
-  const { listKey = 'list', totalKey = 'total' } = cloneConfig.response || {};
+  const { listKey = 'list', totalKey = 'total', responseHandler } = cloneConfig.response || {};
   const tableData = ref<T[]>([]);
   const tableTotal = ref(0);
+  const isExplicitly = ref(false);
   const tableLoading = ref(false);
   const params = ref(useCloneDeep(requestParams) as P) as Ref<P>;
   const handleSearch = async (pageNum = 1) => {
     if (isFunction(handleParams)) {
       params.value = handleParams(useCloneDeep(params.value) as P);
     }
-    if (pageNumKey in params) {
+    if (pageNumKey in params.value) {
       params.value[pageNumKey] = pageNum;
     }
     try {
       tableLoading.value = true;
       const res = (await api(params.value)) as T;
-      tableData.value = deepObjectValue(res, listKey);
-      tableTotal.value = deepObjectValue(res, totalKey);
+      if (isFunction(responseHandler)) {
+        const _res = responseHandler.call(null, res);
+        if (_res) {
+          tableData.value = deepObjectValue(_res, listKey);
+          tableTotal.value = deepObjectValue(_res, totalKey);
+        }
+      } else {
+        tableData.value = deepObjectValue(res, listKey);
+        tableTotal.value = deepObjectValue(res, totalKey);
+      }
     } catch (e) {
       return Promise.reject(e);
     } finally {
       tableLoading.value = false;
+      isExplicitly.value = false;
     }
     return Promise.resolve();
   };
@@ -100,6 +122,7 @@ export const useTableList = <T = any, P = any>(config: UseTableList<T, P>) => {
    */
   const handleReset = () => {
     params.value = useCloneDeep(requestParams);
+    isExplicitly.value = true;
     return handleSearch();
   };
   /**
@@ -117,6 +140,22 @@ export const useTableList = <T = any, P = any>(config: UseTableList<T, P>) => {
   const handleCurrentChange = (pageNum: number) => {
     return handleSearch(pageNum);
   };
+  if ((isArray(watcher) && !isEmpty(watcher)) || watcher === undefined) {
+    watch(
+      () =>
+        watcher === undefined
+          ? [params.value[pageNumKey], params.value[pageSizeKey]]
+          : watcher.map(key => params.value[key]),
+      () => {
+        if (!isExplicitly.value) {
+          handleSearch();
+        }
+      },
+      {
+        deep: true
+      }
+    );
+  }
   return {
     params,
     tableData,
