@@ -160,6 +160,9 @@ export const useTableList = <T = any, P extends object = any, D = any>(
   const handleReset = () => {
     params.value = useCloneDeep(requestParams);
     isExplicitly.value = true;
+    if (append) {
+      tableData.value = [];
+    }
     return handleSearch();
   };
   /**
