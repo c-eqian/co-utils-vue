@@ -1,6 +1,18 @@
 # 更新日志 
 
 
+## [3.0.0](https://github.com/C1320/co-utils-vue/compare/v2.5.2...v3.0.0) (2024-08-09)
+
+
+###   Chores | 其他更新
+
+* release v2.5.2 ([5b310b5](https://github.com/C1320/co-utils-vue/commit/5b310b5eb770800c69982a47f8041a04514608c4))
+
+
+### ✨ Features | 新功能
+
+* **useTableList:** 新增参数监听 ([8d27ebc](https://github.com/C1320/co-utils-vue/commit/8d27ebcbc5daa8e8be9dda314ff9352fc1d15e92))
+
 ### [2.5.2](https://github.com/C1320/co-utils-vue/compare/v2.5.1...v2.5.2) (2024-08-01)
 
 
