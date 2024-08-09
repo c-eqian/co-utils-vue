@@ -10,6 +10,7 @@ import { isFunction } from '../../is/isFunction';
 import { deepObjectValue } from '../../helper/deepValue';
 import { isArray } from '../../is/isArray';
 import { isEmpty } from '../../is/isEmpty';
+
 export interface UseTableList<T = any, P = any, D = any> {
   request: {
     /**
@@ -74,7 +75,9 @@ export interface UseTableList<T = any, P = any, D = any> {
  * 表格分页数据请求
  * @param config
  */
-export const useTableList = <T = any, P = any, D = any>(config: UseTableList<T, P, D>) => {
+export const useTableList = <T = any, P extends object = any, D = any>(
+  config: UseTableList<T, P, D>
+) => {
   const { params: requestParams = {} as P, watcher } = config.request;
   const cloneConfig = useCloneDeep(config);
   const {
@@ -89,25 +92,25 @@ export const useTableList = <T = any, P = any, D = any>(config: UseTableList<T, 
   const isExplicitly = ref(false);
   const tableLoading = ref(false);
   const params = ref(useCloneDeep(requestParams) as P) as Ref<P>;
-  const handleSearch = async (pageNum = 1) => {
+  const handleSearch = async (pageNum?: number) => {
     if (isFunction(handleParams)) {
       params.value = handleParams(useCloneDeep(params.value) as P);
     }
-    if (pageNumKey in params.value) {
+    if (pageNum && pageNumKey in params.value) {
       params.value[pageNumKey] = pageNum;
     }
     try {
       tableLoading.value = true;
-      const res = (await api(params.value)) as T;
+      const res = (await api.call(null, params.value)) as D;
       if (isFunction(responseHandler)) {
         const _res = responseHandler.call(null, res);
         if (_res) {
-          tableData.value = deepObjectValue(_res, listKey);
-          tableTotal.value = deepObjectValue(_res, totalKey);
+          tableData.value = deepObjectValue(_res, listKey) ?? [];
+          tableTotal.value = deepObjectValue(_res, totalKey) ?? 0;
         }
       } else {
-        tableData.value = deepObjectValue(res, listKey);
-        tableTotal.value = deepObjectValue(res, totalKey);
+        tableData.value = deepObjectValue(res, listKey) ?? [];
+        tableTotal.value = deepObjectValue(res, totalKey) ?? 0;
       }
     } catch (e) {
       return Promise.reject(e);
@@ -132,12 +135,14 @@ export const useTableList = <T = any, P = any, D = any>(config: UseTableList<T, 
     if (pageSizeKey in (params.value as any)) {
       (params.value as P)[pageSizeKey] = pageSize;
     }
+    isExplicitly.value = true;
     return handleSearch(1);
   };
   /**
    * 切换页码 刷新列表
    */
   const handleCurrentChange = (pageNum: number) => {
+    isExplicitly.value = true;
     return handleSearch(pageNum);
   };
   if ((isArray(watcher) && !isEmpty(watcher)) || watcher === undefined) {
@@ -148,7 +153,7 @@ export const useTableList = <T = any, P = any, D = any>(config: UseTableList<T, 
           : watcher.map(key => params.value[key]),
       () => {
         if (!isExplicitly.value) {
-          handleSearch();
+          handleSearch().then();
         }
       },
       {
