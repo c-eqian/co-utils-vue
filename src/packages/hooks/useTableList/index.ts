@@ -76,6 +76,15 @@ export interface UseTableList<T = any, P = any, D = any> {
      */
     totalKey?: string;
     /**
+     * 处理是还有数据
+     * @param res
+     */
+    hasPage?: (res: D) => boolean;
+    /**
+     * 是否追加，主要用于滚动分页
+     */
+    append?: boolean;
+    /**
      * 自定义响应时处理，返回值必须包含listKey，totalKey，如果为空，应返回对应的默认值，即list、total
      * @param res
      */
@@ -98,11 +107,19 @@ export const useTableList = <T = any, P extends object = any, D = any>(
     api,
     handleParams
   } = cloneConfig.request;
-  const { listKey = 'list', totalKey = 'total', responseHandler } = cloneConfig.response || {};
+  const {
+    listKey = 'list',
+    totalKey = 'total',
+    responseHandler,
+    hasPage,
+    append
+  } = cloneConfig.response || {};
   const tableData = ref<T[]>([]);
   const tableTotal = ref(0);
   const isExplicitly = ref(false);
   const tableLoading = ref(false);
+  // 是否最后一页，依据返回数据是否小于页数,如果没传页数，永远为false
+  const isLastPage = ref(false);
   const params = ref(useCloneDeep(requestParams) as P) as Ref<P>;
   const handleSearch = async (pageNum?: number) => {
     if (isFunction(handleParams)) {
@@ -113,16 +130,21 @@ export const useTableList = <T = any, P extends object = any, D = any>(
     }
     try {
       tableLoading.value = true;
-      const res = (await api.call(null, params.value)) as D;
+      let res = (await api.call(null, params.value)) as D;
       if (isFunction(responseHandler)) {
-        const _res = responseHandler.call(null, res);
-        if (_res) {
-          tableData.value = deepObjectValue(_res, listKey) ?? [];
-          tableTotal.value = deepObjectValue(_res, totalKey) ?? 0;
-        }
+        res = responseHandler.call(null, res);
+      }
+      const list = deepObjectValue(res, listKey) ?? [];
+      if (!!append) {
+        tableData.value = tableData.value.concat(...list);
       } else {
-        tableData.value = deepObjectValue(res, listKey) ?? [];
-        tableTotal.value = deepObjectValue(res, totalKey) ?? 0;
+        tableData.value = list;
+      }
+      tableTotal.value = deepObjectValue(res, totalKey) ?? 0;
+      if (params.value[pageSizeKey] || isFunction(hasPage)) {
+        isLastPage.value = isFunction(hasPage)
+          ? hasPage.call(null, res)
+          : tableData?.value.length < params.value[pageSizeKey];
       }
     } catch (e) {
       return Promise.reject(e);
@@ -180,6 +202,7 @@ export const useTableList = <T = any, P extends object = any, D = any>(
     tableData,
     tableTotal,
     tableLoading,
+    isLastPage,
     handleSearch,
     handleReset,
     handleSizeChange,
