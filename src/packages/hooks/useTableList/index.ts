@@ -10,7 +10,19 @@ import { isFunction } from '../../is/isFunction';
 import { deepObjectValue } from '../../helper/deepValue';
 import { isArray } from '../../is/isArray';
 import { isEmpty } from '../../is/isEmpty';
-
+export type Watcher<P> = {
+  keys?: (keyof P)[];
+  /**
+   * watch 是否立即执行属性
+   * @default false
+   */
+  immediate?: boolean;
+  /**
+   * watch 深度监听属性
+   * @default false
+   */
+  deep?: boolean;
+};
 export interface UseTableList<T = any, P = any, D = any> {
   request: {
     /**
@@ -40,7 +52,7 @@ export interface UseTableList<T = any, P = any, D = any> {
      * 默认监听pageNumKey，pageSizeKe变化触发请求
      * 如果传入空数组，不监听
      */
-    watcher?: (keyof P)[];
+    watcher?: Watcher<P>;
   };
   /**
    * 响应数据处理
@@ -145,19 +157,21 @@ export const useTableList = <T = any, P extends object = any, D = any>(
     isExplicitly.value = true;
     return handleSearch(pageNum);
   };
-  if ((isArray(watcher) && !isEmpty(watcher)) || watcher === undefined) {
+  const { keys, deep, immediate } = watcher ?? ({} as Watcher<P>);
+  if ((isArray(keys) && !isEmpty(keys)) || keys === undefined) {
     watch(
       () =>
-        watcher === undefined
+        keys === undefined
           ? [params.value[pageNumKey], params.value[pageSizeKey]]
-          : watcher.map(key => params.value[key]),
+          : keys.map((key: any) => params.value[key]),
       () => {
         if (!isExplicitly.value) {
           handleSearch().then();
         }
       },
       {
-        deep: true
+        immediate,
+        deep
       }
     );
   }
