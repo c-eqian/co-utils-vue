@@ -18,6 +18,11 @@ export type UseRafTimeoutOptions = {
    * @default false
    */
   isInterval?: boolean;
+  /**
+   * 是否立即执行,如果false，需要手动执行startRafTimeout
+   * @default false
+   */
+  immediate?: boolean;
 };
 /**
  * 返回值
@@ -26,34 +31,41 @@ export type UseRafTimeoutReturn = {
   /**
    * 执行取消requestAnimationFrame
    */
-  closeRafTimeout: () => void;
+  close: () => void;
   /**
-   * 重置函数，相当于重新开始执行一次useRafTimeout
+   * 手动执行
    */
-  reset: () => void;
+  start: () => void;
 };
 /**
  * 使用requestAnimationFrame实现的延迟setTimeout或间隔setInterval调用函数。
  * @see https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame
  * @param execFn 执行回调函数
  * @param options 配置项
- * @param options.delay{number} 延迟时间
- * @param options.isInterval{boolean} 是否间隔执行回调
+ * @param options.delay{number} 0 延迟时间
+ * @param options.isInterval{boolean} false 是否间隔执行回调
+ * @param options.immediate{boolean} false 是否立即执行,如果false，需要手动执行start
  * @example
  * ``` typescript
- * const { closeRafTimeout, reset } = index(()=> {
+ * const { close, start } = index(()=> {
  *   // do something
  * }, {
  *   delay: 1000,// 延迟1s执行回调
  *   isInterval: true // 使用间隔执行
  * })
+ * // 开始执行
+ * start()
  * ```
  */
 export const useRafTimeout = (
   execFn: UseRafTimeoutFn,
   options?: UseRafTimeoutOptions
 ): UseRafTimeoutReturn => {
-  const { delay = 0, isInterval = false } = options ?? ({} as UseRafTimeoutOptions);
+  const {
+    delay = 0,
+    isInterval = false,
+    immediate = false
+  } = options ?? ({} as UseRafTimeoutOptions);
   let rafId: number;
   let startTime = 0; // 记录开始时间
   /**
@@ -83,11 +95,6 @@ export const useRafTimeout = (
       rafId = requestAnimationFrame(timeElapsed);
     }
   };
-  const start = () => {
-    // 创建一个对象用于存储动画帧的ID，并初始化动画帧
-    rafId = requestAnimationFrame(timeElapsed);
-  };
-
   /**
    * 关闭动画帧
    */
@@ -96,13 +103,16 @@ export const useRafTimeout = (
       cancelAnimationFrame(rafId);
     }
   };
-  const reset = () => {
+  const start = () => {
+    closeRafTimeout(); // 取消上次动画
     // 创建一个对象用于存储动画帧的ID，并初始化动画帧
-    start();
+    rafId = requestAnimationFrame(timeElapsed);
   };
-  start();
+  if (immediate) {
+    start();
+  }
   return {
-    reset,
-    closeRafTimeout
+    start,
+    close: closeRafTimeout
   };
 };
