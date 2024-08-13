@@ -18,7 +18,7 @@ const dir = path.resolve(__dirname, 'src/index.ts')
 // 当前运行环境，可通过 cross-env 命令行设置
 // const env = process.env.NODE_ENV
 // umd 模式的编译结果文件输出的全局变量名称
-const name = 'co-utils-vue';
+const name = 'EqianUtilsVue';
 const iifeGlobals = {
   'vue-demi': 'VueDemi'
 }
