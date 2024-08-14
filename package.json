@@ -113,7 +113,6 @@
     }
   },
   "dependencies": {
-    "co-utils-vue": "^2.5.1",
     "vue-demi": "^0.14.6"
   }
 }
