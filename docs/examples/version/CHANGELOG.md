@@ -1,6 +1,34 @@
 # 更新日志 
 
 
+## [3.1.0](https://github.com/C1320/co-utils-vue/compare/v3.0.0...v3.1.0) (2024-08-14)
+
+
+###   Chores | 其他更新
+
+* release v3.0.0 ([e28fa3c](https://github.com/C1320/co-utils-vue/commit/e28fa3c8c3c240412532abddcbde3717811788c9))
+
+
+###   Bug Fixes | Bug 修复
+
+* **hooks:** 优化useRafTimeout，同时支持手动开启 ([14612b4](https://github.com/C1320/co-utils-vue/commit/14612b4a61d61d3421a04c5598347e51d2b2b6d8))
+
+
+### ✨ Features | 新功能
+
+* **hooks:** 新增useRafTimeout ([a5e6b09](https://github.com/C1320/co-utils-vue/commit/a5e6b09352b760c7ed8c483b7f2464c3a892ef2d))
+* **hooks:** 新增useResizeObserver ([b10f4a2](https://github.com/C1320/co-utils-vue/commit/b10f4a22f29fbc36cdb729a266c3ec2b63a582ab))
+* **useTableList:** 优化参数 ([706f28f](https://github.com/C1320/co-utils-vue/commit/706f28fee172798eea12e8d4ff882e3f4c8f556c))
+* **useTableList:** 优化参数 ([684648b](https://github.com/C1320/co-utils-vue/commit/684648b212c1cee0a38985edc0c7a49b59714ea2))
+* **useTableList:** 优化参数 ([579a56a](https://github.com/C1320/co-utils-vue/commit/579a56a41e64e9bb3f7f797b81b669bfddcda2ee))
+* **useTableList:** append追加模式下，重置函数清零 ([54c856f](https://github.com/C1320/co-utils-vue/commit/54c856fcd2e953182fed7d294ae1d9589edc9a1b))
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* 删除依赖 ([e731ddf](https://github.com/C1320/co-utils-vue/commit/e731ddf58eb2c14f614b30d6434ac0029d082d72))
+* **ALL:** 修改全局变量名称 ([8769d99](https://github.com/C1320/co-utils-vue/commit/8769d997df8e973998810ac530df1cac92ebbd2b))
+
 ## [3.0.0](https://github.com/C1320/co-utils-vue/compare/v2.5.2...v3.0.0) (2024-08-09)
 
 
