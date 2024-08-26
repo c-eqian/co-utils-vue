@@ -33,6 +33,8 @@ describe('useFormatDate', () => {
   });
   it('should ', () => {
     expect(useFormatDate('', 'yy-MM-dd HH:mm:ss')).toBe('');
+    expect(useFormatDate(undefined, 'yy-MM-dd HH:mm:ss')).toBe('undefined');
+    expect(useFormatDate(null, 'yy-MM-dd HH:mm:ss')).toBe('null');
     expect(useFormatDate('2022-11-24 19:50:52', 'yy-MM-dd HH:mm:ss')).toBe('22-11-24 19:50:52');
     expect(useFormatDate('2022-11-24 19:50:52', 'YY-MM-dd HH:mm:ss')).toBe('22-11-24 19:50:52');
     expect(useFormatDate('2022-11-24 19:50:52', 'YYYY-MM-dd HH:mm:ss')).toBe('2022-11-24 19:50:52');
@@ -40,7 +42,9 @@ describe('useFormatDate', () => {
     expect(useFormatDate('2022-11-24 19:50:52', 'YYYY/M/d HH:mm:ss')).toBe('2022/11/24 19:50:52');
     // expect(useBeforeDate('2022-07-24 19:50:52')).toBe('1年前');
     // expect(useBeforeDate('2022-11-24 19:50:52')).toBe('8个月前');
-    // expect(useBeforeDate('2023-07-23 19:50:52')).toBe('2天前');
+    expect(useBeforeDate('')).toBe('');
+    expect(useBeforeDate(null)).toBe(null);
+    expect(useBeforeDate(undefined)).toBe(undefined);
     expect(useBeforeDate('2023-07-18 19:50:52', '2023-07-25 20:19:52')).toBe('1周前');
     expect(useBeforeDate('2023-07-25 19:50:52', '2023-07-25 21:19:52')).toBe('1小时前');
     expect(useBeforeDate('2023-07-25 20:15:52', '2023-07-25 20:19:52')).toBe('4分钟前');

@@ -25,6 +25,7 @@ export const useBeforeDate = (
   target: number | string | Date = '',
   resDefault: string | number | null = ''
 ) => {
+  if (!date) return date;
   // 获取日期时间戳
   const _date = useFormatDate(date, 'yyyy-MM-dd HH:mm:ss');
   const dateTimeStamp = new Date(_date).getTime();
