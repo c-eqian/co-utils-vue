@@ -26,5 +26,6 @@ export const useFormatBytes = (value: number, decimal = 2) => {
   if (i >= sizes.length) {
     return 'Number too large';
   }
+  if (!sizes[i]) return value + '';
   return parseFloat((_value / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 };

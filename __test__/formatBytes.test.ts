@@ -26,5 +26,6 @@ describe('useFormatBytes', () => {
   });
   it('should ', () => {
     expect(useFormatBytes(1048576, -1)).toBe('1 MB');
+    expect(useFormatBytes(0.53 )).toBe('0.53');
   });
 });

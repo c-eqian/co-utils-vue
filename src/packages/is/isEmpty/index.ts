@@ -10,6 +10,17 @@ import { getTag } from '../../helper/getTag';
 /**
  * 判断值是否为空
  * @param value
+ * @example
+ * ```JavaScript
+ * console.log(isEmpty([])) // true
+ * console.log(isEmpty([1])) // false
+ * console.log(isEmpty('')) // true
+ * console.log(isEmpty(null)) // true
+ * console.log(isEmpty(undefined)) // true
+ * console.log(isEmpty({})) // true
+ * console.log(isEmpty(new Map())) // true
+ * console.log(isEmpty({ [Symbol('1')]: 1 })) // false
+ * ```
  */
 export const isEmpty = (value: string | object | null | undefined) => {
   if (value === null || value === undefined) {

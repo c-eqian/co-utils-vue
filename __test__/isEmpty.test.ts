@@ -27,4 +27,7 @@ describe('test isEmpty', () => {
   it('测试map-有值', () => {
     expect(isEmpty(new Map().set('a', 1))).toBe(false);
   });
+  it('测试Symbol值', () => {
+    expect(isEmpty({ [Symbol('1')]: 1 })).toBe(false);
+  });
 });
