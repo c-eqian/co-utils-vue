@@ -54,3 +54,5 @@ export * from './packages/hooks/useTransformTree';
 export * from './packages/hooks/useValPassword';
 export * from './packages/hooks/useRafTimeout';
 export * from './packages/hooks/useResizeObserver';
+export * from './packages/hooks/useDebounce';
+export * from './packages/hooks/useThrottle';
