@@ -1,6 +1,25 @@
 # 更新日志 
 
 
+### [3.1.1](https://github.com/C1320/co-utils-vue/compare/v3.1.0...v3.1.1) (2024-11-12)
+
+
+###   Chores | 其他更新
+
+* release v3.1.0 ([76c944b](https://github.com/C1320/co-utils-vue/commit/76c944bef03eaac65c61fdc694622b6d1f62a948))
+
+
+###   Bug Fixes | Bug 修复
+
+* **useBeforeDate:** 修复useBeforeDate null 、undefined出现NAN问题 ([882652e](https://github.com/C1320/co-utils-vue/commit/882652e0c4cad5281568eaa3397d9c694cc54d5a))
+* **useFormatBytes:** 修复useFormatBytes 值小于1的问题 ([01f2947](https://github.com/C1320/co-utils-vue/commit/01f2947bad16b4f0a94f078affe855e8f7308fbd))
+
+
+### ✨ Features | 新功能
+
+* 新增chalkLog ([300e247](https://github.com/C1320/co-utils-vue/commit/300e247e36c42b0514403c91f3c9dbc6447a933c))
+* 新增useDebounce、useThrottle ([eebd87a](https://github.com/C1320/co-utils-vue/commit/eebd87ac821ce4a06c4b6f3f2e26d71c826a28de))
+
 ## [3.1.0](https://github.com/C1320/co-utils-vue/compare/v3.0.0...v3.1.0) (2024-08-14)
 
 
