@@ -15,6 +15,7 @@ export * from './packages/helper/log';
 
 export * from './packages/is/isCamelCase';
 export * from './packages/is/isNumber';
+export * from './packages/is/isNaN';
 export * from './packages/is/isPhone';
 export * from './packages/is/isObjectLike';
 export * from './packages/is/isIdCard';

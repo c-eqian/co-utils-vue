@@ -22,7 +22,7 @@ import { getTag } from '../../helper/getTag';
  * console.log(isEmpty({ [Symbol('1')]: 1 })) // false
  * ```
  */
-export const isEmpty = (value: string | object | null | undefined) => {
+export const isEmpty = (value: unknown) => {
   if (value === null || value === undefined) {
     return true;
   }
