@@ -1,4 +1,4 @@
-import { isNumber } from '@/packages/is/isNumber';
+import { isNumber } from '../isNumber';
 
 /**
  * 判断一个值是否为`NaN`

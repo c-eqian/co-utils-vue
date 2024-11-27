@@ -26,6 +26,7 @@ export * from './packages/is/isArray';
 export * from './packages/is/isKebabCase';
 export * from './packages/is/isObject';
 export * from './packages/is/isBoolean';
+export * from './packages/is/isEquals';
 
 export * from './packages/hooks/useTableList';
 export * from './packages/hooks/useBeforeDate';
