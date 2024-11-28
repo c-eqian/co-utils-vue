@@ -1,4 +1,4 @@
-import { isEquals } from '../src';
+import { isEquals, isBaseEquals } from '../src';
 
 describe('isEquals', () => {
   it(`基本数据类型`, () => {
@@ -64,5 +64,35 @@ describe('isEquals', () => {
     const _child1 = new Child();
     expect(isEquals(_child1, child2)).toBeFalsy();
     expect(isEquals(_child1, child1)).toBeFalsy();
+  });
+});
+describe('isBaseEquals', () => {
+  it(`基本数据类型`, () => {
+    expect(isBaseEquals(null, null)).toBeTruthy();
+    expect(isBaseEquals(+0, -0)).toBeTruthy();
+    expect(isBaseEquals(undefined, undefined)).toBeTruthy();
+    expect(isBaseEquals(NaN, NaN)).toBeTruthy();
+  });
+  it(`引用数据类型 数组`, () => {
+    const a = [];
+    const b = a;
+    expect(isBaseEquals(a, b)).toBeTruthy();
+    expect(isBaseEquals([], [])).toBeFalsy();
+    expect(isBaseEquals([1], [1])).toBeFalsy();
+    expect(isBaseEquals([{}], [{}])).toBeFalsy();
+    expect(isBaseEquals([{ a: 1 }], [{ a: 2 }])).toBeFalsy();
+    expect(isBaseEquals([], {})).toBeFalsy();
+  });
+  it(`引用数据类型 对象`, () => {
+    const obj1: any = { a: 1, b: { c: 2 } };
+    const obj2: any = { a: 1, b: { c: 2 } };
+    const obj3 = obj1;
+    const obj4 = { a: 1, b: obj1 };
+    obj1.self = obj1;
+    obj2.self = obj2;
+    expect(isBaseEquals(obj1, obj2)).toBeFalsy();
+    expect(isBaseEquals(obj1, obj3)).toBeTruthy();
+    expect(isBaseEquals({ a: 1, b: 2 }, { b: 2, a: 1 })).toBeFalsy();
+    expect(isBaseEquals(obj1, obj4)).toBeFalsy();
   });
 });

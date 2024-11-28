@@ -1,12 +1,54 @@
 import { getTag } from '../../helper/getTag';
 import { isNaN } from '../isNaN';
 import { isObjectLike } from '../isObjectLike';
-function isBaseEquals(value1: unknown, value2: unknown) {
+
+/**
+ * 比较是否相等，内部使用`Object.is()`比较
+ * @param value1
+ * @param value2
+ * @since v3.1.2
+ * @example
+ * ```js
+ * isBaseEquals(1,1) // true
+ * isBaseEquals(1,'1') // false
+ * isBaseEquals(+0,-0) // true
+ * isBaseEquals(undefined,undefined) // true
+ * isBaseEquals(NaN,NaN) // true
+ * isBaseEquals({},{}) // false
+ * const a = {}
+ * const b = a
+ * isBaseEquals(a,b) // true
+ * isBaseEquals([],[]) // false
+ * ```
+ */
+export function isBaseEquals(value1: unknown, value2: unknown) {
   if (value1 === value2) return true;
   else if (isNaN(value1) && isNaN(value2)) return true;
-  return false;
+  return Object.is(value1, value2);
 }
 
+/**
+ * 深度比较值，与`isBaseEquals`的区别是，不考虑引用关系，只考虑值是否相等
+ * @param value1
+ * @param value2
+ * @since v3.1.2
+ * @example
+ * ```js
+ * isBaseEquals(1,1) // true
+ * isBaseEquals(1,'1') // false
+ * isBaseEquals(+0,-0) // true
+ * isBaseEquals(undefined,undefined) // true
+ * isBaseEquals(NaN,NaN) // true
+ * isBaseEquals({},{}) // true
+ * const a = {}
+ * const b = a
+ * isBaseEquals(a,b) // true
+ * isBaseEquals([],[]) // true
+ * const a = {name: 'name', color: 'blue'}
+ * const b = {color: 'blue', name: 'name'}
+ * isBaseEquals(a,b) // true
+ * ```
+ */
 export function isDeepEquals(
   value1: any,
   value2: any,
@@ -15,8 +57,6 @@ export function isDeepEquals(
   const value1Tag = getTag(value1);
   const value2Tag = getTag(value2);
   if (value1Tag !== value2Tag) return false;
-  const _is = Object.is(value1, value2);
-  if (_is) return true;
   const baseEquals = isBaseEquals(value1, value2);
   if (!baseEquals) {
     if (!isObjectLike(value1)) {
@@ -48,7 +88,7 @@ export function isDeepEquals(
   return true;
 }
 /**
- * 比较两个值是否相等
+ * 比较两个值是否相等，是`isDeepEquals`的封装
  * 比较步骤：
  * 1. 如果类型不等，返回false，否则下一步
  * 2. 如果是原始类型，使用严格相等（===），否则下一步
