@@ -17,7 +17,7 @@ export const isNumber = (value: any): value is number => {
  * isNumeric('3.14e-10'); // 输出: true
  * isNumeric('abc'); // 输出: false
  */
-export const isNumeric = (value: any) => {
+export const isNumeric = (value: any): value is number => {
   if (isNumber(value)) return isNumber(value);
   return typeof value !== 'symbol' && /^[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?$/.test(value);
 };

@@ -1,11 +1,13 @@
 import { getTag } from '../../helper/getTag';
 import { isNaN } from '../isNaN';
 import { isObjectLike } from '../isObjectLike';
+import { isNumeric } from '../isNumber';
 
 /**
  * 比较是否相等，内部使用`Object.is()`比较
  * @param value1
  * @param value2
+ * @param ignoreNumbers
  * @since v3.1.2
  * @example
  * ```js
@@ -19,11 +21,15 @@ import { isObjectLike } from '../isObjectLike';
  * const b = a
  * isBaseEquals(a,b) // true
  * isBaseEquals([],[]) // false
+ * isBaseEquals(1, '1', true) // true
  * ```
  */
-export function isBaseEquals(value1: unknown, value2: unknown) {
+export function isBaseEquals(value1: unknown, value2: unknown, ignoreNumbers = false): boolean {
   if (value1 === value2) return true;
   else if (isNaN(value1) && isNaN(value2)) return true;
+  if (ignoreNumbers) {
+    if (isNumeric(value1) && isNumeric(value2) && +value1 === +value2) return true;
+  }
   return Object.is(value1, value2);
 }
 
@@ -31,6 +37,8 @@ export function isBaseEquals(value1: unknown, value2: unknown) {
  * 深度比较值，与`isBaseEquals`的区别是，不考虑引用关系，只考虑值是否相等
  * @param value1
  * @param value2
+ * @param ignoreNumbers
+ * @param seen
  * @since v3.1.2
  * @example
  * ```js
@@ -47,20 +55,22 @@ export function isBaseEquals(value1: unknown, value2: unknown) {
  * const a = {name: 'name', color: 'blue'}
  * const b = {color: 'blue', name: 'name'}
  * isBaseEquals(a,b) // true
+ * isBaseEquals(1,'1', true) // true
  * ```
  */
 export function isDeepEquals(
   value1: any,
   value2: any,
+  ignoreNumbers = false,
   seen: WeakMap<any, boolean> = new WeakMap()
 ): boolean {
   const value1Tag = getTag(value1);
   const value2Tag = getTag(value2);
   if (value1Tag !== value2Tag) return false;
-  const baseEquals = isBaseEquals(value1, value2);
+  const baseEquals = isBaseEquals(value1, value2, ignoreNumbers);
   if (!baseEquals) {
     if (!isObjectLike(value1)) {
-      const baseEquals = isBaseEquals(value1, value2);
+      const baseEquals = isBaseEquals(value1, value2, ignoreNumbers);
       if (!baseEquals) return false;
     }
     // 检查是否已经比较过这对对象
@@ -77,10 +87,10 @@ export function isDeepEquals(
       const _val1 = value1[key];
       const _val2 = value2[key];
       if (!isObjectLike(_val1)) {
-        const baseEquals = isBaseEquals(_val1, _val2);
+        const baseEquals = isBaseEquals(_val1, _val2, ignoreNumbers);
         if (baseEquals) return true;
       }
-      if (!keys2.includes(key) || !isDeepEquals(_val1, _val2, seen)) return false;
+      if (!keys2.includes(key) || !isDeepEquals(_val1, _val2, ignoreNumbers, seen)) return false;
     }
     // 记录比较结果
     seen.set(key, true);
@@ -98,7 +108,8 @@ export function isDeepEquals(
  * @since v3.1.2
  * @param value1 比较值1
  * @param value2 比较值2
+ * @param ignoreNumbers 是否忽略数字，为`true`时，1==='1'
  */
-export function isEquals(value1: unknown, value2: unknown): boolean {
-  return isDeepEquals(value1, value2);
+export function isEquals(value1: unknown, value2: unknown, ignoreNumbers = false): boolean {
+  return isDeepEquals(value1, value2, ignoreNumbers);
 }

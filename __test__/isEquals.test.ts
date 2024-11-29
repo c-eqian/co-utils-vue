@@ -15,6 +15,8 @@ describe('isEquals', () => {
     expect(isEquals(1, undefined)).toBeFalsy();
     expect(isEquals('null', null)).toBeFalsy();
     expect(isEquals(undefined, '')).toBeFalsy();
+    expect(isBaseEquals(1, '1')).toBeFalsy();
+    expect(isBaseEquals(1, '1', true)).toBeTruthy();
   });
   it(`引用数据类型 数组`, () => {
     expect(isEquals([], [])).toBeTruthy();
@@ -72,6 +74,8 @@ describe('isBaseEquals', () => {
     expect(isBaseEquals(+0, -0)).toBeTruthy();
     expect(isBaseEquals(undefined, undefined)).toBeTruthy();
     expect(isBaseEquals(NaN, NaN)).toBeTruthy();
+    expect(isBaseEquals(1, '1')).toBeFalsy();
+    expect(isBaseEquals(1, '1', true)).toBeTruthy();
   });
   it(`引用数据类型 数组`, () => {
     const a = [];

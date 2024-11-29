@@ -55,7 +55,6 @@
     "listFiles": true,
     // 移除注释
     "removeComments": true,
-    "suppressImplicitAnyIndexErrors": true,
     // 是否允许编译javascript文件
 //    "allowJs": false,
     // 是否允许跳过检查
