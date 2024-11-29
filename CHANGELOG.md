@@ -1,6 +1,25 @@
 # 更新日志 
 
 
+### [3.1.2](https://github.com/C1320/co-utils-vue/compare/v3.1.1...v3.1.2) (2024-11-29)
+
+
+###   Chores | 其他更新
+
+* release v3.1.1 ([3583b84](https://github.com/C1320/co-utils-vue/commit/3583b84a94e65fbf47419b450d6577a7ec89df70))
+
+
+### ✨ Features | 新功能
+
+* 新增isEquals ([1d7e5e0](https://github.com/C1320/co-utils-vue/commit/1d7e5e0caca4db680d990704076bc5a0fe4447c8))
+* 新增isNaN ([6c51135](https://github.com/C1320/co-utils-vue/commit/6c51135bcb23231875829042fe459830ac02b146))
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* 优化isEquals ([fc92ecc](https://github.com/C1320/co-utils-vue/commit/fc92ecc9bd70f8660ba419bd5597d5b7eb314ef1))
+* 优化isEquals ([90f912f](https://github.com/C1320/co-utils-vue/commit/90f912f504270848d28d2c3a535d39d4f6a15323))
+
 ### [3.1.1](https://github.com/C1320/co-utils-vue/compare/v3.1.0...v3.1.1) (2024-11-12)
 
 
