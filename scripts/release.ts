@@ -43,3 +43,4 @@ export async function updatePackageVersion() {
   await updateDocs();
   await publish(version);
 }
+await updatePackageVersion()
