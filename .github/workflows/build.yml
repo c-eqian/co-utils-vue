@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
       - uses: actions/checkout@v3
@@ -24,12 +24,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: 'npm'
       - run: git config --global user.email "2429120006@qq.com"
       - run:  git config --global user.name "leisure"
-      - run: yarn
+      - run: npm install
       # 测试，并生成测试覆盖率文件
-      - run: yarn run test:coverage
+      - run: npm run test:coverage
 #      - run: yarn run build
       #       上报
       - name: Coveralls
@@ -44,35 +44,35 @@ jobs:
     # 设置变量
     strategy:
       matrix:
-        node-version: [ 18.x ]
+        node-version: [ 22.x ]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-        with:
-          registry-url: https://registry.npmjs.org/
+#        with:
+#          registry-url: https://registry.npmjs.org/
       # 检查并切换到master分支
-      - name: 检查master分支
-        # 使用actions/checkout插件
-        uses: actions/checkout@v3
-
-      # 初始化缓存
-      - name:  缓存
-        uses: actions/cache@v3
-        id: cache-dependencies
-        with:
-          path: node_modules
-          key: ${{runner.OS}}-${{hashFiles('**/yarn.lock')}}
-
-      # 安装node
-      - name: 设置Node.js
-        # 使用actions/setup-node插件
-        uses: actions/setup-node@v3
-        with:
-          # node版本
-          node-version: ${{ matrix.node-version }}
-      - run: git config --global user.email "2429120006@qq.com"
-      - run:  git config --global user.name "leisure"
-      - run: yarn
+#      - name: 检查master分支
+#        # 使用actions/checkout插件
+#        uses: actions/checkout@v3
+#
+#      # 初始化缓存
+#      - name:  缓存
+#        uses: actions/cache@v3
+#        id: cache-dependencies
+#        with:
+#          path: node_modules
+#          key: ${{runner.OS}}-${{hashFiles('**/package.lock')}}
+#
+#      # 安装node
+#      - name: 设置Node.js
+#        # 使用actions/setup-node插件
+#        uses: actions/setup-node@v3
+#        with:
+#          # node版本
+#          node-version: ${{ matrix.node-version }}
+#      - run: git config --global user.email "2429120006@qq.com"
+#      - run:  git config --global user.name "leisure"
+#      - run: yarn
 #      - run: yarn run build
         # 发布版本号
         # 复制版本日志到文档日志
@@ -99,15 +99,15 @@ jobs:
 #          git config --global user.name "leisure"
 #          git commit -am "Update release.json version" --allow-empty
       # 读取当前版本号
-      - name: 读取当前版本号
-        id: version
-        uses: notiz-dev/github-action-json-property@release
-        with:
-          # 读取版本号
-          path: './release.json'
-          prop_path: 'version'
-
-      - run: echo ${{steps.version.outputs.prop}}
+#      - name: 读取当前版本号
+#        id: version
+#        uses: notiz-dev/github-action-json-property@release
+#        with:
+#          # 读取版本号
+#          path: './release.json'
+#          prop_path: 'version'
+#
+#      - run: echo ${{steps.version.outputs.prop}}
 
 #      # 创建Release
 #      - name: release
@@ -126,10 +126,10 @@ jobs:
 #          # 配置 npm access token 环境变量
 #      #           NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
 
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#        with:
+#          persist-credentials: false
 
       - name: 构建文档
 #        run: yarn && yarn run docs:build
