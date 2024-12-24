@@ -12,24 +12,26 @@ await build({
   clean: true,
   format: ['esm'],
   splitting: false,
-  target: 'node18.18',
-  minify: true,
+  target: 'esnext',
+  minify: 'terser',
   outDir: outputEsmPath,
+  treeshake: true,
   globalName: 'EqianUtilsVue',
   external: ['vue'],
-  dts: false
+  dts: true
 });
 await build({
   entry: fileEnterPaths,
   sourcemap: false,
   clean: true,
   format: ['cjs'],
-  target: 'node18.18',
-  minify: true,
+  target: 'esnext',
+  minify: 'terser',
   globalName: 'EqianUtilsVue',
   outDir: outputLibPath,
+  treeshake: true,
   external: ['vue'],
-  dts: false
+  dts: true
 });
 await build({
   entry: fileEnterPaths,

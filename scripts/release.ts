@@ -23,13 +23,13 @@ async function updateDocs() {
 }
 export async function updatePackageVersion() {
   const version = await getVersion();
-  const enterPackage = resolve(enterPath, 'package.json');
+  const enterPackage = resolve(enterPath, 'release.json');
   const packageJSON = await fs.readJSON(enterPackage);
   packageJSON.version = version;
   await fs.writeJSON(enterPackage, packageJSON, { spaces: 2 });
   consola.success(`${chalk.green('successfully updated version to')} ${chalk.blue(`v${version}`)}`);
   await fs.copyFile(enterPackage, join(outputPath, 'package.json'));
-  consola.success('package.json');
+  consola.success('release.json');
   exec(`git show-ref --tags v${version}`, (error, stdout) => {
     if (!error && !stdout) {
       try {
