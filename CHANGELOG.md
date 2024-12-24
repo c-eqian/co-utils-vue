@@ -1,6 +1,8 @@
 # 更新日志 
 
 
+### [3.1.3-beta.4](https://github.com/C1320/co-utils-vue/compare/v3.1.3-beta.3...v3.1.3-beta.4) (2024-12-24)
+
 ### [3.1.3-beta.3](https://github.com/C1320/co-utils-vue/compare/v3.1.3-beta.2...v3.1.3-beta.3) (2024-12-24)
 
 ### [3.1.3-beta.2](https://github.com/C1320/co-utils-vue/compare/v3.1.3-beta.1...v3.1.3-beta.2) (2024-12-24)

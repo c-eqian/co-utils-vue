@@ -8,7 +8,6 @@ const fileEnterPaths = await glob(`index.ts`, {
 await build({
   entry: fileEnterPaths,
   sourcemap: false,
-  keepNames: true,
   clean: true,
   format: ['esm', 'cjs'],
   outExtension({ format }) {
@@ -21,8 +20,7 @@ await build({
       js: `.mjs`
     };
   },
-  splitting: false,
-  target: 'esnext',
+  target: 'es2018',
   minify: 'terser',
   outDir: outputPath,
   treeshake: true,
@@ -36,7 +34,6 @@ const dtsPaths = await glob(`index.ts`, {
 });
 await build({
   entry: dtsPaths,
-  clean: true,
   format: ['esm'],
   outDir: outputPath,
   dts: {
