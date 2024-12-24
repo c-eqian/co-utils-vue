@@ -1,10 +1,10 @@
 {
   "name": "@eqian/utils-vue",
-  "version": "3.1.3-beta.2",
+  "version": "3.1.3-beta.3",
   "description": "工具库",
-  "main": "./lib/index.cjs",
-  "module": "./es/index.js",
-  "types": "./types/index.d.ts",
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
   "author": "eqian",
   "license": "MIT",
   "keywords": [
@@ -21,39 +21,9 @@
   "homepage": "https://c-eqian.github.io/co-utils-vue/",
   "exports": {
     ".": {
-      "import": "./es/index.js",
-      "require": "./lib/index.cjs",
-      "types": "./types/index.d.ts"
-    },
-    "./es": {
-      "types": "./types/index.d.ts",
-      "import": "./es/index.js"
-    },
-    "./lib": {
-      "types": "./types/index.d.cts",
-      "require": "./lib/index.cjs"
-    },
-    "./es/*.js": {
-      "types": "./es/*.d.ts",
-      "import": "./es/*.js"
-    },
-    "./es/*": {
-      "types": [
-        "./es/*.d.ts",
-        "./es/*/index.d.ts"
-      ],
-      "import": "./es/*.js"
-    },
-    "./lib/*.js": {
-      "types": "./lib/*.d.cts",
-      "require": "./lib/*.js"
-    },
-    "./lib/*": {
-      "types": [
-        "./lib/*.d.cts",
-        "./lib/*/index.d.ts"
-      ],
-      "require": "./lib/*.cjs"
+      "import": "./index.mjs",
+      "require": "./index.cjs",
+      "types": "./index.d.ts"
     },
     "./*": "./*"
   }

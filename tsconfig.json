@@ -11,6 +11,8 @@
     "strict": true,
     "noImplicitThis": false,
     "skipLibCheck": true,
+    // 移除注释
+    "removeComments": true,
     "outDir": "dist"
   },
   "include": ["src", "scripts"]

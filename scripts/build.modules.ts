@@ -1,7 +1,7 @@
 import glob from 'fast-glob';
 import { build } from 'tsup';
-import { enterPath, outputEsmPath, outputLibPath, outputTypesPath } from './paths';
-const fileEnterPaths = await glob(`**/*.ts`, {
+import { enterPath, outputPath } from './paths';
+const fileEnterPaths = await glob(`index.ts`, {
   cwd: enterPath,
   absolute: true
 });
@@ -10,34 +10,35 @@ await build({
   sourcemap: false,
   keepNames: true,
   clean: true,
-  format: ['esm'],
+  format: ['esm', 'cjs'],
+  outExtension({ format }) {
+    if (format === 'cjs') {
+      return {
+        js: `.cjs`
+      };
+    }
+    return {
+      js: `.mjs`
+    };
+  },
   splitting: false,
   target: 'esnext',
   minify: 'terser',
-  outDir: outputEsmPath,
+  outDir: outputPath,
   treeshake: true,
   globalName: 'EqianUtilsVue',
   external: ['vue'],
-  dts: true
+  dts: false
+});
+const dtsPaths = await glob(`index.ts`, {
+  cwd: enterPath,
+  absolute: true
 });
 await build({
-  entry: fileEnterPaths,
-  sourcemap: false,
-  clean: true,
-  format: ['cjs'],
-  target: 'esnext',
-  minify: 'terser',
-  globalName: 'EqianUtilsVue',
-  outDir: outputLibPath,
-  treeshake: true,
-  external: ['vue'],
-  dts: true
-});
-await build({
-  entry: fileEnterPaths,
+  entry: dtsPaths,
   clean: true,
   format: ['esm'],
-  outDir: outputTypesPath,
+  outDir: outputPath,
   dts: {
     only: true
   }
