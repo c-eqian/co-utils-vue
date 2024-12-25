@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [3.1.3-beta.5](https://github.com/C1320/co-utils-vue/compare/v3.1.3-beta.4...v3.1.3-beta.5) (2024-12-25)
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* 优化部分代码 ([2201b88](https://github.com/C1320/co-utils-vue/commit/2201b88d81c6524fe945da5d208363ad19caebbd))
+
 ### [3.1.3-beta.4](https://github.com/C1320/co-utils-vue/compare/v3.1.3-beta.3...v3.1.3-beta.4) (2024-12-24)
 
 ### [3.1.3-beta.3](https://github.com/C1320/co-utils-vue/compare/v3.1.3-beta.2...v3.1.3-beta.3) (2024-12-24)
