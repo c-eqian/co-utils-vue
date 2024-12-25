@@ -44,7 +44,7 @@ export type UseRafTimeoutReturn = {
  * @param options 配置项
  * @example
  * ``` typescript
- * const { close, start } = index(()=> {
+ * const { close, start } = useRafTimeout(()=> {
  *   // do something
  * }, {
  *   delay: 1000,// 延迟1s执行回调

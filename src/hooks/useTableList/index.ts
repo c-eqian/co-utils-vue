@@ -182,16 +182,17 @@ export const useTableList = <T = any, P extends object = any, D = any>(
     isExplicitly.value = true;
     return handleSearch(pageNum);
   };
-  const { keys, deep, immediate } = watcher ?? ({} as any);
+  const { keys, deep = false, immediate = false } = watcher ?? ({} as any);
   if ((isArray(keys) && !isEmpty(keys)) || keys === undefined) {
     watch(
-      () =>
-        keys === undefined
+      () => {
+        return keys === undefined
           ? [params.value[pageNumKey], params.value[pageSizeKey]]
-          : keys.map((key: any) => params.value[key]),
+          : keys.map((key: any) => params.value[key]);
+      },
       () => {
         if (!isExplicitly.value) {
-          handleSearch().then();
+          handleSearch();
         }
       },
       {

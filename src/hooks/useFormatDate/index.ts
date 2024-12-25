@@ -39,6 +39,7 @@ export const useFormatDate = (
   let _d: Date;
   // 处理带有时间的日期字符串
   if (typeof date === 'string') {
+    date = date.replace('T', ' ').replace('Z', '');
     const match = date.match(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2}):(\d{4})/);
     if (match) {
       const [, year, month, day, hours, minutes, seconds, millisecond] = match;

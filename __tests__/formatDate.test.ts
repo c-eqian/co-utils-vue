@@ -48,4 +48,8 @@ describe('useFormatDate', () => {
     expect(useBeforeDate('2023-07-25 20:15:58', '2023-07-25 20:15:55')).toBe('');
     expect(useBeforeDate('2023-07-25 20:15:58', '2023-07-25 20:15:55', '-')).toBe('-');
   });
+  it('测试字符串 ', () => {
+    const date = new Date('2024-01-07T15:30:45.678Z').toISOString();
+    expect(useFormatDate(date, 'HH:mm:ss:SS')).toBe('15:30:45:678');
+  })
 });

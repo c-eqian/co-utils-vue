@@ -1,4 +1,13 @@
-import { computed, onBeforeUnmount, ref, toValue, unref, watch, type Ref } from 'vue';
+import {
+  computed,
+  getCurrentScope,
+  onScopeDispose,
+  ref,
+  toValue,
+  unref,
+  watch,
+  type Ref
+} from 'vue';
 import { isArray } from '../../is/isArray';
 
 export type UseResizeObserverOptions = {
@@ -108,14 +117,16 @@ export const useResizeObserver = (
     currentObserverFlag.value = false;
   };
   const start = () => {
+    cleanup();
     observerElements();
     currentObserverFlag.value = true;
   };
-  onBeforeUnmount(() => {
-    if (autoStop) {
-      cleanup();
+  if (autoStop) {
+    window.addEventListener('beforeunload', () => stop());
+    if (getCurrentScope()) {
+      onScopeDispose(stop);
     }
-  });
+  }
   return {
     start,
     stop
