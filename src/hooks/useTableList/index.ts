@@ -123,7 +123,7 @@ export const useTableList = <T = any, P extends object = any, D = any>(
   const params = ref(useCloneDeep(requestParams) as P) as Ref<P>;
   const handleSearch = async (pageNum?: number) => {
     if (isFunction(handleParams)) {
-      params.value = handleParams(useCloneDeep(params.value) as P);
+      params.value = handleParams.call(null, useCloneDeep(params.value) as P);
     }
     if (pageNum && pageNumKey in params.value) {
       params.value[pageNumKey] = pageNum;
@@ -183,23 +183,22 @@ export const useTableList = <T = any, P extends object = any, D = any>(
     return handleSearch(pageNum);
   };
   const { keys, deep = false, immediate = false } = watcher ?? ({} as any);
-  if ((isArray(keys) && !isEmpty(keys)) || keys === undefined) {
-    watch(
-      () => {
-        return keys === undefined
-          ? [params.value[pageNumKey], params.value[pageSizeKey]]
-          : keys.map((key: any) => params.value[key]);
-      },
-      () => {
-        if (!isExplicitly.value) {
-          handleSearch();
-        }
-      },
-      {
-        immediate,
-        deep
+  const { stop } = watch(
+    keys === undefined
+      ? [() => params.value[pageNumKey], () => params.value[pageSizeKey]]
+      : keys.map((key: any) => () => params.value[key]),
+    async () => {
+      if (!isExplicitly.value) {
+        await handleSearch();
       }
-    );
+    },
+    {
+      immediate,
+      deep
+    }
+  );
+  if ((isArray(keys) && isEmpty(keys)) || watcher === undefined) {
+    stop();
   }
   return {
     params,
