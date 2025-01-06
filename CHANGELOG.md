@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [3.1.4](https://github.com/C1320/co-utils-vue/compare/v3.1.3...v3.1.4) (2025-01-06)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **useTableList:** 修复多个数据监听导致无限循环 ([d7a466d](https://github.com/C1320/co-utils-vue/commit/d7a466d889bf846903192533de1514f1c105de96))
+
 ### [3.1.3](https://github.com/C1320/co-utils-vue/compare/v3.1.3-beta.5...v3.1.3) (2025-01-03)
 
 ### [3.1.3-beta.5](https://github.com/C1320/co-utils-vue/compare/v3.1.3-beta.4...v3.1.3-beta.5) (2024-12-25)
