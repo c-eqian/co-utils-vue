@@ -28,6 +28,7 @@ export default {
     '!src/hooks/use-full-screen/**/*.ts',
     '!src/hooks/useDebounceRef/**/*.ts',
     '!src/hooks/useDebounceRef/**/*.ts',
+    '!src/hooks/useEventListener/**/*.ts',
     '!src/helper/**/*.ts',
     '!src/effects/**/*.ts',
     '!src/hooks/useWebSocket/*.ts'
