@@ -56,3 +56,9 @@ export type Record<K extends keyof any, T> = {
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
+
+export type Arrayable<T> = T | T[];
+/**
+ * 空函数
+ */
+export type CallbackVoid<T = any> = (...args: T[]) => void;

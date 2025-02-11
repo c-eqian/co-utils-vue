@@ -29,3 +29,4 @@ export * from './useRafTimeout';
 export * from './useResizeObserver';
 export * from './useDebounce';
 export * from './useThrottle';
+export * from './useEventListener';
