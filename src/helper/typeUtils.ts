@@ -62,3 +62,51 @@ export type Arrayable<T> = T | T[];
  * 空函数
  */
 export type CallbackVoid<T = any> = (...args: T[]) => void;
+/**
+ * 获取组件参数
+ * @example
+ * ``` JavaScript
+ * import HelloWorld from './HelloWorld.vue'
+ * type Props = ComponentProps<typeof HelloWorld>
+ * ```
+ */
+export type ComponentProps<T> = T extends new (...args: any) => { $props: infer P }
+  ? NonNullable<P>
+  : T extends (props: infer P, ...args: any) => any
+    ? P
+    : {};
+
+/**
+ * 获取组件插槽
+ * ``` JavaScript
+ * import HelloWorld from './HelloWorld.vue'
+ * type Slots = ComponentSlots<typeof HelloWorld>
+ * ```
+ */
+export type ComponentSlots<T> = T extends new (...args: any) => { $slots: infer S }
+  ? NonNullable<S>
+  : T extends (props: any, ctx: { slots: infer S; attrs: any; emit: any }, ...args: any) => any
+    ? NonNullable<S>
+    : {};
+/**
+ * 获取组件事件
+ * ``` JavaScript
+ * import HelloWorld from './HelloWorld.vue'
+ * type Emits = ComponentEmits<typeof HelloWorld>
+ * ```
+ */
+export type ComponentEmits<T> = T extends new (...args: any) => { $emit: infer E }
+  ? NonNullable<E>
+  : {};
+/**
+ * 获取组件导出
+ * ``` JavaScript
+ * import HelloWorld from './HelloWorld.vue'
+ * type Exposed = ComponentExposed<typeof HelloWorld>
+ * ```
+ */
+export type ComponentExposed<T> = T extends new (...args: any) => infer E
+  ? E
+  : T extends (props: any, ctx: any, expose: (exposed: infer E) => any, ...args: any) => any
+    ? NonNullable<E>
+    : {};
