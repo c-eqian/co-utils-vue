@@ -29,6 +29,7 @@ export default {
     '!src/hooks/useDebounceRef/**/*.ts',
     '!src/hooks/useDebounceRef/**/*.ts',
     '!src/hooks/useEventListener/**/*.ts',
+    '!src/hooks/useIntersectObserver/**/*.ts',
     '!src/helper/**/*.ts',
     '!src/effects/**/*.ts',
     '!src/hooks/useWebSocket/*.ts'

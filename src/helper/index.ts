@@ -5,3 +5,4 @@ export * from './deepValue';
 export * from './log';
 export * from './toArray';
 export * from './tryOnScopeDispose';
+export * from './magicObject';

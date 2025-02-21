@@ -30,3 +30,4 @@ export * from './useResizeObserver';
 export * from './useDebounce';
 export * from './useThrottle';
 export * from './useEventListener';
+export * from './useIntersectObserver';
