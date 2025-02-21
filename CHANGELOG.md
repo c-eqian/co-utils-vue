@@ -1,6 +1,15 @@
 # 更新日志 
 
 
+## [3.2.0](https://github.com/C1320/co-utils-vue/compare/v3.1.4...v3.2.0) (2025-02-21)
+
+
+### ✨ Features | 新功能
+
+* 新增类型工具 ([bb09c5f](https://github.com/C1320/co-utils-vue/commit/bb09c5f974fd6136288a9c58fdfc9956ff3cc5d5))
+* 新增useIntersectObserver ([3bb9a6e](https://github.com/C1320/co-utils-vue/commit/3bb9a6ebcef487bb7bcbf7a8a4f9cfe93ccc6b59))
+* **useEventListener:** 新增useEventListener ([a2918d5](https://github.com/C1320/co-utils-vue/commit/a2918d56fe7d1642705afaaeac1f46770b020094))
+
 ### [3.1.4](https://github.com/C1320/co-utils-vue/compare/v3.1.3...v3.1.4) (2025-01-06)
 
 
