@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [3.2.1](https://github.com/C1320/co-utils/compare/v3.2.0...v3.2.1) (2025-06-02)
+
+
+### ✨ Features | 新功能
+
+* useTableList支持更新api ([487f403](https://github.com/C1320/co-utils/commit/487f40310f5ba3028eae928971b2c5e472ee1b22))
+
 ## [3.2.0](https://github.com/C1320/co-utils-vue/compare/v3.1.4...v3.2.0) (2025-02-21)
 
 
