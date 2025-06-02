@@ -10,6 +10,7 @@ import { isArray } from '../../is/isArray';
 import { isEmpty } from '../../is/isEmpty';
 import { isFunction } from '../../is/isFunction';
 import { useCloneDeep } from '../useCloneDeep';
+export type RequestAPI<P, R> = (params: P) => Promise<R>;
 export type Watcher<P> = {
   keys?: (keyof P)[];
   /**
@@ -28,7 +29,7 @@ export interface IUseTableList<T = any, P = any, D = any> {
     /**
      * 请求方法
      */
-    api: (params: P) => Promise<T>;
+    api: RequestAPI<P, T>;
     /**
      * 请求参数
      */
@@ -118,10 +119,12 @@ export const useTableList = <T = any, P extends object = any, D = any>(
   const tableTotal = ref(0);
   const isExplicitly = ref(false);
   const tableLoading = ref(false);
+  const requestApi = ref(api);
   // 是否最后一页，依据返回数据是否小于页数,如果没传页数，永远为false
   const isLastPage = ref(false);
   const params = ref(useCloneDeep(requestParams) as P) as Ref<P>;
   const handleSearch = async (pageNum?: number) => {
+    if (!isFunction(requestApi.value)) return;
     if (isFunction(handleParams)) {
       params.value = handleParams.call(null, useCloneDeep(params.value) as P);
     }
@@ -130,7 +133,7 @@ export const useTableList = <T = any, P extends object = any, D = any>(
     }
     try {
       tableLoading.value = true;
-      let res = (await api.call(null, params.value)) as D;
+      let res = (await requestApi.value.call(null, params.value)) as D;
       if (isFunction(responseHandler)) {
         res = responseHandler.call(null, res);
       }
@@ -200,12 +203,19 @@ export const useTableList = <T = any, P extends object = any, D = any>(
   if ((isArray(keys) && isEmpty(keys)) || watcher === undefined) {
     stop();
   }
+  /**
+   * @since v3.2.1
+   */
+  const updateApi = (newApi: RequestAPI<P, T>) => {
+    requestApi.value = newApi;
+  };
   return {
     params,
     tableData,
     tableTotal,
     tableLoading,
     isLastPage,
+    updateApi,
     handleSearch,
     handleReset,
     handleSizeChange,
