@@ -7,6 +7,7 @@
   "scripts": {
     "build": "tsx scripts/build.modules.ts",
     "version": "standard-version",
+    "version-patch": "standard-version --release-as patch",
     "build:docs": "typedoc",
     "test": "jest",
     "prepare": "husky",
@@ -14,6 +15,7 @@
     "test:release": "npm run build  && tsx scripts/release.ts",
     "beta": "npm run build && standard-version --prerelease beta && tsx scripts/release.ts",
     "release": "npm run build && npm run version && tsx scripts/release.ts",
+    "release-patch": "npm run build && npm run version-patch && tsx scripts/release.ts",
     "lint": "eslint --cache --fix"
   },
   "lint-staged": {
