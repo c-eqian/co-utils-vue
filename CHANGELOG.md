@@ -1,6 +1,13 @@
 # 更新日志 
 
 
+### [3.2.2](https://github.com/c-eqian/co-utils-vue/compare/v3.2.1...v3.2.2) (2025-08-17)
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* 增强useThrottle和useDebounce返回类型提示 ([7529c74](https://github.com/c-eqian/co-utils-vue/commit/7529c74082a8aa01fceb059104c01bbfdfcf2f52))
+
 ### [3.2.1](https://github.com/C1320/co-utils/compare/v3.2.0...v3.2.1) (2025-06-02)
 
 
